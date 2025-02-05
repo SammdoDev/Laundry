@@ -8,27 +8,29 @@
     app:cardElevation="8dp"
     android:id="@+id/main">
 
+    <TextView
+        android:id="@+id/idPelanggan"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="@string/card_pelanggan_id"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingLeft="16dp"
+        android:paddingTop="5dp"
+        android:background="#FF0000"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/idPelanggan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/card_pelanggan_id"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            />
 
         <TextView
             android:id="@+id/namaPelanggan"
-            android:layout_below="@id/idPelanggan"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/card_pelanggan_nama"
+            android:text="Nama Pegawai"
             android:textStyle="bold"
             android:textSize="18sp" />
 
@@ -50,8 +52,26 @@
             android:text="@string/card_pelanggan_hp"
             android:textSize="16sp" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/terdaftar"
             android:layout_below="@id/noHp"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pelanggan_hp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cabang"
+            android:layout_below="@id/terdaftar"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cabang"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_below="@id/cabang"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
