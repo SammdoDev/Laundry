@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pelanggan.data_pelanggan">
+    tools:context=".pegawai.data_pegawai">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDATA_PELANGGAN"

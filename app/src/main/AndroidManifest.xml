@@ -13,22 +13,34 @@
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
         <activity
+            android:name=".pelanggan.tambah_pelanggan"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.card_data_pelanggan"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.tambah_pegawai"
+            android:exported="false" />
+        <activity
+            android:name="pegawai.tambah_pegawai"
+            android:exported="false" />
+        <activity
             android:name="pelanggan.tambah_pegawai"
             android:exported="false" />
         <activity
-            android:name="pegawai.card_data_pegawai"
+            android:name=".pegawai.card_data_pegawai"
             android:exported="false" />
         <activity
-            android:name="pegawai.data_pegawai"
+            android:name=".pegawai.data_pegawai"
             android:exported="false" />
         <activity
-            android:name="pelanggan.Tambah_Pelanggan"
+            android:name=".pelanggan.Tambah_Pelanggan"
             android:exported="false" />
         <activity
             android:name="pelanggan.pelanggan"
             android:exported="false" />
         <activity
-            android:name="pelanggan.data_pelanggan"
+            android:name=".pelanggan.data_pelanggan"
             android:exported="false" />
         <activity
             android:name=".Beranda_laundry"

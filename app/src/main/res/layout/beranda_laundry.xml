@@ -84,70 +84,110 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="5dp"
                 android:background="#D3D3D3"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="5dp">
-
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/transaksi"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Transaksi"/>
-        </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
 
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/pelanggan"/>
-
-                <TextView
+                <!-- CardView Transaksi -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/transaksi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Pelanggan"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp">
+                    android:layout_marginEnd="20dp"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp">
 
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/laporan"/>
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="5dp">
 
-                <TextView
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/transaksi" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Transakasi"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- CardView Pelanggan -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pelanggan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Laporan"/>
+                    android:layout_marginEnd="20dp"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/pelanggan" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pelanggan"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- CardView Laporan -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/laporan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/laporan" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Laporan"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
-        </LinearLayout>
+
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -250,7 +290,6 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_tambah"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
@@ -284,6 +323,7 @@
             android:layout_marginTop="10dp">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/pegawai"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
