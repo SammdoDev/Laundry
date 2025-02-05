@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp"
+    android:id="@+id/main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/idPelanggan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pelanggan_id"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/namaPelanggan"
+            android:layout_below="@id/idPelanggan"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pelanggan_nama"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/alamatPelanggan"
+            android:layout_below="@id/namaPelanggan"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pelanggan_alamat"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/noHp"
+            android:layout_below="@id/alamatPelanggan"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pelanggan_hp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_below="@id/noHp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/HubungiPelanggan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="@string/card_pelanggan_hubungi"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/LihatPelanggan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#DB9A20"
+                android:text="@string/card_pelanggan_lihat"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

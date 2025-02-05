@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laundry</string>
+    <string name="card_pelanggan_id">Customer Id</string>
+    <string name="card_pelanggan_nama">Customer Name</string>
+    <string name="card_pelanggan_alamat">Address</string>
+    <string name="card_pelanggan_hp">Phone</string>
+    <string name="card_pelanggan_hubungi">Contact</string>
+    <string name="card_pelanggan_lihat">More</string>
+    <string name="estimasi">Today\'s Estimates</string>
+    <string name="tagline_1">Ready to serve wholeheartedly.</string>
+    <string name="tagline_2">Won\'t let you down</string>
+    <string name="Akun">Account</string>
+    <string name="Layanan">Services</string>
+    <string name="Tambahan">Additional</string>
+    <string name="Pegawai">Staff</string>
+    <string name="Cabang">Branch</string>
+    <string name="Cetak">Printer</string>
+    <string name="Transaksi">Transactions</string>
+    <string name="Pelanggan">Customer</string>
+    <string name="Laporan">Report</string>
+    <string name="Tagline">Infinite Clean. Flawless Every Time.</string>
+    <string name="Next">Next Page</string>
+</resources>
