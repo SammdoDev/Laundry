@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@id/main"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pelanggan.tambah_pelanggan">
+    tools:context=".layanan.tambah_layanan">
 
     <TextView
-        android:id="@+id/tvpelangganjudul"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pelanggan"
+        android:text="Tambah Layanan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +23,13 @@
         android:id="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvpelangganjudul"
+        app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
 
         <RelativeLayout
+            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pengguna"
+                android:text="Nama Layanan"
                 android:textColor="@color/black"/>
 
             <androidx.cardview.widget.CardView
@@ -47,16 +48,16 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etpelanggannama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Lengkap"
-                    android:inputType="textPersonName"/>
+                    android:hint="Nama Layanan"
+                    />
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -66,7 +67,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat"
+                android:text="Harga"
                 android:textColor="@color/black"/>
 
             <androidx.cardview.widget.CardView
@@ -77,47 +78,18 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etpelangganalamat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Alamat"
+                    android:hint="Harga"
                     />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/noHp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No Hp Aktif"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etpelanggannohp"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="No Hp Aktif"
-                    android:inputType="number" />
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="190dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
@@ -135,17 +107,17 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etpelanggancabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Cabang" />
+                    android:hint="Cabang"
+                    />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </RelativeLayout>
 
 
     <Button
-        android:id="@+id/btpelanggansimpan"
+        android:id="@+id/bt_submit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Simpan"

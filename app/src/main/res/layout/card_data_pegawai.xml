@@ -6,10 +6,10 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
-    android:id="@+id/main">
+    android:id="@+id/cvCARD_PEGAWAI">
 
     <TextView
-        android:id="@+id/idPelanggan"
+        android:id="@+id/tvCARD_PEGAWAI_ID"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="@string/card_pelanggan_id"
@@ -26,7 +26,7 @@
 
 
         <TextView
-            android:id="@+id/namaPelanggan"
+            android:id="@+id/tvCARD_PEGAWAI_nama"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +35,8 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/alamatPelanggan"
-            android:layout_below="@id/namaPelanggan"
+            android:id="@+id/tvCARD_PEGAWAI_alamat"
+            android:layout_below="@id/tvCARD_PEGAWAI_nama"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,8 +44,8 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/noHp"
-            android:layout_below="@id/alamatPelanggan"
+            android:id="@+id/tvCARD_PEGAWAI_nohp"
+            android:layout_below="@id/tvCARD_PEGAWAI_alamat"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,8 +53,8 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/terdaftar"
-            android:layout_below="@id/noHp"
+            android:id="@+id/tvTERDAFTAR"
+            android:layout_below="@id/tvCARD_PEGAWAI_nohp"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,8 +62,8 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/cabang"
-            android:layout_below="@id/terdaftar"
+            android:id="@+id/tvCARD_PEGAWAI_cabang"
+            android:layout_below="@id/tvTERDAFTAR"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:textSize="16sp" />
 
         <LinearLayout
-            android:layout_below="@id/cabang"
+            android:layout_below="@id/tvCARD_PEGAWAI_cabang"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

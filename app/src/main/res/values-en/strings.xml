@@ -21,4 +21,10 @@
     <string name="Laporan">Report</string>
     <string name="Tagline">Infinite Clean. Flawless Every Time.</string>
     <string name="Next">Next Page</string>
+    <string name="validasi_nama_pelanggan">validasi_nama_pelanggan</string>
+    <string name="validasi_alamat_pelanggan">validasi_alamat_pelanggan</string>
+    <string name="validasi_nohp_pelanggan">validasi_nohp_pelanggan</string>
+    <string name="validasi_cabang_pelanggan">validasi_cabang_pelanggan</string>
+    <string name="tambah_pelanggan_sukses">tambah_pelanggan_sukses</string>
+    <string name="tambah_pelanggan_gagal">tambah_pelanggan_gagal</string>
 </resources>
