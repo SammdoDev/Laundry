@@ -26,4 +26,6 @@
     <string name="validasi_cabang_pelanggan">validasi_cabang_pelanggan</string>
     <string name="tambah_pelanggan_sukses">tambah_pelanggan_sukses</string>
     <string name="tambah_pelanggan_gagal">tambah_pelanggan_gagal</string>
+    <string name="validasi_isi_terdaftar">validasi_isi_terdaftar</string>
+    <string name="tambah_pegawai_sukses">tambah_pegawai_sukses</string>
 </resources>

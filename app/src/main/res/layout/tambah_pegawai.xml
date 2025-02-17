@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pegawai.tambah_pegawai">
+    tools:context=".pelanggan.tambah_pelanggan">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tvpegawaijudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pegawai"
+        android:text="Tambah Pelanggan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,18 +23,15 @@
         android:id="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/tvpegawaijudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
 
         <RelativeLayout
-            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp">
+            android:layout_margin="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,22 +47,21 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/etpegawainama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Nama Lengkap"
-                    />
+                    android:inputType="textPersonName"/>
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nama"
+            android:layout_marginTop="100dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,6 +77,7 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/etpegawailamat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Alamat"
@@ -89,13 +86,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/noHp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/alamat"
+            android:layout_marginTop="180dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,21 +106,20 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/etpegawainohp"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="No Hp Aktif"
-                    />
+                    android:inputType="number" />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/terdaftar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/noHp"
+            android:layout_marginTop="260dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,20 +135,20 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/etterdaftar"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Terdaftar"
-                    />
+                    android:inputType="text" />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/terdaftar"
+            android:layout_marginTop="340dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -170,18 +164,17 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/etpegawaicabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Cabang"
-                    />
+                    android:hint="Cabang" />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
-
     </RelativeLayout>
 
 
     <Button
-        android:id="@+id/bt_submit"
+        android:id="@+id/btpegawaisimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Simpan"

@@ -67,9 +67,9 @@ class data_pelanggan : AppCompatActivity() {
                 if (snapshot.exists()) {
                     pelangganList.clear()
                     for (dataSnapshot in snapshot.children) {
-                        val pegawai = dataSnapshot.getValue(model_pelanggan::class.java)
-                        if (pegawai != null) {
-                            pelangganList.add(pegawai)
+                        val pelanggan = dataSnapshot.getValue(model_pelanggan::class.java)
+                        if (pelanggan != null) {
+                            pelangganList.add(pelanggan)
                         }
                     }
                     val adapter = adapter_data_pelanggan(pelangganList)
