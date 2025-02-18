@@ -25,17 +25,12 @@
             android:name=".layanan.data_layanan"
             android:exported="false" />
         <activity
-            android:name=".layanan.card_data_layanan"
-            android:exported="false" />
-        <activity
             android:name=".pelanggan.tambah_pelanggan"
             android:exported="false" />
         <activity
             android:name=".pegawai.tambah_pegawai"
             android:exported="false" />
-        <activity
-            android:name=".pegawai.card_data_pegawai"
-            android:exported="false" />
+
         <activity
             android:name=".pegawai.data_pegawai"
             android:exported="false" />

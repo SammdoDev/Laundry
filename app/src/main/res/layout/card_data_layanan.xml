@@ -3,18 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
-    android:id="@+id/main"
-    tools:context=".layanan.card_data_layanan">
+    android:id="@+id/cvCARD_LAYANAN">
 
     <TextView
-        android:id="@+id/idPelanggan"
+        android:id="@+id/tvCARD_LAYANAN_ID"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="@string/card_pelanggan_id"
+        android:text="Id Layanan"
         android:textStyle="bold"
         android:textSize="16sp"
         android:background="#FF0000"
@@ -27,7 +25,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/namaPelanggan"
+            android:id="@+id/tvCARD_LAYANAN_NAMA"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,8 +34,8 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/alamatPelanggan"
-            android:layout_below="@id/namaPelanggan"
+            android:id="@+id/tvCARD_LAYANAN_HARGA"
+            android:layout_below="@id/tvCARD_LAYANAN_NAMA"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,8 +43,8 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/noHp"
-            android:layout_below="@id/alamatPelanggan"
+            android:id="@+id/tvCARD_LAYANAN_CABANG"
+            android:layout_below="@id/tvCARD_LAYANAN_HARGA"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.laundry.layanan.data_layanan
 import com.laundry.pegawai.data_pegawai
 import com.laundry.pelanggan.data_pelanggan
 
@@ -49,6 +50,12 @@ class Beranda_laundry : AppCompatActivity() {
         val pegawai: CardView = findViewById(R.id.pegawai)
         pegawai.setOnClickListener {
             val intent = Intent(this, data_pegawai::class.java)
+            startActivity(intent)
+        }
+
+        val layanan: CardView = findViewById(R.id.layanan)
+        layanan.setOnClickListener {
+            val intent = Intent(this, data_layanan::class.java)
             startActivity(intent)
         }
 
