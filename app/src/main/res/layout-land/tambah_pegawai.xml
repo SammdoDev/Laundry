@@ -1,169 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pegawai.tambah_pegawai">
+    tools:context=".pelanggan.tambah_pelanggan">
 
-    <!-- Judul -->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tvpegawaijudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tambah Pegawai"
-        android:textSize="25sp"
-        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
 
-    <!-- Grid Layout 2x2 -->
-    <GridLayout
-        android:id="@+id/gridLayout"
+    <LinearLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="2"
-        android:alignmentMode="alignMargins"
-        android:padding="16dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvpegawaijudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Nama Pengguna -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+        <!-- Row 1: Nama Pegawai and Alamat side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Nama Pegawai -->
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_weight="1"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Pengguna"
-                    android:textColor="@color/black" />
+                    android:text="Nama Pegawai"
+                    android:textColor="@color/black"/>
 
-                <EditText
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Nama Lengkap" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:elevation="50dp"
+                    app:cardCornerRadius="12px"
+                    android:layout_marginTop="20dp">
 
-        <!-- Alamat -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp">
+                    <EditText
+                        android:id="@+id/etpegawainama"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Nama Lengkap"
+                        android:inputType="textPersonName"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Alamat -->
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_weight="1"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Alamat"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"/>
 
-                <EditText
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Alamat" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:elevation="50dp"
+                    app:cardCornerRadius="12px"
+                    android:layout_marginTop="20dp">
 
-        <!-- No HP -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+                    <EditText
+                        android:id="@+id/etpegawailamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Alamat"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Row 2: No Hp Aktif and Terdaftar side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- No Hp Aktif -->
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_weight="1"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No HP"
-                    android:textColor="@color/black" />
+                    android:text="No Hp Aktif"
+                    android:textColor="@color/black"/>
 
-                <EditText
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Nomor HP Aktif" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:elevation="50dp"
+                    app:cardCornerRadius="12px"
+                    android:layout_marginTop="20dp">
 
-        <!-- Email -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp">
+                    <EditText
+                        android:id="@+id/etpegawainohp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="No Hp Aktif"
+                        android:inputType="number"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Terdaftar -->
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:layout_weight="1"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
+                    android:text="Terdaftar"
+                    android:textColor="@color/black"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="50dp"
+                    app:cardCornerRadius="12px"
+                    android:layout_marginTop="20dp">
+
+                    <EditText
+                        android:id="@+id/etterdaftar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Terdaftar"
+                        android:inputType="text"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontalRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Cabang input section -->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/tvCabang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cabang"
                     android:textColor="@color/black" />
 
-                <EditText
+                <androidx.cardview.widget.CardView
+                    android:layout_below="@id/tvCabang"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Email Aktif" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:elevation="50dp"
+                    app:cardCornerRadius="12px"
+                    android:layout_marginTop="8dp">
 
-    </GridLayout>
+                    <EditText
+                        android:id="@+id/etpegawaicabang"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Cabang"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-    <!-- Tombol Simpan -->
-    <Button
-        android:id="@+id/bt_submit"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Simpan"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintTop_toBottomOf="@id/gridLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <!-- Simpan Button -->
+            <Button
+                android:id="@+id/btpegawaisimpan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="Simpan"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
