@@ -11,7 +11,7 @@
         android:id="@+id/tvpegawaijudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pelanggan"
+        android:text="Tambah Pegawai"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Nama Lengkap"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName"
+                    android:maxLength="30"/>
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
@@ -81,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Alamat"
-                    />
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -110,7 +111,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="No Hp Aktif"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -139,7 +141,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Terdaftar"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -167,7 +170,8 @@
                     android:id="@+id/etpegawaicabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Cabang" />
+                    android:hint="Cabang"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </RelativeLayout>

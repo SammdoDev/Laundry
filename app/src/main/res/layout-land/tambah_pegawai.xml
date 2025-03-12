@@ -61,7 +61,8 @@
                         android:layout_height="50dp"
                         android:hint="Nama Lengkap"
                         android:inputType="textPersonName"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:maxLength="30"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
@@ -90,7 +91,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:hint="Alamat"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:maxLength="20"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </LinearLayout>
@@ -127,7 +129,8 @@
                         android:layout_height="50dp"
                         android:hint="No Hp Aktif"
                         android:inputType="number"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:maxLength="20"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
@@ -157,7 +160,8 @@
                         android:layout_height="50dp"
                         android:hint="Terdaftar"
                         android:inputType="text"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:maxLength="20"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </LinearLayout>
@@ -197,11 +201,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:hint="Cabang"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:maxLength="20"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
-            <!-- Simpan Button -->
             <Button
                 android:id="@+id/btpegawaisimpan"
                 android:layout_width="0dp"

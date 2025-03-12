@@ -21,16 +21,17 @@
     <string name="Laporan">Laporan</string>
     <string name="Tagline">Bersih Tanpa Batas. Sempurna Setiap Saat.</string>
     <string name="Next">Halaman berikutnya</string>
-    <string name="validasi_nama_pelanggan">validasi_nama_pelanggan</string>
-    <string name="validasi_alamat_pelanggan">validasi_alamat_pelanggan</string>
-    <string name="validasi_nohp_pelanggan">validasi_nohp_pelanggan</string>
-    <string name="validasi_cabang_pelanggan">validasi_cabang_pelanggan</string>
-    <string name="tambah_pelanggan_sukses">tambah_pelanggan_sukses</string>
-    <string name="tambah_pelanggan_gagal">tambah_pelanggan_gagal</string>
-    <string name="validasi_isi_terdaftar">validasi_isi_terdaftar</string>
-    <string name="tambah_pegawai_sukses">tambah_pegawai_sukses</string>
-    <string name="validasi_cabang_layanan">validasi_cabang_layanan</string>
-    <string name="validasi_harga">validasi_harga</string>
-    <string name="validasi_jenis_layanan">validasi_jenis_layanan</string>
-    <string name="tambah_layanan_sukses">tambah_layanan_sukses</string>
+    <string name="validasi_nama_pelanggan">Validasi nama pelanggan</string>
+    <string name="validasi_alamat_pelanggan">Validasi alamat pelanggan</string>
+    <string name="validasi_nohp_pelanggan">Validasi nohp pelanggan</string>
+    <string name="validasi_cabang_pelanggan">Validasi cabang pelanggan</string>
+    <string name="tambah_pelanggan_sukses">Tambah pelanggan sukses</string>
+    <string name="tambah_pelanggan_gagal">Tambah pelanggan gagal</string>
+    <string name="validasi_isi_terdaftar">Validasi isi terdaftar</string>
+    <string name="tambah_pegawai_sukses">Tambah pegawai sukses</string>
+    <string name="validasi_cabang_layanan">Validasi cabang layanan</string>
+    <string name="validasi_harga">Validasi harga</string>
+    <string name="validasi_jenis_layanan">Validasi jenis layanan</string>
+    <string name="tambah_layanan_sukses">Tambah layanan sukses</string>
+
 </resources>

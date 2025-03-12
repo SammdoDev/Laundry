@@ -23,6 +23,8 @@ class tambah_layanan : AppCompatActivity() {
     private lateinit var etCabang: EditText
     private lateinit var btSimpan: Button
 
+    private var isProcessing = false // Pastikan variabel ini ada di luar onCreate()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,7 +33,11 @@ class tambah_layanan : AppCompatActivity() {
         initViews()
 
         btSimpan.setOnClickListener {
-            cekValidasi()
+            if (!isProcessing) {
+                isProcessing = true
+                btSimpan.isEnabled = false // Nonaktifkan tombol sebelum validasi
+                cekValidasi()
+            }
         }
 
         // Atur padding berdasarkan system bars
@@ -58,16 +64,19 @@ class tambah_layanan : AppCompatActivity() {
         if (layanan.isEmpty()) {
             etlayanan.error = getString(R.string.validasi_jenis_layanan)
             etlayanan.requestFocus()
+            resetButton()
             return
         }
         if (harga.isEmpty()) {
             etHarga.error = getString(R.string.validasi_harga)
             etHarga.requestFocus()
+            resetButton()
             return
         }
         if (cabang.isEmpty()) {
             etCabang.error = getString(R.string.validasi_cabang_layanan)
             etCabang.requestFocus()
+            resetButton()
             return
         }
 
@@ -78,28 +87,22 @@ class tambah_layanan : AppCompatActivity() {
         val layananBaru = myRef.push()
         val layananId = layananBaru.key ?: ""
 
-        val data = model_layanan(
-            layananId,
-            layanan,
-            harga,
-            cabang
-        )
+        val data = model_layanan(layananId, layanan, harga, cabang)
 
         layananBaru.setValue(data)
             .addOnSuccessListener {
-                Toast.makeText(
-                    this,
-                    getString(R.string.tambah_layanan_sukses),
-                    Toast.LENGTH_SHORT
-                ).show()
-                finish()
+                Toast.makeText(this, getString(R.string.tambah_layanan_sukses), Toast.LENGTH_SHORT).show()
+                finish() // Tutup activity setelah sukses
             }
             .addOnFailureListener { error ->
-                Toast.makeText(
-                    this,
-                    "Gagal menyimpan data: ${error.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Gagal menyimpan data: ${error.message}", Toast.LENGTH_SHORT).show()
+                resetButton() // Hanya aktifkan tombol kembali jika gagal menyimpan
             }
     }
+
+    private fun resetButton() {
+        isProcessing = false
+        btSimpan.isEnabled = true
+    }
 }
+

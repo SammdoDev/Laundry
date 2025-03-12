@@ -51,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Nama Lengkap"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName"
+                    android:maxLength="30"/>
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
@@ -81,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Alamat"
-                    />
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -110,7 +111,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="No Hp Aktif"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -138,7 +140,8 @@
                     android:id="@+id/etpelanggancabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Cabang" />
+                    android:hint="Cabang"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </RelativeLayout>

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Landing_page"
-    android:background="#E9E3E3"
     android:padding="20dp">
 
     <LinearLayout

@@ -17,7 +17,8 @@
         android:textSize="16sp"
         android:background="#FF0000"
         android:paddingLeft="16dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -52,6 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Nama Layanan"
+                    android:maxLength="30"
                     />
             </androidx.cardview.widget.CardView>
 
@@ -83,7 +84,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Harga"
-                    />
+                    android:inputType="number"
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
@@ -113,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Cabang"
-                    />
+                    android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </RelativeLayout>
