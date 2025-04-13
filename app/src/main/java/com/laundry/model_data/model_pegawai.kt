@@ -5,6 +5,7 @@ class model_pegawai(
     val namaPegawai: String? = null,
     val alamatPegawai: String? = null,
     val noHPPegawai: String? = null,
-    val terdaftar: String? = null,
-    val idCabang: String? = null
+    val idCabang: String? = null,
+    val terdaftar: String? = null
+
 )

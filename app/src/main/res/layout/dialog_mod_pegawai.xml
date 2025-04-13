@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Detail Pelanggan"
+                    android:text="Detail Pegawai"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="#202F65"/>
@@ -51,16 +51,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Id Pelanggan"
+                        android:text="ID Pegawai"
                         android:textColor="#5F6368"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ID_PELANGGAN"
+                        android:id="@+id/tvid"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="P001284"
+                        android:text="PG001"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -77,16 +77,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Nama Pelanggan"
+                        android:text="Nama Pegawai"
                         android:textColor="#5F6368"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_NAMA"
+                        android:id="@+id/tvisinamapegawai"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Budi Santoso"
+                        android:text="Andi Wibowo"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -108,11 +108,11 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ALAMAT"
+                        android:id="@+id/tvisialamatpegawai"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Jl. Mawar No. 45, Jakarta"
+                        android:text="Jl. Melati No. 23, Jakarta"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -134,11 +134,11 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_NOHP"
+                        android:id="@+id/tvisinohppegawai"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="0812-3456-7890"
+                        android:text="0898-7654-3210"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -155,16 +155,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/Cabang"
+                        android:text="Cabang"
                         android:textColor="#5F6368"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_CABANG"
+                        android:id="@+id/tvisicabangpegawai"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Jakarta Selatan"
+                        android:text="Jakarta Pusat"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -185,11 +185,11 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_TERDAFTAR"
+                        android:id="@+id/tvisiterdaftarpegawai"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="01 Januari 2025"
+                        android:text="15 Maret 2025"
                         android:textColor="#202F65"
                         android:textStyle="bold"
                         android:textSize="15sp"
@@ -208,7 +208,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSunting"
+                android:id="@+id/buttonsuntingpegawai"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
@@ -225,7 +225,7 @@
                 android:backgroundTint="#3D7BF4"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
+                android:id="@+id/buttonhapuspegawai"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"

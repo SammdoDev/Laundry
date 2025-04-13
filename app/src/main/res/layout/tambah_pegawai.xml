@@ -34,6 +34,7 @@
             android:layout_margin="20dp">
 
             <TextView
+                android:id="@+id/tvnamaaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Pegawai"
@@ -65,6 +66,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/tvalamataddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
@@ -94,6 +96,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/tvNoHpaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No Hp Aktif"
@@ -124,36 +127,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Terdaftar"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etterdaftar"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Terdaftar"
-                    android:inputType="text"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="340dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <TextView
+                android:id="@+id/tvCabangaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cabang"

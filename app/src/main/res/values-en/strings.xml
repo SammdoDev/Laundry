@@ -33,4 +33,25 @@
     <string name="validasi_harga">price validation</string>
     <string name="validasi_jenis_layanan">validate the service type</string>
     <string name="tambah_layanan_sukses">Add services success</string>
+    <string name="tambah_pegawai_gagal">Add Employee Error</string>
+    <string name="edit_pegawai">Edit Employee</string>
+    <string name="Data_Berhasil_Diperbarui">Data Updated Successfully</string>
+    <string name="Data_Gagal_Diperbarui">Data Failed to Update</string>
+    <string name="Sunting">Edit</string>
+    <string name="perbarui">Update</string>
+    <string name="Simpan">Save</string>
+    <string name="card_pelanggan_terdaftar">Terdaftar</string>
+    <string name="card_pelanggan_cabang">Branch</string>
+    <string name="card_pegawai_id">card employee id</string>
+    <string name="card_pegawai_terdaftar">Join</string>
+    <string name="card_pegawai_hp">Contact</string>
+    <string name="card_pegawai_alamat">Address</string>
+    <string name="card_pegawai_nama">Name</string>
+    <string name="tambah_pegawai">Add employee</string>
+    <string name="validasi_nama_pegawai">Input name</string>
+    <string name="validasi_alamat_pegawai">Input address</string>
+    <string name="validasi_noHP_pegawai">Input contact</string>
+    <string name="validasi_cabang_pegawai">Input branch</string>
+    <string name="Data_Pegawai_Gagal_Diperbarui">Add employee failed</string>
+    <string name="Data_Pegawai_Berhasil_Diperbarui">Add employee success</string>
 </resources>

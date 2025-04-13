@@ -32,4 +32,25 @@
     <string name="validasi_harga">validasi_harga</string>
     <string name="validasi_jenis_layanan">validasi_jenis_layanan</string>
     <string name="tambah_layanan_sukses">tambah_layanan_sukses</string>
+    <string name="tambah_pegawai_gagal">tambah pegawai gagal</string>
+    <string name="edit_pegawai">Edit Pegawai</string>
+    <string name="Data_Berhasil_Diperbarui">Data Berhasil Diperbarui</string>
+    <string name="Data_Gagal_Diperbarui">Data Gagal Diperbarui</string>
+    <string name="Sunting">Sunting</string>
+    <string name="perbarui">Perbarui</string>
+    <string name="Simpan">Simpan</string>
+    <string name="card_pelanggan_terdaftar">Terdaftar</string>
+    <string name="card_pelanggan_cabang">Cabang</string>
+    <string name="card_pegawai_id">Id Pegawai</string>
+    <string name="card_pegawai_terdaftar">terdaftar</string>
+    <string name="card_pegawai_hp">no Hp</string>
+    <string name="card_pegawai_alamat">Alamat</string>
+    <string name="card_pegawai_nama">Nama</string>
+    <string name="tambah_pegawai">tambah pegawai</string>
+    <string name="validasi_nama_pegawai">masukkan nama dengan benar</string>
+    <string name="validasi_alamat_pegawai">Masukkan alamat dengan benar</string>
+    <string name="validasi_noHP_pegawai">Masukkan no hp dengan benar</string>
+    <string name="validasi_cabang_pegawai">Masukkan cabang</string>
+    <string name="Data_Pegawai_Gagal_Diperbarui">Data Pegawai Gagal Diperbarui</string>
+    <string name="Data_Pegawai_Berhasil_Diperbarui">Data Pegawai  Berhasil Diperbarui</string>
 </resources>

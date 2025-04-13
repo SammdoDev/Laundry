@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
-import com.laundry.R
 import com.laundry.model_data.model_pelanggan
 import com.adapter.adapter_data_pelanggan
+import com.laundry.R
 
 // Disarankan menggunakan penamaan kelas dengan huruf kapital.
 class data_pelanggan : AppCompatActivity() {

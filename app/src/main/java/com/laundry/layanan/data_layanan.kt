@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
-import com.laundry.R
 import com.laundry.model_data.model_layanan
 import com.adapter.adapter_data_layanan
+import com.laundry.R
 
 class data_layanan : AppCompatActivity() {
 

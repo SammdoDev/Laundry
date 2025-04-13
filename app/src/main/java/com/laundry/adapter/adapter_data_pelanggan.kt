@@ -1,11 +1,11 @@
 package com.adapter
 
-import com.laundry.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.laundry.R
 import com.laundry.model_data.model_pelanggan
 
 class adapter_data_pelanggan(
