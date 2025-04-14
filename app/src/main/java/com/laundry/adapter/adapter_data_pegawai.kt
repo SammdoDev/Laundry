@@ -42,9 +42,9 @@ class adapter_data_pegawai(private val listpegawai: ArrayList<model_pegawai>) :
 
         holder.tvCardPegawaiId.text = "${item.idPegawai}"
         holder.tvnamapegawai.text = item.namaPegawai
-        holder.tvalamatpegawai.text = "Alamat  : ${item.alamatPegawai}"
-        holder.tvnohppegawai.text = "Telepon  : ${item.noHPPegawai}"
-        holder.tvcabangpegawai.text = "Cabang  : ${item.idCabang}"
+        holder.tvalamatpegawai.text = "${item.alamatPegawai}"
+        holder.tvnohppegawai.text = "${item.noHPPegawai}"
+        holder.tvcabangpegawai.text = "${item.idCabang}"
         holder.tvterdaftarpegawai.text = item.terdaftar
         holder.cardpegawai.setOnClickListener {
             val intent = Intent(appContext, tambah_pegawai::class.java)

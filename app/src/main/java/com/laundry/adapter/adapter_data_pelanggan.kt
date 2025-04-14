@@ -42,8 +42,8 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
 
         holder.tvCardpelangganId.text = "${item.idPelanggan}"
         holder.tvnamapelanggan.text = item.namaPelanggan
-        holder.tvalamatpelanggan.text = "Alamat  : ${item.alamatPelanggan}"
-        holder.tvnohppelanggan.text = "Telepon  : ${item.noHPPelanggan}"
+        holder.tvalamatpelanggan.text = "${item.alamatPelanggan}"
+        holder.tvnohppelanggan.text = "${item.noHPPelanggan}"
         holder.tvterdaftarpelanggan.text = item.terdaftar
         holder.cardpelanggan.setOnClickListener {
             val intent = Intent(appContext, tambah_pelanggan::class.java)
