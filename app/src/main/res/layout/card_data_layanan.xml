@@ -8,48 +8,104 @@
     app:cardElevation="8dp"
     android:id="@+id/cvCARD_LAYANAN">
 
-    <TextView
-        android:id="@+id/tvCARD_LAYANAN_ID"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="Id Layanan"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="#FF0000"
-        android:paddingLeft="16dp"
-        android:paddingTop="5dp"/>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvCARD_LAYANAN_NAMA"
-            android:layout_marginTop="15dp"
+        <!-- Header dengan 2 teks berdampingan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#FF0000"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Id Layanan:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/tvCARD_LAYANAN_ID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:gravity="end|center_vertical"
+                android:paddingRight="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Layanan"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvCARD_LAYANAN_HARGA"
-            android:layout_below="@id/tvCARD_LAYANAN_NAMA"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Harga"
-            android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
 
-        <TextView
-            android:id="@+id/tvCARD_LAYANAN_CABANG"
-            android:layout_below="@id/tvCARD_LAYANAN_HARGA"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nama Cabang"
-            android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Layanan: "
+                    android:textSize="16sp" />
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvCARD_LAYANAN_NAMA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_LAYANAN_HARGA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cabang: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_LAYANAN_CABANG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

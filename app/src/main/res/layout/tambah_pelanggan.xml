@@ -11,7 +11,7 @@
         android:id="@+id/tvpelangganjudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pelanggan"
+        android:text="Tambah pelanggan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,9 +34,10 @@
             android:layout_margin="20dp">
 
             <TextView
+                android:id="@+id/tvnamaaddpelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pengguna"
+                android:text="Nama pelanggan"
                 android:textColor="@color/black"/>
 
             <androidx.cardview.widget.CardView
@@ -65,6 +66,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/tvalamataddpelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
@@ -94,6 +96,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/tvNoHpaddpelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No Hp Aktif"
@@ -123,26 +126,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cabang"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etpelanggancabang"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Cabang"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </RelativeLayout>
 

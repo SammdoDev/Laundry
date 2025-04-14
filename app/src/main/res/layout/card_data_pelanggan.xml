@@ -8,86 +8,151 @@
     app:cardElevation="8dp"
     android:id="@+id/cvCARD_PELANGGAN">
 
-    <TextView
-        android:id="@+id/tvCARD_PELANGGAN_ID"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="@string/card_pelanggan_id"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="#FF0000"
-        android:paddingLeft="16dp"
-        android:paddingTop="5dp"
-        />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvCARD_PELANGGAN_nama"
-            android:layout_marginTop="15dp"
+        <!-- Header dengan 2 teks berdampingan -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/card_pelanggan_nama"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:layout_height="30dp"
+            android:background="#FF0000"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvCARD_PELANGGAN_nohp"
-            android:layout_below="@id/tvCARD_PELANGGAN_nama"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No Hp"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/card_pelanggan_id"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="5dp" />
 
-        <TextView
-            android:id="@+id/tvCARD_PELANGGAN_cabang"
-            android:layout_below="@id/tvCARD_PELANGGAN_nohp"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cabang"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tvCARD_PELANGGAN_alamat"
-            android:layout_below="@id/tvCARD_PELANGGAN_cabang"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alamat"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvCARD_PELANGGAN_ID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:gravity="end|center_vertical"
+                android:paddingRight="16dp" />
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/tvCARD_PELANGGAN_alamat"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end"
-            android:weightSum="2">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/HubungiPelanggan"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#4CAF50"
-                android:text="@string/card_pelanggan_hubungi"
-                android:textColor="@android:color/white"
-                android:layout_marginEnd="8dp" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/LihatPelanggan"
-                android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_PELANGGAN_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#DB9A20"
-                android:text="@string/card_pelanggan_lihat"
-                android:textColor="@android:color/white" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No HP: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_PELANGGAN_nohp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terdaftar: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_PELANGGAN_terdaftar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat: "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvCARD_PELANGGAN_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btHubungiPelanggan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="@string/card_pelanggan_hubungi"
+                    android:textColor="@android:color/white"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btLihatPelanggan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#DB9A20"
+                    android:text="@string/card_pelanggan_lihat"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

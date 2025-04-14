@@ -53,4 +53,8 @@
     <string name="validasi_cabang_pegawai">Masukkan cabang</string>
     <string name="Data_Pegawai_Gagal_Diperbarui">Data Pegawai Gagal Diperbarui</string>
     <string name="Data_Pegawai_Berhasil_Diperbarui">Data Pegawai  Berhasil Diperbarui</string>
+    <string name="Data_pelanggan_Berhasil_Diperbarui">Data pelanggan Berhasil Diperbarui</string>
+    <string name="Data_pelanggan_Gagal_Diperbarui">Data pelanggan Gagal Diperbarui</string>
+    <string name="validasi_noHP_pelanggan">Masukkan no hp dengan benar</string>
+    <string name="tambah_pelanggan">tambah pelanggan</string>
 </resources>

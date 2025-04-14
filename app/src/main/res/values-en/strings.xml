@@ -54,4 +54,8 @@
     <string name="validasi_cabang_pegawai">Input branch</string>
     <string name="Data_Pegawai_Gagal_Diperbarui">Add employee failed</string>
     <string name="Data_Pegawai_Berhasil_Diperbarui">Add employee success</string>
+    <string name="Data_pelanggan_Berhasil_Diperbarui">Add customer succes</string>
+    <string name="Data_pelanggan_Gagal_Diperbarui">Add customer failed</string>
+    <string name="validasi_noHP_pelanggan">Input contact</string>
+    <string name="tambah_pelanggan">Add customer</string>
 </resources>

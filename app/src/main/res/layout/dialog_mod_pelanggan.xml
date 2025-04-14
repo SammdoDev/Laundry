@@ -56,7 +56,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ID_PELANGGAN"
+                        android:id="@+id/tvid"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -82,7 +82,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_NAMA"
+                        android:id="@+id/tvisinamapelanggan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -108,7 +108,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_ALAMAT"
+                        android:id="@+id/tvisialamatpelanggan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -134,7 +134,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_NOHP"
+                        android:id="@+id/tvisinohppelanggan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -145,31 +145,6 @@
                         android:gravity="end" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/Cabang"
-                        android:textColor="#5F6368"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tv_CABANG"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Jakarta Selatan"
-                        android:textColor="#202F65"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:gravity="end" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -185,7 +160,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_TERDAFTAR"
+                        android:id="@+id/tvisiterdaftarpelanggan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -208,7 +183,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSunting"
+                android:id="@+id/buttonsuntingpelanggan"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
@@ -225,7 +200,7 @@
                 android:backgroundTint="#3D7BF4"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
+                android:id="@+id/buttonhapuspelanggan"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"

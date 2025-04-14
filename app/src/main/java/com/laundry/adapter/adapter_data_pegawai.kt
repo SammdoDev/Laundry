@@ -40,7 +40,7 @@ class adapter_data_pegawai(private val listpegawai: ArrayList<model_pegawai>) :
         databaseReference = FirebaseDatabase.getInstance().getReference("pegawai")
 
 
-        holder.tvCardPegawaiId.text = "ID Pegawai  : ${item.idPegawai}"
+        holder.tvCardPegawaiId.text = "${item.idPegawai}"
         holder.tvnamapegawai.text = item.namaPegawai
         holder.tvalamatpegawai.text = "Alamat  : ${item.alamatPegawai}"
         holder.tvnohppegawai.text = "Telepon  : ${item.noHPPegawai}"
