@@ -6,11 +6,11 @@ import androidx.cardview.widget.CardView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-class Landing_page : AppCompatActivity() {
+class login_form : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.landing_page)
+        setContentView(R.layout.login_form)
 
         val nextButton: CardView = findViewById(R.id.next)
 

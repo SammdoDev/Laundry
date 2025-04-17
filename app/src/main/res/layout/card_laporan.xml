@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:text="Samuel"
+                    android:text="Nama Pelanggan"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:background="#E4DDDD"
                 android:padding="8dp"
-                android:text="Belum Dibayar"
+                android:text="Status Pembayaran"
                 android:textColor="#B71C1C" />
         </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="2025-02-19 20:08:18"
+            android:text="Tanggal"
             android:textColor="#9E9E9E"
             android:textSize="14sp" />
 
@@ -93,7 +93,7 @@
                     android:id="@+id/tv_service_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cuci Lipat 6kg"
+                    android:text="Nama Layanan"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="+1 Layanan Tambahan"
+                    android:text="Layanan Tambahan"
                     android:textColor="#9E9E9E"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -139,7 +139,7 @@
                     android:id="@+id/tv_total_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp20.000,00"
+                    android:text="harga"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
