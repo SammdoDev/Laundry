@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.compose.material3.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_pelanggan
@@ -19,17 +17,13 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.appcompat.app.AlertDialog
 
+class adapter_data_pelanggan(
+    private val listPelanggan: ArrayList<model_pelanggan>
+) : RecyclerView.Adapter<adapter_data_pelanggan.ViewHolder>() {
 
-class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelanggan>) :
-    RecyclerView.Adapter<adapter_data_pelanggan.ViewHolder>() {
+    lateinit var appContext: Context
 
-    lateinit var appContext : Context
-    lateinit var databaseReference: DatabaseReference
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_data_pelanggan, parent, false)
         appContext = parent.context
@@ -38,28 +32,17 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
 
     @SuppressLint("MissingInflatedId")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = listpelanggan[position]
-        databaseReference = FirebaseDatabase.getInstance().getReference("pelanggan")
+        val pelanggan = listPelanggan[position]
 
+        // Set data ke tampilan kartu
+        holder.tvCARD_PELANGGAN_ID.text = pelanggan.idPelanggan
+        holder.tvCARD_PELANGGAN_NAMA.text = pelanggan.namaPelanggan
+        holder.tvCARD_PELANGGAN_ALAMAT.text = pelanggan.alamatPelanggan
+        holder.tvCARD_PELANGGAN_NOHP.text = pelanggan.noHPPelanggan
+        holder.tvCARD_PELANGGAN_TERDAFTAR.text = pelanggan.terdaftar ?: "-" // Tambahan
 
-        holder.tvCardpelangganId.text = "${item.idPelanggan}"
-        holder.tvnamapelanggan.text = item.namaPelanggan
-        holder.tvalamatpelanggan.text = "${item.alamatPelanggan}"
-        holder.tvnohppelanggan.text = "${item.noHPPelanggan}"
-        holder.tvterdaftarpelanggan.text = item.terdaftar
-        holder.cardpelanggan.setOnClickListener {
-            val intent = Intent(appContext, tambah_pelanggan::class.java)
-            intent.putExtra("judul",  "Edit pelanggan")
-            intent.putExtra("idPelanggan", item.idPelanggan)
-            intent.putExtra("namaPelanggan", item.namaPelanggan)
-            intent.putExtra("noHPPelanggan", item.noHPPelanggan)
-            intent.putExtra("alamatPelanggan", item.alamatPelanggan)
-            appContext.startActivity(intent)
-        }
-        holder.btHubungipelanggan.setOnClickListener {
-        }
         // Klik tombol lihat
-        holder.btLihatpelanggan.setOnClickListener {
+        holder.btnLihat.setOnClickListener {
             val dialogView = LayoutInflater.from(holder.itemView.context)
                 .inflate(R.layout.dialog_mod_pelanggan, null)
 
@@ -79,24 +62,26 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
             val btEdit = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PELANGGAN_Edit)
             val btHapus = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PELANGGAN_Hapus)
 
-            // Cek null sebelum setText
-            tvId?.text = item.idPelanggan
-            tvNama?.text = item.namaPelanggan
-            tvAlamat?.text = item.alamatPelanggan
-            tvNoHP?.text = item.noHPPelanggan
-            tvTerdaftar?.text = item.terdaftar // opsional
+            // Set data di dialog
+            tvId?.text = pelanggan.idPelanggan
+            tvNama?.text = pelanggan.namaPelanggan
+            tvAlamat?.text = pelanggan.alamatPelanggan
+            tvNoHP?.text = pelanggan.noHPPelanggan
+            tvTerdaftar?.text = pelanggan.terdaftar ?: "-"
 
+            // Edit data
             btEdit?.setOnClickListener {
                 val intent = Intent(holder.itemView.context, tambah_pelanggan::class.java)
-                intent.putExtra("idPelanggan", item.idPelanggan)
-                intent.putExtra("namaPelanggan", item.namaPelanggan)
-                intent.putExtra("alamatPelanggan", item.alamatPelanggan)
-                intent.putExtra("noHpPelanggan", item.noHPPelanggan)
-                intent.putExtra("idCabang", item.terdaftar)
+                intent.putExtra("idPelanggan", pelanggan.idPelanggan)
+                intent.putExtra("namaPelanggan", pelanggan.namaPelanggan)
+                intent.putExtra("alamatPelanggan", pelanggan.alamatPelanggan)
+                intent.putExtra("noHPPelanggan", pelanggan.noHPPelanggan)
+                intent.putExtra("terdaftar", pelanggan.terdaftar)
                 holder.itemView.context.startActivity(intent)
                 alertDialog.dismiss()
             }
 
+            // Hapus data
             btHapus?.setOnClickListener {
                 AlertDialog.Builder(holder.itemView.context)
                     .setTitle("Konfirmasi Hapus")
@@ -104,12 +89,12 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
                     .setPositiveButton("Ya") { _, _ ->
                         val dbRef = FirebaseDatabase.getInstance()
                             .getReference("Pelanggan")
-                            .child(item.idPelanggan ?: "")
+                            .child(pelanggan.idPelanggan ?: "")
 
                         dbRef.removeValue().addOnSuccessListener {
-                            listpelanggan.removeAt(position)
+                            listPelanggan.removeAt(position)
                             notifyItemRemoved(position)
-                            notifyItemRangeChanged(position, listpelanggan.size)
+                            notifyItemRangeChanged(position, listPelanggan.size)
                             Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
                             alertDialog.dismiss()
                         }.addOnFailureListener {
@@ -126,18 +111,16 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
         }
     }
 
-    override fun getItemCount(): Int {
-        return listpelanggan.size
-    }
+    override fun getItemCount(): Int = listPelanggan.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val cardpelanggan: CardView = itemView.findViewById(R.id.cvCARD_PELANGGAN)
-        val tvCardpelangganId: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_ID)
-        val tvnamapelanggan: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_nama)
-        val tvnohppelanggan: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_nohp)
-        val tvalamatpelanggan: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_alamat)
-        val tvterdaftarpelanggan: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_terdaftar)
-        val btHubungipelanggan: Button = itemView.findViewById(R.id.btHubungiPelanggan)
-        val btLihatpelanggan: Button = itemView.findViewById(R.id.btLihatPelanggan)
+        val tvCARD_PELANGGAN_ID: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_ID)
+        val tvCARD_PELANGGAN_NAMA: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_nama)
+        val tvCARD_PELANGGAN_ALAMAT: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_alamat)
+        val tvCARD_PELANGGAN_NOHP: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_nohp)
+        val tvCARD_PELANGGAN_TERDAFTAR: TextView = itemView.findViewById(R.id.tvCARD_PELANGGAN_terdaftar) // ← Tambahan
+        val cvCARD_PELANGGAN: CardView = itemView.findViewById(R.id.cvCARD_PELANGGAN)
+        val btnHubungi: Button = itemView.findViewById(R.id.btHubungiPelanggan)
+        val btnLihat: Button = itemView.findViewById(R.id.btLihatPelanggan)
     }
 }

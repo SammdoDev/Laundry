@@ -92,7 +92,7 @@ class data_transaksi : AppCompatActivity() {
             if (resultCode == RESULT_OK && data != null) {
                 idPelanggan = data.getStringExtra("idPelanggan").toString()
                 val nama = data.getStringExtra("nama")
-                val nomorHP = data.getStringExtra("noHP")
+                val nomorHP = data.getStringExtra("hp")
 
                 tvPelangganNama.text = "Nama Pelanggan : $nama"
                 tvPelangganNoHP.text = "No HP : $nomorHP"

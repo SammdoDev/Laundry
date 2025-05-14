@@ -1,14 +1,13 @@
 package com.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.compose.material3.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_pegawai
@@ -18,136 +17,115 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.appcompat.app.AlertDialog
 
+class adapter_data_pegawai(
+    private val listPegawai: ArrayList<model_pegawai>
+) : RecyclerView.Adapter<adapter_data_pegawai.ViewHolder>() {
 
-class adapter_data_pegawai(private val listpegawai: ArrayList<model_pegawai>) :
-    RecyclerView.Adapter<adapter_data_pegawai.ViewHolder>() {
+    lateinit var appContext: Context
 
-    lateinit var appContext : Context
-    lateinit var databaseReference: DatabaseReference
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_data_pegawai, parent, false)
         appContext = parent.context
         return ViewHolder(view)
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = listpegawai[position]
-        databaseReference = FirebaseDatabase.getInstance().getReference("pegawai")
+        val pegawai = listPegawai[position]
 
+        // Set data ke tampilan kartu
+        holder.tvCARD_PEGAWAI_ID.text = pegawai.idPegawai
+        holder.tvCARD_PEGAWAI_nama.text = pegawai.namaPegawai
+        holder.tvCARD_PEGAWAI_alamat.text = pegawai.alamatPegawai
+        holder.tvCARD_PEGAWAI_nohp.text = pegawai.noHPPegawai
+        holder.tvTERDAFTAR.text = pegawai.terdaftar ?: "-"
+        holder.tvCabang.text = pegawai.idCabang ?: "-"
 
-        holder.tvCardPegawaiId.text = "${item.idPegawai}"
-        holder.tvnamapegawai.text = item.namaPegawai
-        holder.tvalamatpegawai.text = "${item.alamatPegawai}"
-        holder.tvnohppegawai.text = "${item.noHPPegawai}"
-        holder.tvcabangpegawai.text = "${item.idCabang}"
-        holder.tvterdaftarpegawai.text = item.terdaftar
-        holder.cardpegawai.setOnClickListener {
-            val intent = Intent(appContext, tambah_pegawai::class.java)
-            intent.putExtra("judul",  "Edit Pegawai")
-            intent.putExtra("idPegawai", item.idPegawai)
-            intent.putExtra("namaPegawai", item.namaPegawai)
-            intent.putExtra("noHPPegawai", item.noHPPegawai)
-            intent.putExtra("alamatPegawai", item.alamatPegawai)
-            intent.putExtra("cabangPegawai", item.idCabang)
-            appContext.startActivity(intent)
-        }
-        holder.btHubungipegawai.setOnClickListener {
-        }
-        holder.btLihatpegawai.setOnClickListener {
-            val dialogView = LayoutInflater.from(appContext).inflate(R.layout.dialog_mod_pegawai, null)
+        // Klik tombol lihat
+        holder.btnLihat.setOnClickListener {
+            val dialogView = LayoutInflater.from(holder.itemView.context)
+                .inflate(R.layout.dialog_mod_pegawai, null)
 
-            val dialogBuilder = androidx.appcompat.app.AlertDialog.Builder(appContext)
+            val dialogBuilder = AlertDialog.Builder(holder.itemView.context)
                 .setView(dialogView)
-
+                .setCancelable(true)
 
             val alertDialog = dialogBuilder.create()
-            alertDialog.show()
 
-            // Ambil elemen dari layout dialog
-            val tvisiidpegawai = dialogView.findViewById<TextView>(R.id.tvid)
-            val tvisinamapegawai = dialogView.findViewById<TextView>(R.id.tvisinamapegawai)
-            val tvisialamatpegawai = dialogView.findViewById<TextView>(R.id.tvisialamatpegawai)
-            val tvisinohppegawai = dialogView.findViewById<TextView>(R.id.tvisinohppegawai)
-            val tvisicabangpegawai = dialogView.findViewById<TextView>(R.id.tvisicabangpegawai)
-            val tvisiterdaftarpegawai = dialogView.findViewById<TextView>(R.id.tvisiterdaftarpegawai)
-            val buttonsuntingpegawai = dialogView.findViewById<Button>(R.id.buttonsuntingpegawai)
-            val buttonhapuspegawai = dialogView.findViewById<Button>(R.id.buttonhapuspegawai)
+            // Temukan semua TextView di dialog
+            val tvId = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_ID)
+            val tvNama = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_NAMA)
+            val tvAlamat = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_ALAMAT)
+            val tvNoHP = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_NOHP)
+            val tvTerdaftar = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_TERDAFTAR)
+            val tvCabang = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_CABANG)
 
-            // Set data ke dalam dialog
-            tvisiidpegawai.text = item.idPegawai
-            tvisinamapegawai.text = item.namaPegawai
-            tvisialamatpegawai.text = item.alamatPegawai
-            tvisinohppegawai.text = item.noHPPegawai
-            tvisicabangpegawai.text = item.idCabang
-            tvisiterdaftarpegawai.text = item.terdaftar
+            val btEdit = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PEEGAWAI_Edit)
+            val btHapus = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PEGAWAI_Hapus)
 
-            // Tombol "Sunting" membuka halaman Edit Pegawai
-            buttonsuntingpegawai.setOnClickListener {
-                val intent = Intent(appContext, tambah_pegawai::class.java)
-                intent.putExtra("judul", "Edit Pegawai")
-                intent.putExtra("idPegawai", item.idPegawai)
-                intent.putExtra("namaPegawai", item.namaPegawai)
-                intent.putExtra("noHPPegawai", item.noHPPegawai)
-                intent.putExtra("alamatPegawai", item.alamatPegawai)
-                intent.putExtra("cabangPegawai", item.idCabang)
-                appContext.startActivity(intent)
-                alertDialog.dismiss() // Tutup dialog setelah klik
+            // Set data di dialog
+            tvId?.text = pegawai.idPegawai
+            tvNama?.text = pegawai.namaPegawai
+            tvAlamat?.text = pegawai.alamatPegawai
+            tvNoHP?.text = pegawai.noHPPegawai
+            tvTerdaftar?.text = pegawai.terdaftar ?: "-"
+            tvCabang?.text = pegawai.idCabang
+
+            // Edit data
+            btEdit?.setOnClickListener {
+                val intent = Intent(holder.itemView.context, tambah_pegawai::class.java)
+                intent.putExtra("idPegawai", pegawai.idPegawai)
+                intent.putExtra("namaPegawai", pegawai.namaPegawai)
+                intent.putExtra("alamatPegawai", pegawai.alamatPegawai)
+                intent.putExtra("noHPPegawai", pegawai.noHPPegawai)
+                intent.putExtra("terdaftar", pegawai.terdaftar)
+                intent.putExtra("idCabang", pegawai.idCabang)
+                holder.itemView.context.startActivity(intent)
+                alertDialog.dismiss()
             }
 
-            // Tombol "Hapus" untuk menghapus pegawai (bisa ditambahkan logika Firebase)
-            buttonhapuspegawai.setOnClickListener {
-                // Contoh: Konfirmasi sebelum menghapus
+            // Hapus data
+            btHapus?.setOnClickListener {
                 AlertDialog.Builder(holder.itemView.context)
-                    .setTitle("Konfirmasi")
-                    .setMessage("Apakah Anda yakin ingin menghapus pegawai ini?")
-                    .setPositiveButton("Hapus") { _, _ ->
-                        val idPegawai = item.idPegawai
+                    .setTitle("Konfirmasi Hapus")
+                    .setMessage("Yakin ingin menghapus data ini?")
+                    .setPositiveButton("Ya") { _, _ ->
+                        val dbRef = FirebaseDatabase.getInstance()
+                            .getReference("Pegawai")
+                            .child(pegawai.idPegawai ?: "")
 
-                        // Pastikan ID Pegawai tidak null atau kosong
-                        if (idPegawai.isNullOrEmpty()) {
-                            Toast.makeText(holder.itemView.context, "ID Pegawai tidak valid!", Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
+                        dbRef.removeValue().addOnSuccessListener {
+                            listPegawai.removeAt(position)
+                            notifyItemRemoved(position)
+                            notifyItemRangeChanged(position, listPegawai.size)
+                            Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                            alertDialog.dismiss()
+                        }.addOnFailureListener {
+                            Toast.makeText(holder.itemView.context, "Gagal: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
-
-                        // Inisialisasi database jika belum dilakukan
-                        databaseReference = FirebaseDatabase.getInstance().getReference("pegawai")
-
-                        // Hapus data dari Firebase berdasarkan ID
-                        databaseReference.child(idPegawai).removeValue()
-                            .addOnSuccessListener {
-                                Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
-                                listpegawai.removeAt(position) // Hapus dari list lokal
-                                notifyItemRemoved(position) // Perbarui tampilan RecyclerView
-                                alertDialog.dismiss() // Tutup dialog
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton("Tidak") { dialog, _ ->
+                        dialog.dismiss()
+                    }
                     .show()
             }
+
+            alertDialog.show()
         }
     }
 
-    override fun getItemCount(): Int {
-        return listpegawai.size
-    }
+    override fun getItemCount(): Int = listPegawai.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val cardpegawai: CardView = itemView.findViewById(R.id.cvCARD_PEGAWAI)
-        val tvCardPegawaiId: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_ID)
-        val tvnamapegawai: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nama)
-        val tvnohppegawai: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nohp)
-        val tvalamatpegawai: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_alamat)
-        val tvcabangpegawai: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_cabang)
-        val tvterdaftarpegawai: TextView = itemView.findViewById(R.id.tvTERDAFTAR)
-        val btHubungipegawai: Button = itemView.findViewById(R.id.btHubungiPegawai)
-        val btLihatpegawai: Button = itemView.findViewById(R.id.btLihatPegawai)
+        val tvCARD_PEGAWAI_ID: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_ID)
+        val tvCARD_PEGAWAI_nama: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nama)
+        val tvCARD_PEGAWAI_alamat: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_alamat)
+        val tvCARD_PEGAWAI_nohp: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nohp)
+        val tvTERDAFTAR: TextView = itemView.findViewById(R.id.tvTERDAFTAR) // ← Tambahan
+        val tvCabang: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_cabang) // ← Tambahan
+        val cvCARD_PEGAWAI: CardView = itemView.findViewById(R.id.cvCARD_PEGAWAI)
+        val btnHubungi: Button = itemView.findViewById(R.id.btHubungiPegawai)
+        val btnLihat: Button = itemView.findViewById(R.id.btLihatPegawai)
     }
 }
