@@ -1,5 +1,6 @@
 package com.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -35,6 +36,7 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
         return ViewHolder(view)
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listpelanggan[position]
         databaseReference = FirebaseDatabase.getInstance().getReference("pelanggan")
@@ -56,77 +58,71 @@ class adapter_data_pelanggan(private val listpelanggan: ArrayList<model_pelangga
         }
         holder.btHubungipelanggan.setOnClickListener {
         }
+        // Klik tombol lihat
         holder.btLihatpelanggan.setOnClickListener {
-            val dialogView = LayoutInflater.from(appContext).inflate(R.layout.dialog_mod_pelanggan, null)
+            val dialogView = LayoutInflater.from(holder.itemView.context)
+                .inflate(R.layout.dialog_mod_pelanggan, null)
 
-            val dialogBuilder = androidx.appcompat.app.AlertDialog.Builder(appContext)
+            val dialogBuilder = AlertDialog.Builder(holder.itemView.context)
                 .setView(dialogView)
-
+                .setCancelable(true)
 
             val alertDialog = dialogBuilder.create()
-            alertDialog.show()
 
-            // Ambil elemen dari layout dialog
-            val tvisiidpelanggan = dialogView.findViewById<TextView>(R.id.tvid)
-            val tvisinamapelanggan = dialogView.findViewById<TextView>(R.id.tvisinamapelanggan)
-            val tvisialamatpelanggan = dialogView.findViewById<TextView>(R.id.tvisialamatpelanggan)
-            val tvisinohppelanggan = dialogView.findViewById<TextView>(R.id.tvisinohppelanggan)
-            val tvisiterdaftarpelanggan = dialogView.findViewById<TextView>(R.id.tvisiterdaftarpelanggan)
-            val buttonsuntingpelanggan = dialogView.findViewById<Button>(R.id.buttonsuntingpelanggan)
-            val buttonhapuspelanggan = dialogView.findViewById<Button>(R.id.buttonhapuspelanggan)
+            // Temukan semua TextView di dialog
+            val tvId = dialogView.findViewById<TextView>(R.id.tvDIALOG_PELANGGAN_ID)
+            val tvNama = dialogView.findViewById<TextView>(R.id.tvDIALOG_PELANGGAN_NAMA)
+            val tvAlamat = dialogView.findViewById<TextView>(R.id.tvDIALOG_PELANGGAN_ALAMAT)
+            val tvNoHP = dialogView.findViewById<TextView>(R.id.tvDIALOG_PELANGGAN_NOHP)
+            val tvTerdaftar = dialogView.findViewById<TextView>(R.id.tvDIALOG_PELANGGAN_TERDAFTAR)
 
-            // Set data ke dalam dialog
-            tvisiidpelanggan.text = item.idPelanggan
-            tvisinamapelanggan.text = item.namaPelanggan
-            tvisialamatpelanggan.text = item.alamatPelanggan
-            tvisinohppelanggan.text = item.noHPPelanggan
-            tvisiterdaftarpelanggan.text = item.terdaftar
+            val btEdit = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PELANGGAN_Edit)
+            val btHapus = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PELANGGAN_Hapus)
 
-            // Tombol "Sunting" membuka halaman Edit pelanggan
-            buttonsuntingpelanggan.setOnClickListener {
-                val intent = Intent(appContext, tambah_pelanggan::class.java)
-                intent.putExtra("judul", "Edit pelanggan")
+            // Cek null sebelum setText
+            tvId?.text = item.idPelanggan
+            tvNama?.text = item.namaPelanggan
+            tvAlamat?.text = item.alamatPelanggan
+            tvNoHP?.text = item.noHPPelanggan
+            tvTerdaftar?.text = item.terdaftar // opsional
+
+            btEdit?.setOnClickListener {
+                val intent = Intent(holder.itemView.context, tambah_pelanggan::class.java)
                 intent.putExtra("idPelanggan", item.idPelanggan)
                 intent.putExtra("namaPelanggan", item.namaPelanggan)
-                intent.putExtra("noHPPelanggan", item.noHPPelanggan)
                 intent.putExtra("alamatPelanggan", item.alamatPelanggan)
-                appContext.startActivity(intent)
-                alertDialog.dismiss() // Tutup dialog setelah klik
+                intent.putExtra("noHpPelanggan", item.noHPPelanggan)
+                intent.putExtra("idCabang", item.terdaftar)
+                holder.itemView.context.startActivity(intent)
+                alertDialog.dismiss()
             }
 
-            // Tombol "Hapus" untuk menghapus pelanggan (bisa ditambahkan logika Firebase)
-            buttonhapuspelanggan.setOnClickListener {
-                // Contoh: Konfirmasi sebelum menghapus
+            btHapus?.setOnClickListener {
                 AlertDialog.Builder(holder.itemView.context)
-                    .setTitle("Konfirmasi")
-                    .setMessage("Apakah Anda yakin ingin menghapus pelanggan ini?")
-                    .setPositiveButton("Hapus") { _, _ ->
-                        val idPelanggan = item.idPelanggan
+                    .setTitle("Konfirmasi Hapus")
+                    .setMessage("Yakin ingin menghapus data ini?")
+                    .setPositiveButton("Ya") { _, _ ->
+                        val dbRef = FirebaseDatabase.getInstance()
+                            .getReference("Pelanggan")
+                            .child(item.idPelanggan ?: "")
 
-                        // Pastikan ID pelanggan tidak null atau kosong
-                        if (idPelanggan.isNullOrEmpty()) {
-                            Toast.makeText(holder.itemView.context, "ID pelanggan tidak valid!", Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
+                        dbRef.removeValue().addOnSuccessListener {
+                            listpelanggan.removeAt(position)
+                            notifyItemRemoved(position)
+                            notifyItemRangeChanged(position, listpelanggan.size)
+                            Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                            alertDialog.dismiss()
+                        }.addOnFailureListener {
+                            Toast.makeText(holder.itemView.context, "Gagal: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
-
-                        // Inisialisasi database jika belum dilakukan
-                        databaseReference = FirebaseDatabase.getInstance().getReference("pelanggan")
-
-                        // Hapus data dari Firebase berdasarkan ID
-                        databaseReference.child(idPelanggan).removeValue()
-                            .addOnSuccessListener {
-                                Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
-                                listpelanggan.removeAt(position) // Hapus dari list lokal
-                                notifyItemRemoved(position) // Perbarui tampilan RecyclerView
-                                alertDialog.dismiss() // Tutup dialog
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton("Tidak") { dialog, _ ->
+                        dialog.dismiss()
+                    }
                     .show()
             }
+
+            alertDialog.show()
         }
     }
 

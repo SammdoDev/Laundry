@@ -16,14 +16,26 @@
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
         <activity
-            android:name=".login.login_form"
+            android:name=".transaksi.pilihLayananTambahan"
+            android:exported="false" />
+        <activity
+            android:name=".transaksi.pilihLayanan"
+            android:exported="false" />
+        <activity
+            android:name=".transaksi.pilihPelanggan"
+            android:exported="false" />
+        <activity
+            android:name=".transaksi.data_transaksi"
+            android:exported="false" />
+        <activity
+            android:name=".login_form"
             android:exported="false" />
         <activity
             android:name=".laporan.data_laporan"
             android:exported="false" />
         <activity
             android:name=".pelanggan.data_pelanggan"
-            android:exported="false" /> <!-- Correct activities -->
+            android:exported="false" />
         <activity
             android:name=".layanan.tambah_layanan"
             android:exported="false" />
@@ -41,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".Beranda_laundry"
-            android:exported="false" />
-        <activity
-            android:name=".login_form"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

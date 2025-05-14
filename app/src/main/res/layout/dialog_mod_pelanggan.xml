@@ -56,7 +56,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvid"
+                        android:id="@+id/tvDIALOG_PELANGGAN_ID"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -82,7 +82,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvisinamapelanggan"
+                        android:id="@+id/tvDIALOG_PELANGGAN_NAMA"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -108,7 +108,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvisialamatpelanggan"
+                        android:id="@+id/tvDIALOG_PELANGGAN_ALAMAT"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -134,7 +134,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvisinohppelanggan"
+                        android:id="@+id/tvDIALOG_PELANGGAN_NOHP"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -160,7 +160,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvisiterdaftarpelanggan"
+                        android:id="@+id/tvDIALOG_PELANGGAN_TERDAFTAR"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -183,7 +183,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonsuntingpelanggan"
+                android:id="@+id/btDIALOG_MOD_PELANGGAN_Edit"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
@@ -200,7 +200,7 @@
                 android:backgroundTint="#3D7BF4"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonhapuspelanggan"
+                android:id="@+id/btDIALOG_MOD_PELANGGAN_Hapus"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"

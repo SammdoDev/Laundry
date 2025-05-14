@@ -12,12 +12,5 @@ class login_form : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.login_form)
 
-        val nextButton: CardView = findViewById(R.id.next)
-
-        nextButton.setOnClickListener{
-            val intent = Intent(this, Beranda_laundry::class.java)
-            startActivity(intent)
-        }
-
     }
 }
