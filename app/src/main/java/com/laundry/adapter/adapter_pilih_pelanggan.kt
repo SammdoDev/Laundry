@@ -16,9 +16,10 @@ class adapter_pilih_pelanggan(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_data_pegawai, parent, false)
+            .inflate(R.layout.card_pilih_pelanggan, parent, false)
         return ViewHolder(view)
     }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nomor = position + 1

@@ -6,7 +6,7 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
-    android:id="@+id/cvCARD_LAYANAN">
+    android:id="@+id/cvCARD_PILIH_LAYANAN">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:paddingTop="5dp" />
 
             <TextView
-                android:id="@+id/tvCARD_LAYANAN_ID"
+                android:id="@+id/tvCARD_PILIH_LAYANAN_ID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="-"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="15dp">
 
                 <TextView
-                    android:id="@+id/tvCARD_LAYANAN_NAMA"
+                    android:id="@+id/tvCARD_PILIH_LAYANAN_NAMA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-"
@@ -74,7 +74,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tvCARD_LAYANAN_HARGA"
+                    android:id="@+id/tvCARD_PILIH_LAYANAN_HARGA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-"
@@ -94,7 +94,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tvCARD_LAYANAN_CABANG"
+                    android:id="@+id/tvCARD_PILIH_LAYANAN_CABANG"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-"

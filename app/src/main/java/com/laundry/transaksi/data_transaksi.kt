@@ -28,7 +28,7 @@ class data_transaksi : AppCompatActivity() {
     private lateinit var btnTambahan: Button
     private val dataList = mutableListOf<model_transaksi>()
 
-    private val pilihPelanggan = 1
+    private val pilih_Pelanggan = 1
     private val pilihLayanan = 2
     private val pilihLayananTambahan = 3
 
@@ -59,7 +59,7 @@ class data_transaksi : AppCompatActivity() {
         rvLayananTambahan.setHasFixedSize(true)
         btnPilihPelanggan.setOnClickListener {
             val intent = Intent(this, pilihPelanggan::class.java)
-            startActivityForResult(intent,pilihPelanggan)
+            startActivityForResult(intent,pilih_Pelanggan)
         }
         btnPilihLayanan.setOnClickListener {
             val intent = Intent(this, pilihLayanan::class.java)
@@ -88,7 +88,7 @@ class data_transaksi : AppCompatActivity() {
     @Deprecated( "This method has been deprecated in favor of using the Activity Result API")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == pilihPelanggan) {
+        if (requestCode == pilih_Pelanggan) {
             if (resultCode == RESULT_OK && data != null) {
                 idPelanggan = data.getStringExtra("idPelanggan").toString()
                 val nama = data.getStringExtra("nama")
