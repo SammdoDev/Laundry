@@ -58,7 +58,6 @@ class adapter_data_pegawai(
             val tvNama = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_NAMA)
             val tvAlamat = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_ALAMAT)
             val tvNoHP = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_NOHP)
-            val tvTerdaftar = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_TERDAFTAR)
             val tvCabang = dialogView.findViewById<TextView>(R.id.tvDIALOG_PEGAWAI_CABANG)
 
             val btEdit = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_PEEGAWAI_Edit)
@@ -69,18 +68,18 @@ class adapter_data_pegawai(
             tvNama?.text = pegawai.namaPegawai
             tvAlamat?.text = pegawai.alamatPegawai
             tvNoHP?.text = pegawai.noHPPegawai
-            tvTerdaftar?.text = pegawai.terdaftar ?: "-"
             tvCabang?.text = pegawai.idCabang
 
-            // Edit data
+            // Edit data dari dialog
             btEdit?.setOnClickListener {
                 val intent = Intent(holder.itemView.context, tambah_pegawai::class.java)
                 intent.putExtra("idPegawai", pegawai.idPegawai)
                 intent.putExtra("namaPegawai", pegawai.namaPegawai)
                 intent.putExtra("alamatPegawai", pegawai.alamatPegawai)
                 intent.putExtra("noHPPegawai", pegawai.noHPPegawai)
-                intent.putExtra("terdaftar", pegawai.terdaftar)
                 intent.putExtra("idCabang", pegawai.idCabang)
+                intent.putExtra("judul", "Edit Pegawai")
+                intent.putExtra("fromDialog", true) // Tambahkan flag fromDialog
                 holder.itemView.context.startActivity(intent)
                 alertDialog.dismiss()
             }
@@ -113,6 +112,20 @@ class adapter_data_pegawai(
 
             alertDialog.show()
         }
+
+        // Klik pada card utama
+        holder.cvCARD_PEGAWAI.setOnClickListener {
+            val intent = Intent(holder.itemView.context, tambah_pegawai::class.java)
+            intent.putExtra("idPegawai", pegawai.idPegawai)
+            intent.putExtra("namaPegawai", pegawai.namaPegawai)
+            intent.putExtra("alamatPegawai", pegawai.alamatPegawai)
+            intent.putExtra("noHPPegawai", pegawai.noHPPegawai)
+            intent.putExtra("idCabang", pegawai.idCabang)
+            intent.putExtra("judul", "Edit Pegawai")
+            intent.putExtra("fromDialog", false) // Tidak dari dialog mode
+            holder.itemView.context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount(): Int = listPegawai.size
@@ -122,8 +135,8 @@ class adapter_data_pegawai(
         val tvCARD_PEGAWAI_nama: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nama)
         val tvCARD_PEGAWAI_alamat: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_alamat)
         val tvCARD_PEGAWAI_nohp: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_nohp)
-        val tvTERDAFTAR: TextView = itemView.findViewById(R.id.tvTERDAFTAR) // ← Tambahan
-        val tvCabang: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_cabang) // ← Tambahan
+        val tvTERDAFTAR: TextView = itemView.findViewById(R.id.tvTERDAFTAR)
+        val tvCabang: TextView = itemView.findViewById(R.id.tvCARD_PEGAWAI_cabang)
         val cvCARD_PEGAWAI: CardView = itemView.findViewById(R.id.cvCARD_PEGAWAI)
         val btnHubungi: Button = itemView.findViewById(R.id.btHubungiPegawai)
         val btnLihat: Button = itemView.findViewById(R.id.btLihatPegawai)

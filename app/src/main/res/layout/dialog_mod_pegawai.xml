@@ -164,35 +164,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="01 Januari 2023"
-                    android:textColor="#000000" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0" />
-
-            <!-- Registration Date Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Terdaftar"
-                    android:textColor="#000000" />
-
-                <TextView
-                    android:id="@+id/tvDIALOG_PEGAWAI_TERDAFTAR"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="01 Januari 2023"
+                    android:text="Solo"
                     android:textColor="#000000" />
             </LinearLayout>
 

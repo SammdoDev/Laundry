@@ -109,6 +109,18 @@ class adapter_data_pelanggan(
 
             alertDialog.show()
         }
+
+        holder.cvCARD_PELANGGAN.setOnClickListener {
+            val intent = Intent(holder.itemView.context, tambah_pelanggan::class.java)
+            intent.putExtra("idPelanggan", pelanggan.idPelanggan)
+            intent.putExtra("namaPelanggan", pelanggan.namaPelanggan)
+            intent.putExtra("alamatPelanggan", pelanggan.alamatPelanggan)
+            intent.putExtra("noHPPelanggan", pelanggan.noHPPelanggan)
+            intent.putExtra("terdaftar", pelanggan.terdaftar)
+            intent.putExtra("judul", "Edit Pelanggan")
+            intent.putExtra("fromDialog", false) // Tidak dari dialog mode
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = listPelanggan.size
