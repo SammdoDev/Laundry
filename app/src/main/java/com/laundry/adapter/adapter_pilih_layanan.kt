@@ -25,8 +25,7 @@ class adapter_pilih_layanan(
         val item = layananList[position]
         holder.tvID.text = nomor.toString()
         holder.tvNamaLayanan.text = item.namaLayanan
-        holder.tvHarga.text = "Alamat : ${item.harga}"
-        holder.tvCabang.text = "No HP : ${item.namaCabang}"
+        holder.tvHarga.text = "Harga : ${item.harga}"
 
         holder.cvCARD.setOnClickListener {
             onItemClick(item)

@@ -29,7 +29,7 @@ class data_transaksi : AppCompatActivity() {
     private val dataList = mutableListOf<model_transaksi>()
 
     private val pilih_Pelanggan = 1
-    private val pilihLayanan = 2
+    private val pilih_Layanan = 2
     private val pilihLayananTambahan = 3
 
     private var idPelanggan: String = ""
@@ -48,34 +48,42 @@ class data_transaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.data_transaksi)
+
         sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
         idCabang = sharedPref.getString("idCabang", null).toString()
         idPegawai = sharedPref.getString("idPegawai", null).toString()
+
         init()
         FirebaseApp.initializeApp(this)
+
         val layoutManager = LinearLayoutManager(this)
         layoutManager.reverseLayout = true
         rvLayananTambahan.layoutManager = layoutManager
         rvLayananTambahan.setHasFixedSize(true)
+
         btnPilihPelanggan.setOnClickListener {
             val intent = Intent(this, pilihPelanggan::class.java)
-            startActivityForResult(intent,pilih_Pelanggan)
+            startActivityForResult(intent, pilih_Pelanggan)
         }
+
         btnPilihLayanan.setOnClickListener {
             val intent = Intent(this, pilihLayanan::class.java)
-            startActivityForResult(intent,pilihLayanan)
+            startActivityForResult(intent, pilih_Layanan)
         }
+
         btnTambahan.setOnClickListener {
             val intent = Intent(this, pilihLayananTambahan::class.java)
-            startActivityForResult(intent,pilihLayananTambahan)
+            startActivityForResult(intent, pilihLayananTambahan)
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
     }
-    fun init() {
+
+    private fun init() {
         tvPelangganNama = findViewById(R.id.tvNamaPelanggan)
         tvPelangganNoHP = findViewById(R.id.tvPelangganNoHP)
         tvLayananNama = findViewById(R.id.tvNamaLayanan)
@@ -85,9 +93,11 @@ class data_transaksi : AppCompatActivity() {
         btnPilihLayanan = findViewById(R.id.btnPilihLayanan)
         btnTambahan = findViewById(R.id.btnTambahan)
     }
-    @Deprecated( "This method has been deprecated in favor of using the Activity Result API")
+
+    @Deprecated("This method has been deprecated in favor of using the Activity Result API")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == pilih_Pelanggan) {
             if (resultCode == RESULT_OK && data != null) {
                 idPelanggan = data.getStringExtra("idPelanggan").toString()
@@ -99,11 +109,25 @@ class data_transaksi : AppCompatActivity() {
 
                 namaPelanggan = nama.toString()
                 noHP = nomorHP.toString()
-            }
-            if (resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Batal Memilih Pelanggan", Toast.LENGTH_SHORT).show()
             }
         }
-    }
 
+        if (requestCode == pilih_Layanan) {
+            if (resultCode == RESULT_OK && data != null) {
+                idLayanan = data.getStringExtra("idLayanan").toString()
+                val tempNamaLayanan = data.getStringExtra("namaLayanan")
+                val harga = data.getStringExtra("harga")
+
+                tvLayananNama.text = "Nama Layanan : $tempNamaLayanan"
+                tvLayananHarga.text = "Harga : $harga"
+
+                namaLayanan = tempNamaLayanan.toString()
+                hargaLayanan = harga.toString()
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Batal Memilih Layanan", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }
