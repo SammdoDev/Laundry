@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.FirebaseApp
 import com.laundry.R
-import com.laundry.model_data.model_transaksi
+import com.laundry.adapter.adapter_pilih_tambahan
+import com.laundry.model_data.model_tambahan
 
 class data_transaksi : AppCompatActivity() {
     private lateinit var tvPelangganNama: TextView
@@ -26,11 +27,11 @@ class data_transaksi : AppCompatActivity() {
     private lateinit var btnPilihPelanggan: Button
     private lateinit var btnPilihLayanan: Button
     private lateinit var btnTambahan: Button
-    private val dataList = mutableListOf<model_transaksi>()
+    private val dataListTambahan = mutableListOf<model_tambahan>()
 
     private val pilih_Pelanggan = 1
     private val pilih_Layanan = 2
-    private val pilihLayananTambahan = 3
+    private val pilih_Tambahan = 3
 
     private var idPelanggan: String = ""
     private var idCabang: String = ""
@@ -73,7 +74,7 @@ class data_transaksi : AppCompatActivity() {
 
         btnTambahan.setOnClickListener {
             val intent = Intent(this, pilihLayananTambahan::class.java)
-            startActivityForResult(intent, pilihLayananTambahan)
+            startActivityForResult(intent, pilih_Tambahan)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -127,6 +128,22 @@ class data_transaksi : AppCompatActivity() {
                 hargaLayanan = harga.toString()
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Batal Memilih Layanan", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        if (requestCode == pilih_Tambahan) {
+            if (resultCode == RESULT_OK && data != null) {
+                val idTambahan = data.getStringExtra("idTambahan").toString()
+                val namaTambahan = data.getStringExtra("namaTambahan").toString()
+                val hargaTambahan = data.getStringExtra("hargaTambahan").toString()
+
+                val tambahan = model_tambahan(idTambahan, namaTambahan, hargaTambahan)
+                dataListTambahan.add(tambahan)
+
+                val adapter = adapter_pilih_tambahan(dataListTambahan)
+                rvLayananTambahan.adapter = adapter
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Batal Memilih Layanan Tambahan", Toast.LENGTH_SHORT).show()
             }
         }
     }

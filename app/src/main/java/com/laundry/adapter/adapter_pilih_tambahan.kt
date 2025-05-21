@@ -19,14 +19,12 @@ class adapter_pilih_tambahan(private val listTambahan: MutableList<model_tambaha
     private val TAG = "adapter_pilih_tambahan"
     lateinit var appContext: Context
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup, viewType: Int
-    ): com.laundry.adapter.adapter_pilih_tambahan.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.d(TAG, "onCreateViewHolder called")
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_pilih_tambahan, parent, false)
         appContext = parent.context
-        return com.laundry.adapter.adapter_pilih_tambahan.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -35,13 +33,14 @@ class adapter_pilih_tambahan(private val listTambahan: MutableList<model_tambaha
 
         holder.tvID.text = "[$nomor]"
         holder.tvNama.text = item.namaTambahan ?: "Tidak ada nama"
-        holder.tvHarga.text = "Harga: Rp ${item.hargaTambahan ?: "0"}"
+        holder.tvHarga.text = "Rp ${item.hargaTambahan ?: "0"}"
 
         holder.cvCARD.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra("idTambahan", item.idTambahan)
-            intent.putExtra("namaTambahan", item.namaTambahan)
-            intent.putExtra("hargaTambahan", item.hargaTambahan)
+            val intent = Intent().apply {
+                putExtra("idTambahan", item.idTambahan)
+                putExtra("namaTambahan", item.namaTambahan)
+                putExtra("hargaTambahan", item.hargaTambahan)
+            }
             (appContext as Activity).setResult(Activity.RESULT_OK, intent)
             (appContext as Activity).finish()
         }

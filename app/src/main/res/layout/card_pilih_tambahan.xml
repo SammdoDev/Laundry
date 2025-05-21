@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:paddingLeft="16dp"
-                android:paddingTop="5dp" />
+                android:paddingTop="3dp"/>
 
             <TextView
                 android:id="@+id/tvCARD_PILIH_TAMBAHAN_ID"
@@ -44,13 +44,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <TextView
                     android:id="@+id/tvCARD_PILIH_TAMBAHAN_NAMA"
