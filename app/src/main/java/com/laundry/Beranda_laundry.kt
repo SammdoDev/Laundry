@@ -1,5 +1,6 @@
 package com.laundry
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
@@ -13,9 +14,11 @@ import com.laundry.layanan.data_layanan
 import com.laundry.pegawai.data_pegawai
 import com.laundry.pelanggan.data_pelanggan
 import com.laundry.transaksi.data_transaksi
+import com.laundry.tambahan.data_tambahan
 
 class Beranda_laundry : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // Optional: for edge-to-edge layout
@@ -63,6 +66,12 @@ class Beranda_laundry : AppCompatActivity() {
         val transaksi: CardView = findViewById(R.id.transaksi)
         transaksi.setOnClickListener {
             val intent = Intent(this, data_transaksi::class.java)
+            startActivity(intent)
+        }
+
+        val tambahan: CardView = findViewById(R.id.tambahan)
+        tambahan.setOnClickListener {
+            val intent = Intent(this, data_tambahan::class.java)
             startActivity(intent)
         }
 

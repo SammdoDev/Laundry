@@ -58,5 +58,10 @@
     <string name="Data_pelanggan_Gagal_Diperbarui">Data pelanggan Gagal Diperbarui</string>
     <string name="validasi_noHP_pelanggan">Masukkan no hp dengan benar</string>
     <string name="tambah_pelanggan">tambah pelanggan</string>
+    <string name="tambah_tambahan">tambah tambahan</string>
+    <string name="tambah_tambahan_gagal">tambah tambahan gagal</string>
+    <string name="tambah_tambahan_sukses">tambah tambahan sukses</string>
+    <string name="validasi_nama_tambahan">nama tambahan salah</string>
+    <string name="validasi_harga_tambahan">harga tambahan salah</string>
 
 </resources>

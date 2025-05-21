@@ -58,4 +58,9 @@
     <string name="Data_pelanggan_Gagal_Diperbarui">Add customer failed</string>
     <string name="validasi_noHP_pelanggan">Input contact</string>
     <string name="tambah_pelanggan">Add customer</string>
+    <string name="tambah_tambahan">"add additional "</string>
+    <string name="tambah_tambahan_gagal">add additional failed</string>
+    <string name="tambah_tambahan_sukses">add additional succes</string>
+    <string name="validasi_nama_tambahan">wrong additional name</string>
+    <string name="validasi_harga_tambahan">wrong additional price</string>
 </resources>

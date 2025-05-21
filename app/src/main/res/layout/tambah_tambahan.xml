@@ -5,13 +5,13 @@
     android:id="@id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pegawai.tambah_pegawai">
+    tools:context=".tambahan.tambah_tambahan">
 
     <TextView
-        android:id="@+id/tvpegawaijudul"
+        android:id="@+id/tvtambahanjudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pegawai"
+        android:text="Tambah Tambahan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvpegawaijudul"
+        app:layout_constraintTop_toBottomOf="@id/tvtambahanjudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
@@ -34,10 +34,10 @@
             android:layout_margin="20dp">
 
             <TextView
-                android:id="@+id/tvnamaaddpegawai"
+                android:id="@+id/tvnamaaddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pegawai"
+                android:text="Nama tambahan"
                 android:textColor="@color/black"/>
 
             <androidx.cardview.widget.CardView
@@ -48,10 +48,10 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etpegawainama"
+                    android:id="@+id/ettambahannama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Lengkap"
+                    android:hint="Nama Tambahan"
                     android:inputType="textPersonName"
                     android:maxLength="30"/>
             </androidx.cardview.widget.CardView>
@@ -66,10 +66,10 @@
             android:layout_marginEnd="20dp">
 
             <TextView
-                android:id="@+id/tvalamataddpegawai"
+                android:id="@+id/tvalamataddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat"
+                android:text="Harga"
                 android:textColor="@color/black"/>
 
             <androidx.cardview.widget.CardView
@@ -80,79 +80,19 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etpegawaialamat"
+                    android:id="@+id/ettambahanharga"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Alamat"
-                    android:maxLength="20"/>
+                    android:hint="Harga"
+                    android:maxLength="20" />
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <TextView
-                android:id="@+id/tvNoHpaddpegawai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No Hp Aktif"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etpegawainohp"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="No Hp Aktif"
-                    android:inputType="number"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <TextView
-                android:id="@+id/tvCabangaddpegawai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cabang"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etpegawaicabang"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Cabang"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
     </RelativeLayout>
 
 
     <Button
-        android:id="@+id/btpegawaisimpan"
+        android:id="@+id/bttambahansimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Simpan"

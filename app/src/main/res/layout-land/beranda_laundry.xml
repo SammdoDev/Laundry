@@ -170,6 +170,7 @@
 
                 <!-- CardView untuk Cabang -->
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cabang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
@@ -307,6 +308,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/tambahan"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
