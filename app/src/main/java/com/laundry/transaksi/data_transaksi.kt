@@ -77,6 +77,26 @@ class data_transaksi : AppCompatActivity() {
             startActivityForResult(intent, pilih_Tambahan)
         }
 
+        val btnProcess: Button = findViewById(R.id.btn_process)
+        btnProcess.setOnClickListener {
+            if (idPelanggan.isEmpty() || idLayanan.isEmpty()) {
+                Toast.makeText(this, "Harap pilih pelanggan dan layanan terlebih dahulu", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val intent = Intent(this, KonfirmasiData::class.java).apply {
+                putExtra("namaPelanggan", namaPelanggan)
+                putExtra("noHP", noHP)
+                putExtra("namaLayanan", namaLayanan)
+                putExtra("hargaLayanan", hargaLayanan)
+                putExtra("layananTambahan", ArrayList(dataListTambahan) as java.io.Serializable)
+            }
+            startActivity(intent)
+
+            startActivity(intent)
+        }
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
