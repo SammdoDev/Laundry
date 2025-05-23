@@ -1,5 +1,6 @@
 package com.laundry.transaksi
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -8,38 +9,62 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.adapter.adapter_konfirmasi_tambahan
+import com.laundry.invoice.Invoice
 import com.laundry.model_data.model_tambahan
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.random.Random
 
 class KonfirmasiData : AppCompatActivity() {
+
+    private var namaPelanggan: String? = null
+    private var noHP: String? = null
+    private var namaLayanan: String? = null
+    private var hargaLayanan: String? = null
+    private var layananTambahan: ArrayList<model_tambahan>? = null
+    private var totalBayar: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.konfirmasi_data_transaksi)
 
-        val namaPelanggan = intent.getStringExtra("namaPelanggan")
-        val noHP = intent.getStringExtra("noHP")
-        val hargaLayanan = intent.getStringExtra("hargaLayanan")
-        val layananTambahan = intent.getSerializableExtra("layananTambahan") as? ArrayList<model_tambahan>
+        // Ambil data dari Intent
+        namaPelanggan = intent.getStringExtra("namaPelanggan")
+        noHP = intent.getStringExtra("noHP")
+        namaLayanan = intent.getStringExtra("namaLayanan")
+        hargaLayanan = intent.getStringExtra("hargaLayanan")
+        layananTambahan = intent.getSerializableExtra("layananTambahan") as? ArrayList<model_tambahan>
 
-        // Tampilkan nama dan nomor HP
-        findViewById<TextView>(R.id.tvNamaPelanggan).text = "Nama: ${namaPelanggan ?: "-"}"
-        findViewById<TextView>(R.id.tvNoHP).text = "No. HP: ${noHP ?: "-"}"
+        setupUI()
+        calculateTotal()
+        setupButtonListener()
+    }
 
-        // Setup RecyclerView (jika masih ingin tampilkan daftar tambahan)
+    private fun setupUI() {
+        // Tampilkan data layanan dan pelanggan
+        findViewById<TextView>(R.id.tvNamaLayanan).text = namaLayanan ?: "-"
+        findViewById<TextView>(R.id.tvHargaLayanan).text = hargaLayanan ?: "-"
+        findViewById<TextView>(R.id.tvNamaPelanggan).text = namaPelanggan ?: "-"
+        findViewById<TextView>(R.id.tvNoHP).text = noHP ?: "-"
+
+        // Setup RecyclerView untuk layanan tambahan
         val rvTambahan = findViewById<RecyclerView>(R.id.rvLayananTambahan)
         rvTambahan.layoutManager = LinearLayoutManager(this)
         val adapter = adapter_konfirmasi_tambahan(layananTambahan ?: emptyList())
         rvTambahan.adapter = adapter
+    }
 
-        // Hitung total bayar = harga layanan + tambahan
+    private fun calculateTotal() {
+        // Hitung total bayar
         val totalTambahan = layananTambahan?.sumOf { it.hargaTambahan.toIntOrNull() ?: 0 } ?: 0
         val hargaLayananInt = hargaLayanan?.toIntOrNull() ?: 0
-        val totalBayar = hargaLayananInt + totalTambahan
+        totalBayar = hargaLayananInt + totalTambahan
 
-        // Tampilkan total bayar saja
-        findViewById<TextView>(R.id.tvTotalBayar).text = "Total Bayar: Rp$totalBayar"
+        // Tampilkan total bayar
+        findViewById<TextView>(R.id.tvTotalBayar).text = "Total Bayar: Rp${formatRupiah(totalBayar)}"
+    }
 
-        // Konfirmasi tombol
+    private fun setupButtonListener() {
         val btnKonfirmasi = findViewById<Button>(R.id.btnKonfirmasi)
         btnKonfirmasi.setOnClickListener {
             showPaymentDialog()
@@ -50,36 +75,38 @@ class KonfirmasiData : AppCompatActivity() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_payment_method, null)
         val dialog = android.app.AlertDialog.Builder(this)
             .setView(dialogView)
+            .setCancelable(true)
             .create()
 
+        // Setup click listeners untuk setiap metode pembayaran
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_bayar_nanti).setOnClickListener {
-            // TODO: aksi Bayar Nanti
             dialog.dismiss()
+            navigateToInvoice("Bayar Nanti")
         }
 
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_tunai).setOnClickListener {
-            // TODO: aksi Bayar Tunai
             dialog.dismiss()
+            navigateToInvoice("Tunai")
         }
 
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_qris).setOnClickListener {
-            // TODO: aksi QRIS
             dialog.dismiss()
+            navigateToInvoice("QRIS")
         }
 
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_dana).setOnClickListener {
-            // TODO: aksi DANA
             dialog.dismiss()
+            navigateToInvoice("DANA")
         }
 
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_gopay).setOnClickListener {
-            // TODO: aksi GoPay
             dialog.dismiss()
+            navigateToInvoice("GoPay")
         }
 
         dialogView.findViewById<androidx.cardview.widget.CardView>(R.id.btn_ovo).setOnClickListener {
-            // TODO: aksi OVO
             dialog.dismiss()
+            navigateToInvoice("OVO")
         }
 
         dialogView.findViewById<TextView>(R.id.btn_batal).setOnClickListener {
@@ -87,5 +114,47 @@ class KonfirmasiData : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun navigateToInvoice(metodePembayaran: String) {
+        val intent = Intent(this, Invoice::class.java).apply {
+            // Data transaksi utama
+            putExtra("idTransaksi", generateTransactionId())
+            putExtra("tanggal", getCurrentDate())
+            putExtra("pelanggan", namaPelanggan)
+            putExtra("noHP", noHP)  // Tambahan nomor HP
+            putExtra("karyawan", getCurrentUser()) // Bisa diambil dari SharedPreferences atau database
+            putExtra("layanan", namaLayanan)
+            putExtra("hargaLayanan", hargaLayanan?.toIntOrNull() ?: 0)
+            putExtra("metodePembayaran", metodePembayaran)
+            putExtra("totalBayar", totalBayar)
+
+            // Data layanan tambahan
+            putExtra("tambahan", layananTambahan)
+        }
+
+        startActivity(intent)
+        finish() // Optional: tutup activity ini setelah pindah ke invoice
+    }
+
+    private fun generateTransactionId(): String {
+        val timestamp = System.currentTimeMillis()
+        val random = Random.nextInt(1000, 9999)
+        return "TRX$timestamp$random"
+    }
+
+    private fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        return dateFormat.format(Date())
+    }
+
+    private fun getCurrentUser(): String {
+        // TODO: Implementasi untuk mendapatkan nama karyawan yang sedang login
+        // Bisa dari SharedPreferences, database, atau session management
+        return "Admin" // Default sementara
+    }
+
+    private fun formatRupiah(amount: Int): String {
+        return String.format("%,d", amount).replace(',', '.')
     }
 }
