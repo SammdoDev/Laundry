@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1052855238337",
+    "firebase_url": "https://laundry-26c0c-default-rtdb.firebaseio.com",
     "project_id": "laundry-26c0c",
     "storage_bucket": "laundry-26c0c.firebasestorage.app"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.laundry"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD3FtOXmwsAYetkhZLT2dHYlbmfqxPtH_c"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -63,4 +63,20 @@
     <string name="tambah_tambahan_sukses">add additional succes</string>
     <string name="validasi_nama_tambahan">wrong additional name</string>
     <string name="validasi_harga_tambahan">wrong additional price</string>
+    <string name="default_web_client_id">1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com</string>
+    <string name="login_instruction">Please Login To Continue</string>
+    <string name="phone_label">Phone</string>
+    <string name="password_label">Password</string>
+    <string name="phone_hint">08xxxxxxxxxx</string>
+    <string name="password_hint">Input password</string>
+    <string name="login_button">Login</string>
+    <string name="google_login_button">Login dengan Google</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_text">Don\'t have an account? Register here</string>
+    <string name="register_title">Create New Account</string>
+    <string name="name_label">Name</string>
+    <string name="name_hint">Input Name</string>
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="confirm_password_hint">Input password Again</string>
+    <string name="welcome_text">Welcome</string>
 </resources>

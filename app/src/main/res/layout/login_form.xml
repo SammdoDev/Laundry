@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".login_form">
 
     <!-- Main content area with gradient background -->
@@ -12,7 +11,6 @@
         android:id="@+id/backgroundView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/main_gradient_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +114,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="32dp">
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="20dp">
 
             <!-- Phone number label -->
             <TextView
@@ -124,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Handphone"
-                android:textColor="#333333"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -157,7 +157,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Password"
-                android:textColor="#333333"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -246,7 +245,6 @@
                 android:layout_marginTop="15dp"
                 android:text="Masuk dengan Google"
                 android:textAllCaps="false"
-                android:textColor="#333333"
                 android:textSize="16sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_google"
@@ -285,7 +283,6 @@
             android:textColor="@color/green_primary"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:clickable="true"
             android:focusable="true" />
     </LinearLayout>
 

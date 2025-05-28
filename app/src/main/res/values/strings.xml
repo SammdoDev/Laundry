@@ -62,4 +62,30 @@
     <string name="tambah_tambahan_sukses">tambah tambahan sukses</string>
     <string name="validasi_nama_tambahan">nama tambahan salah</string>
     <string name="validasi_harga_tambahan">harga tambahan salah</string>
+
+
+    <!-- Google Sign In -->
+    <!-- Replace with your actual Web Client ID from Firebase Console -->
+    <string name="default_web_client_id">1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com</string>
+
+    <!-- Login Form -->
+    <string name="welcome_text">Selamat Datang</string>
+    <string name="login_instruction">Silahkan Login Untuk Melanjutkan</string>
+    <string name="phone_label">Nomor Handphone</string>
+    <string name="password_label">Password</string>
+    <string name="phone_hint">08xxxxxxxxxx</string>
+    <string name="password_hint">Masukkan password</string>
+    <string name="login_button">Masuk</string>
+    <string name="google_login_button">Masuk dengan Google</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_text">Belum punya akun? Daftar disini</string>
+
+    <!-- Register Form -->
+    <string name="register_title">Daftar Akun Baru</string>
+    <string name="name_label">Nama Lengkap</string>
+    <string name="name_hint">Masukkan nama lengkap</string>
+    <string name="confirm_password_label">Konfirmasi Password</string>
+    <string name="confirm_password_hint">Masukkan ulang password</string>
+
+    <!-- Colors -->
 </resources>
