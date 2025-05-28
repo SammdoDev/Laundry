@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
     android:id="@+id/invoice_activity">
 
     <LinearLayout
@@ -180,7 +179,7 @@
         <!-- Layanan Tambahan -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
@@ -200,11 +199,24 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/containerTambahan"
+                <!-- ScrollView dengan konfigurasi yang diperbaiki -->
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:maxHeight="200dp"
+                    android:scrollbars="vertical"
+                    android:fadeScrollbars="false"
+                    android:scrollbarStyle="outsideOverlay">
+
+                    <LinearLayout
+                        android:id="@+id/containerTambahan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingEnd="8dp" />
+
+                </ScrollView>
 
                 <View
                     android:layout_width="match_parent"

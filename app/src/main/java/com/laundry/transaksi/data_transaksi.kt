@@ -17,6 +17,7 @@ import com.google.firebase.FirebaseApp
 import com.laundry.R
 import com.laundry.adapter.adapter_pilih_tambahan
 import com.laundry.model_data.model_tambahan
+import androidx.appcompat.app.AppCompatDelegate
 
 class data_transaksi : AppCompatActivity() {
     private lateinit var tvPelangganNama: TextView
@@ -49,6 +50,7 @@ class data_transaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.data_transaksi)
+
 
         sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
         idCabang = sharedPref.getString("idCabang", null).toString()

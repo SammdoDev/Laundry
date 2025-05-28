@@ -54,8 +54,8 @@ class pilihLayanan : AppCompatActivity() {
             val intent = Intent().apply {
                 putExtra("namaLayanan", layanan.namaLayanan ?: "Tidak diketahui")
                 putExtra("harga", layanan.harga ?: "Tidak diketahui")
-                putExtra("namaCabang", layanan.namaCabang ?: "Tidak diketahui")
             }
+            setResult(RESULT_OK, intent)
             setResult(RESULT_OK, intent)
             finish()
         }

@@ -8,6 +8,8 @@
     tools:context=".login_form">
 
     <!-- Main content area with green background -->
+
+    <!-- Login header section with gradient green -->
     <View
         android:id="@+id/backgroundView"
         android:layout_width="0dp"
@@ -15,10 +17,11 @@
         android:background="#E0F6E9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Login header section with gradient green -->
     <View
         android:id="@+id/headerBackground"
         android:layout_width="0dp"
@@ -91,7 +94,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:text="No HP"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/backgroundView"
         app:layout_constraintTop_toBottomOf="@id/headerBackground" />
@@ -120,7 +122,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Password"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/backgroundView"
         app:layout_constraintTop_toBottomOf="@id/phoneInputField" />

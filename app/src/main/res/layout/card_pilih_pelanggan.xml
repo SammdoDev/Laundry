@@ -46,17 +46,9 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="15dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Pelanggan: "
-                    android:textSize="16sp" />
+
+
 
                 <TextView
                     android:id="@+id/tvCARD_PILIHPELANGGAN_nama"
@@ -65,38 +57,13 @@
                     android:text="-"
                     android:textStyle="bold"
                     android:textSize="18sp" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alamat: "
-                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tvCARD_PILIHPELANGGAN_alamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No HP: "
                     android:textSize="16sp" />
 
                 <TextView
@@ -105,7 +72,6 @@
                     android:layout_height="wrap_content"
                     android:text="-"
                     android:textSize="16sp" />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

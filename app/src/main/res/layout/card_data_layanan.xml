@@ -49,8 +49,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,25 +86,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cabang: "
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvCARD_LAYANAN_CABANG"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="16sp" />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

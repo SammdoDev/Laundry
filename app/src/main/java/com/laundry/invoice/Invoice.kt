@@ -319,36 +319,37 @@ layanan Laundry - SAMM!
         val total = subtotalTambahan + hargaLayanan
 
         val receiptText = """
-[C]================================
-[C]     LAUNDRY - SAMM
-[C]================================
+[C]===============================
+[C]       [B]LAUNDRY - SAMM
+[C]===============================
 
-[L]ID Transaksi: $idTransaksi
-[L]Tanggal: $tanggal
-[L]Pelanggan: $pelanggan
-[L]No. HP: $noHP
-[L]Karyawan: $karyawan
+[L][B]ID       : $idTransaksi  
+[L][B]TGL      : $tanggal  
+[L][B]NAMA     : $pelanggan  
+[L][B]HP       : $noHP  
+[L][B]KARYAWAN : $karyawan  
 
-[L]--------------------------------
-[L]LAYANAN UTAMA:
-[L]$layanan
-[R]${formatRupiah(hargaLayanan)}
+[L]-------------------------------
+[L][B]LAYANAN UTAMA  
+[L]$layanan  [R]${formatRupiah(hargaLayanan)}
 
-[L]LAYANAN TAMBAHAN:
-$tambahanText
-[L]--------------------------------
-[L]Subtotal Tambahan:
-[R]${formatRupiah(subtotalTambahan)}
+[L][B]LAYANAN TAMBAHAN  
+$tambahanText  
 
-[L][B]TOTAL BAYAR:
-[R][B]${formatRupiah(total)}
+[L]-------------------------------
+[L][B]SUBTOTAL TAMBAHAN  
+[L]${formatRupiah(subtotalTambahan)}
 
-[L]Metode Pembayaran: $metodePembayaran
+[L][B]TOTAL BAYAR[/B]  
+[R][B]${formatRupiah(total)}[/B]
 
-[C]================================
-[C]Terima kasih atas kepercayaan
-[C]Anda kepada Laundry SAMM!
-[C]================================
+[L][B]PEMBAYARAN: $metodePembayaran  
+
+[C]===============================  
+[C]Terima Kasih Telah Memilih  
+[C]    [B]LAUNDRY - SAMM[/B]  
+[C]===============================
+
 
 
         """.trimIndent()

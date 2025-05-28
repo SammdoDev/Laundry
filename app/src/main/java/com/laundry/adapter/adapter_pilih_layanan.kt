@@ -44,7 +44,6 @@ class adapter_pilih_layanan(
         val tvID: TextView = itemView.findViewById(R.id.tvCARD_PILIH_LAYANAN_ID)
         val tvNamaLayanan: TextView = itemView.findViewById(R.id.tvCARD_PILIH_LAYANAN_NAMA)
         val tvHarga: TextView = itemView.findViewById(R.id.tvCARD_PILIH_LAYANAN_HARGA)
-        val tvCabang: TextView = itemView.findViewById(R.id.tvCARD_PILIH_LAYANAN_CABANG)
         val cvCARD: View = itemView.findViewById(R.id.cvCARD_PILIH_LAYANAN)
     }
 }

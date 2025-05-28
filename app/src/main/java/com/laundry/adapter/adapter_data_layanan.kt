@@ -23,7 +23,6 @@ class adapter_data_layanan(
         holder.tvCARD_LAYANAN_ID.text = item.idLayanan
         holder.tvCARD_LAYANAN_NAMA.text = item.namaLayanan ?: "N/A"
         holder.tvCARD_LAYANAN_HARGA.text = item.harga ?: "N/A"
-        holder.tvCARD_LAYANAN_CABANG.text = item.namaCabang ?: "N/A"
 
         holder.cvCARD_LAYANAN.setOnClickListener {
             // Tambahkan aksi saat item diklik jika diperlukan
@@ -37,6 +36,5 @@ class adapter_data_layanan(
         val tvCARD_LAYANAN_ID = itemView.findViewById<TextView>(R.id.tvCARD_LAYANAN_ID)
         val tvCARD_LAYANAN_NAMA = itemView.findViewById<TextView>(R.id.tvCARD_LAYANAN_NAMA)
         val tvCARD_LAYANAN_HARGA = itemView.findViewById<TextView>(R.id.tvCARD_LAYANAN_HARGA)
-        val tvCARD_LAYANAN_CABANG = itemView.findViewById<TextView>(R.id.tvCARD_LAYANAN_CABANG)
     }
 }

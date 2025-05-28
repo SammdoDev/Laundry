@@ -37,8 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan"
-                android:textColor="@color/black"/>
+                android:text="Nama Layanan" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -69,8 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga"
-                android:textColor="@color/black"/>
+                android:text="Harga" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -89,35 +87,6 @@
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/noHp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cabang"
-                android:textColor="@color/black"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/etlayanancabang"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Cabang"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
     </RelativeLayout>
 
 

@@ -44,13 +44,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/tvCARD_PILIH_LAYANAN_NAMA"
@@ -61,17 +62,6 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Harga: "
-                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tvCARD_PILIH_LAYANAN_HARGA"
@@ -79,27 +69,7 @@
                     android:layout_height="wrap_content"
                     android:text="-"
                     android:textSize="16sp" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cabang: "
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvCARD_PILIH_LAYANAN_CABANG"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="16sp" />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

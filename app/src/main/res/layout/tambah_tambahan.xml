@@ -37,8 +37,7 @@
                 android:id="@+id/tvnamaaddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama tambahan"
-                android:textColor="@color/black"/>
+                android:text="Nama tambahan" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -69,8 +68,7 @@
                 android:id="@+id/tvalamataddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga"
-                android:textColor="@color/black"/>
+                android:text="Harga" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

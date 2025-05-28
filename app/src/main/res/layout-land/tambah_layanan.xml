@@ -42,8 +42,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan"
-                android:textColor="@color/black" />
+                android:text="Nama Layanan" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -74,8 +73,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Harga"
-                android:textColor="@color/black" />
+                android:text="Harga" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -94,39 +92,6 @@
                     android:maxLength="20"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:orientation="vertical"
-            android:layout_margin="8dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cabang"
-                android:textColor="@color/black" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                app:cardCornerRadius="12dp"
-                android:layout_marginTop="8dp">
-
-                <EditText
-                    android:id="@+id/etlayanancabang"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Cabang"
-                    android:layout_margin="5dp"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
 
     </GridLayout>
 

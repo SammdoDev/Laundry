@@ -15,7 +15,6 @@
         android:gravity="center"
         android:padding="16dp"
         android:text="Konfirmasi Data"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +46,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama: "
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -56,7 +53,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:textSize="16sp"/>
             </LinearLayout>
 
@@ -71,7 +67,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No HP: "
-                    android:textColor="@color/black"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -79,7 +74,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:textSize="14sp"/>
             </LinearLayout>
 
@@ -94,7 +88,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Layanan: "
-                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -103,7 +96,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:textSize="16sp"/>
             </LinearLayout>
 
@@ -118,7 +110,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Harga: "
-                    android:textColor="@color/black"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -126,7 +117,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:textSize="14sp"/>
             </LinearLayout>
 
@@ -136,7 +126,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Layanan Tambahan"
-                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"/>
@@ -166,7 +155,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Total Bayar"
-                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -175,7 +163,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp0"
-                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>

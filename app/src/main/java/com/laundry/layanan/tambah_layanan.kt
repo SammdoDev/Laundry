@@ -20,7 +20,6 @@ class tambah_layanan : AppCompatActivity() {
     private lateinit var tvJudul: TextView
     private lateinit var etlayanan: EditText
     private lateinit var etHarga: EditText
-    private lateinit var etCabang: EditText
     private lateinit var btSimpan: Button
 
     private var isProcessing = false // Pastikan variabel ini ada di luar onCreate()
@@ -52,14 +51,12 @@ class tambah_layanan : AppCompatActivity() {
         tvJudul = findViewById(R.id.tvlayananjudul)
         etlayanan = findViewById(R.id.etnamalayanan)
         etHarga = findViewById(R.id.etharga)
-        etCabang = findViewById(R.id.etlayanancabang)
         btSimpan = findViewById(R.id.btlayanansimpan)
     }
 
     private fun cekValidasi() {
         val layanan = etlayanan.text.toString().trim()
         val harga = etHarga.text.toString().trim()
-        val cabang = etCabang.text.toString().trim()
 
         if (layanan.isEmpty()) {
             etlayanan.error = getString(R.string.validasi_jenis_layanan)
@@ -73,21 +70,16 @@ class tambah_layanan : AppCompatActivity() {
             resetButton()
             return
         }
-        if (cabang.isEmpty()) {
-            etCabang.error = getString(R.string.validasi_cabang_layanan)
-            etCabang.requestFocus()
-            resetButton()
-            return
-        }
 
-        simpanData(layanan, harga, cabang)
+
+        simpanData(layanan, harga)
     }
 
-    private fun simpanData(layanan: String, harga: String, cabang: String) {
+    private fun simpanData(layanan: String, harga: String) {
         val layananBaru = myRef.push()
         val layananId = layananBaru.key ?: ""
 
-        val data = model_layanan(layananId, layanan, harga, cabang)
+        val data = model_layanan(layananId, layanan, harga)
 
         layananBaru.setValue(data)
             .addOnSuccessListener {
