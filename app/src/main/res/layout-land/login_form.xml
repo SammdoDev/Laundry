@@ -7,25 +7,14 @@
     android:background="@color/white"
     tools:context=".login_form">
 
-    <!-- Main content area with green background -->
+    <!-- Main content area -->
     <View
         android:id="@+id/backgroundView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#E0F6E9"
+        android:background="@drawable/main_gradient_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Login header section with gradient green - spans left side in landscape -->
-    <View
-        android:id="@+id/headerBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/login_header_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,132 +24,281 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.45" />
 
-    <!-- Laundry icon with washing machine -->
-    <ImageView
-        android:id="@+id/clothesIcon"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:alpha="0.3"
-        android:src="@drawable/laundry_machine"
-        app:layout_constraintBottom_toBottomOf="@id/headerBackground"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
-        android:layout_marginRight="230dp"/>
-
-    <ImageView
-        android:id="@+id/laundryIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/laundry_machine"
+    <!-- Left side - Branding section -->
+    <View
+        android:id="@+id/brandingBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/login_header_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Welcome text -->
+    <!-- Decorative background icon -->
+    <ImageView
+        android:id="@+id/decorativeIcon"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:alpha="0.1"
+        android:src="@drawable/laundry_machine"
+        app:layout_constraintBottom_toBottomOf="@id/brandingBackground"
+        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
+        app:layout_constraintStart_toStartOf="@id/brandingBackground"
+        app:layout_constraintTop_toTopOf="@id/brandingBackground" />
+
+    <!-- App logo -->
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/laundry_machine"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
+        app:layout_constraintStart_toStartOf="@id/brandingBackground"
+        app:layout_constraintTop_toTopOf="@id/brandingBackground"
+        app:layout_constraintBottom_toTopOf="@id/brandingTitle"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- App title -->
     <TextView
-        android:id="@+id/welcomeText"
+        android:id="@+id/brandingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Selamat Datang"
+        android:layout_marginTop="24dp"
+        android:text="LaundryApp"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/laundryIcon" />
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
+        app:layout_constraintStart_toStartOf="@id/brandingBackground"
+        app:layout_constraintTop_toBottomOf="@id/appLogo"
+        app:layout_constraintBottom_toTopOf="@id/brandingSubtitle" />
 
-    <!-- Login instruction text -->
+    <!-- Subtitle -->
     <TextView
-        android:id="@+id/loginInstructionText"
-        android:layout_width="wrap_content"
+        android:id="@+id/brandingSubtitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:text="Silahkan Login Untuk Melanjutkan"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Solusi terbaik untuk kebutuhan laundry Anda dengan layanan berkualitas dan terpercaya"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcomeText" />
+        android:alpha="0.9"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
+        app:layout_constraintStart_toStartOf="@id/brandingBackground"
+        app:layout_constraintTop_toBottomOf="@id/brandingTitle"
+        app:layout_constraintBottom_toBottomOf="@id/brandingBackground" />
 
-    <!-- Phone number label -->
-    <TextView
-        android:id="@+id/phoneLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="No HP"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Phone number input field -->
-    <EditText
-        android:id="@+id/phoneInputField"
+    <!-- Right side - Login form -->
+    <ScrollView
+        android:id="@+id/loginScrollView"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/edittext_border"
-        android:hint="No HP"
-        android:inputType="phone"
-        android:paddingHorizontal="16dp"
-        android:textColorHint="#9E9E9E"
+        android:layout_height="0dp"
+        android:padding="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/phoneLabel" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Password label -->
-    <TextView
-        android:id="@+id/passwordLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Password"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/phoneInputField" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
 
-    <!-- Password input field -->
-    <EditText
-        android:id="@+id/passwordInputField"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/edittext_border"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingHorizontal="16dp"
-        android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/passwordLabel" />
+            <!-- Welcome text -->
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang"
+                android:textColor="#333333"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-    <!-- Login button -->
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/green_button_background"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/passwordInputField" />
+            <!-- Login instruction -->
+            <TextView
+                android:id="@+id/loginInstructionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Silahkan Login Untuk Melanjutkan"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
+            <!-- Phone number label -->
+            <TextView
+                android:id="@+id/phoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Nomor Handphone"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Phone number input field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/green_primary"
+                app:startIconDrawable="@drawable/ic_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneInputField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="08xxxxxxxxxx"
+                    android:inputType="phone"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Password label -->
+            <TextView
+                android:id="@+id/passwordLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Password"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Password input field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/green_primary"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInputField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan password"
+                    android:inputType="textPassword"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Forgot password link -->
+            <TextView
+                android:id="@+id/forgotPasswordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?" />
+
+
+            <!-- Login button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:text="Masuk"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/green_primary"
+                app:cornerRadius="12dp"
+                app:elevation="4dp" />
+
+            <!-- Divider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#E0E0E0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="atau"
+                    android:textColor="#757575"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#E0E0E0" />
+            </LinearLayout>
+
+            <!-- Google login button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/googleLoginButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="Masuk dengan Google"
+                android:textAllCaps="false"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_google"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp" />
+
+            <!-- Register link -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum punya akun? "
+                    android:textColor="#757575"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/registerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar disini"
+                    android:textColor="@color/green_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

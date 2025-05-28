@@ -310,7 +310,7 @@ layanan Laundry - SAMM!
             tambahan.joinToString("\n") { item ->
                 val harga = item.hargaTambahan.toIntOrNull() ?: 0
                 subtotalTambahan += harga
-                "  ${item.namaTambahan}\n  ${formatRupiah(harga)}"
+                "  ${item.namaTambahan} -  ${formatRupiah(harga)}"
             }
         } else {
             "  Tidak ada layanan tambahan"
@@ -319,38 +319,22 @@ layanan Laundry - SAMM!
         val total = subtotalTambahan + hargaLayanan
 
         val receiptText = """
-[C]===============================
-[C]       [B]LAUNDRY - SAMM
-[C]===============================
-
-[L][B]ID       : $idTransaksi  
-[L][B]TGL      : $tanggal  
-[L][B]NAMA     : $pelanggan  
-[L][B]HP       : $noHP  
-[L][B]KARYAWAN : $karyawan  
-
+[C]===LAUNDRY - SAMM===
+[L]ID: $idTransaksi
+[L]TGL: $tanggal
+[L]NAMA: $pelanggan
+[L]HP: $noHP
+[L]KARYAWAN: $karyawan
+[L]----------- LAYANAN -----------
+[L]$layanan - ${formatRupiah(hargaLayanan)}
 [L]-------------------------------
-[L][B]LAYANAN UTAMA  
-[L]$layanan  [R]${formatRupiah(hargaLayanan)}
-
-[L][B]LAYANAN TAMBAHAN  
-$tambahanText  
-
+${if (tambahanText.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
 [L]-------------------------------
-[L][B]SUBTOTAL TAMBAHAN  
-[L]${formatRupiah(subtotalTambahan)}
-
-[L][B]TOTAL BAYAR[/B]  
-[R][B]${formatRupiah(total)}[/B]
-
-[L][B]PEMBAYARAN: $metodePembayaran  
-
-[C]===============================  
-[C]Terima Kasih Telah Memilih  
-[C]    [B]LAUNDRY - SAMM[/B]  
-[C]===============================
-
-
+[L]Subt. Tambahan: ${formatRupiah(subtotalTambahan)}
+[L]TOTAL: ${formatRupiah(total)}
+[L]Bayar: $metodePembayaran
+[C]========== TERIMA KASIH ==========
+[C]LAUNDRY - SAMM
 
         """.trimIndent()
 
