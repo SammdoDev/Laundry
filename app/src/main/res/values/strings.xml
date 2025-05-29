@@ -87,5 +87,6 @@
     <string name="confirm_password_label">Konfirmasi Password</string>
     <string name="confirm_password_hint">Masukkan ulang password</string>
 
+
     <!-- Colors -->
 </resources>

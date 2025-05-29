@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layanan.tambah_layanan">
+    tools:context=".tambahan.tambah_tambahan">
 
     <TextView
-        android:id="@+id/tvlayananjudul"
+        android:id="@+id/tvtambahanjudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Layanan"
+        android:text="Tambah Tambahan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,21 +23,21 @@
         android:id="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvlayananjudul"
+        app:layout_constraintTop_toBottomOf="@id/tvtambahanjudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
 
         <RelativeLayout
-            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
 
             <TextView
+                android:id="@+id/tvnamaaddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan" />
+                android:text="Nama tambahan" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -47,10 +47,11 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etnamalayanan"
+                    android:id="@+id/ettambahannama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Layanan"
+                    android:hint="Nama Tambahan"
+                    android:inputType="textPersonName"
                     android:maxLength="30"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
@@ -58,14 +59,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/tvalamataddtambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Harga" />
@@ -78,12 +79,11 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etharga"
+                    android:id="@+id/ettambahanharga"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Harga"
-                    android:inputType="number"
-                    android:maxLength="20"
+                    android:maxLength="20" 
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
@@ -92,7 +92,7 @@
 
 
     <Button
-        android:id="@+id/btlayanansimpan"
+        android:id="@+id/bttambahansimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Simpan"

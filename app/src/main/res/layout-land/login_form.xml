@@ -1,297 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".login_form">
 
-    <!-- Main content area -->
-    <View
-        android:id="@+id/backgroundView"
+    <!-- Left Side - Logo and Welcome Section -->
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Guideline for splitting screen -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45" />
-
-    <!-- Left side - Branding section -->
-    <View
-        android:id="@+id/brandingBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/login_header_gradient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Decorative background icon -->
-    <ImageView
-        android:id="@+id/decorativeIcon"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:alpha="0.1"
-        android:src="@drawable/laundry_machine"
-        app:layout_constraintBottom_toBottomOf="@id/brandingBackground"
-        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
-        app:layout_constraintStart_toStartOf="@id/brandingBackground"
-        app:layout_constraintTop_toTopOf="@id/brandingBackground" />
-
-    <!-- App logo -->
-    <ImageView
-        android:id="@+id/appLogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/laundry_machine"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
-        app:layout_constraintStart_toStartOf="@id/brandingBackground"
-        app:layout_constraintTop_toTopOf="@id/brandingBackground"
-        app:layout_constraintBottom_toTopOf="@id/brandingTitle"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <!-- App title -->
-    <TextView
-        android:id="@+id/brandingTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="LaundryApp"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
-        app:layout_constraintStart_toStartOf="@id/brandingBackground"
-        app:layout_constraintTop_toBottomOf="@id/appLogo"
-        app:layout_constraintBottom_toTopOf="@id/brandingSubtitle" />
-
-    <!-- Subtitle -->
-    <TextView
-        android:id="@+id/brandingSubtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Solusi terbaik untuk kebutuhan laundry Anda dengan layanan berkualitas dan terpercaya"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:alpha="0.9"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="@id/brandingBackground"
-        app:layout_constraintStart_toStartOf="@id/brandingBackground"
-        app:layout_constraintTop_toBottomOf="@id/brandingTitle"
-        app:layout_constraintBottom_toBottomOf="@id/brandingBackground" />
-
-    <!-- Right side - Login form -->
-    <ScrollView
-        android:id="@+id/loginScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:gravity="center"
         android:padding="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@drawable/login_header_gradient">
+
+
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/laundry_machine"
+            android:contentDescription="Logo LaundryApp"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LaundryApp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:elevation="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Welcome Text -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang Kembali"
+            android:textSize="18sp"
+            android:alpha="0.9"
+            android:elevation="4dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solusi laundry terpercaya untuk Anda"
+            android:textSize="14sp"
+            android:alpha="0.8"
+            android:elevation="4dp"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <!-- Right Side - Login Form -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center"
+            android:padding="32dp">
 
-            <!-- Welcome text -->
+            <!-- Form Title -->
             <TextView
-                android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Selamat Datang"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+                android:text="Masuk ke Akun Anda"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp" />
 
-            <!-- Login instruction -->
-            <TextView
-                android:id="@+id/loginInstructionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Silahkan Login Untuk Melanjutkan"
-                android:textSize="16sp" />
-
-            <!-- Phone number label -->
-            <TextView
-                android:id="@+id/phoneLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Nomor Handphone"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!-- Phone number input field -->
+            <!-- Phone Number Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:boxBackgroundMode="outline"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/green_primary"
-                app:startIconDrawable="@drawable/ic_phone">
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconDrawable="@drawable/ic_phone"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneInputField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="08xxxxxxxxxx"
+                    android:minHeight="48dp"
+                    android:hint="Nomor Handphone (08xxxxxxxxx)"
                     android:inputType="phone"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:padding="16dp" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Password label -->
-            <TextView
-                android:id="@+id/passwordLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Password"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!-- Password input field -->
+            <!-- Password Input -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:boxBackgroundMode="outline"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxStrokeColor="@color/green_primary"
+                android:layout_marginBottom="8dp"
+                android:minHeight="48dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconDrawable="@drawable/ic_lock"
                 app:endIconMode="password_toggle"
-                app:startIconDrawable="@drawable/ic_lock">
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInputField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Masukkan password"
+                    android:minHeight="48dp"
+                    android:hint="Password"
                     android:inputType="textPassword"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:padding="16dp" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Forgot password link -->
+            <!-- Forgot Password Link -->
             <TextView
                 android:id="@+id/forgotPasswordText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?" />
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:layout_gravity="end"
+                android:text="Lupa Password?"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:gravity="center" />
 
-
-            <!-- Login button -->
+            <!-- Login Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
                 android:text="Masuk"
-                android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/green_primary"
-                app:cornerRadius="12dp"
-                app:elevation="4dp" />
+                app:backgroundTint="@android:color/holo_green_dark"
+                app:cornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Button" />
 
-            <!-- Divider -->
+            <!-- OR Divider -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginBottom="16dp">
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="#E0E0E0" />
+                    android:background="#E0E0E0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
                     android:text="atau"
-                    android:textColor="#757575"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:paddingHorizontal="16dp" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="#E0E0E0" />
+                    android:background="#E0E0E0"/>
+
             </LinearLayout>
 
-            <!-- Google login button -->
+            <!-- Google Sign-In Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/googleLoginButton"
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@android:color/white"
                 android:text="Masuk dengan Google"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                app:cornerRadius="12dp"
+                android:textColor="@color/black"
+                app:cornerRadius="8dp"
                 app:icon="@drawable/ic_google"
-                app:iconGravity="textStart"
                 app:iconPadding="12dp"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp" />
+                app:iconTint="@null"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/light_gray" />
 
-            <!-- Register link -->
+            <!-- Register Link -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Belum punya akun? "
-                    android:textColor="#757575"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/registerText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:text="Daftar disini"
-                    android:textColor="@color/green_primary"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@android:color/holo_green_dark"
                     android:clickable="true"
-                    android:focusable="true" />
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:gravity="center" />
+
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

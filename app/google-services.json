@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1052855238337-ntalocfveu6kdcdkrggg7a8ofes3urc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.laundry",
+            "certificate_hash": "b38b0c9a3f78a2786241d9ced967cbd4a46a364d"
+          }
+        },
+        {
           "client_id": "1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com",
           "client_type": 3
         }

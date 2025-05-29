@@ -20,8 +20,13 @@ import com.laundry.pelanggan.data_pelanggan
 import com.laundry.transaksi.data_transaksi
 import com.laundry.tambahan.data_tambahan
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class Beranda_laundry : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,30 +34,20 @@ class Beranda_laundry : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.beranda_laundry)
 
+        // Initialize Firebase Auth
+        auth = Firebase.auth
+
         // Set default night mode to follow system
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
         // Apply theme colors based on current mode
         applyThemeColors()
 
-        // Initialize TextView for greeting
-        val headline = findViewById<TextView>(R.id.headline)
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-
-        // Determine greeting based on the time of day
-        val greeting = when (hour) {
-            in 0..11 -> "Selamat Pagi, Samuel"
-            in 12..17 -> "Selamat Siang, Samuel"
-            else -> "Selamat Malam, Samuel"
-        }
-        headline.text = greeting
+        // Initialize greeting with user name
+        setupGreeting()
 
         // Display current date
-        val timeTextView = findViewById<TextView>(R.id.time)
-        val sdf = java.text.SimpleDateFormat("dd MMMM yyyy", java.util.Locale.getDefault())
-        val currentDate = sdf.format(calendar.time)
-        timeTextView.text = currentDate
+        setupCurrentDate()
 
         // Handle click events
         setupClickListeners()
@@ -64,6 +59,49 @@ class Beranda_laundry : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun setupGreeting() {
+        val headline = findViewById<TextView>(R.id.headline)
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+
+        // Get current user
+        val currentUser = auth.currentUser
+        val userName = when {
+            currentUser?.displayName?.isNotEmpty() == true -> {
+                // Use display name if available
+                currentUser.displayName!!
+            }
+            currentUser?.email?.isNotEmpty() == true -> {
+                // Extract name from email (remove @laundryapp.com part and phone format)
+                val email = currentUser.email!!
+                if (email.contains("@laundryapp.com")) {
+                    // This is a phone-based registration, use "Pengguna" as default
+                    "Pengguna"
+                } else {
+                    // Extract name from regular email
+                    email.substringBefore("@").replaceFirstChar { it.uppercase() }
+                }
+            }
+            else -> "Pengguna" // Default fallback
+        }
+
+        // Determine greeting based on the time of day
+        val greeting = when (hour) {
+            in 0..11 -> "Selamat Pagi, $userName"
+            in 12..17 -> "Selamat Siang, $userName"
+            else -> "Selamat Malam, $userName"
+        }
+        headline.text = greeting
+    }
+
+    private fun setupCurrentDate() {
+        val timeTextView = findViewById<TextView>(R.id.time)
+        val calendar = Calendar.getInstance()
+        val sdf = java.text.SimpleDateFormat("dd MMMM yyyy", java.util.Locale.getDefault())
+        val currentDate = sdf.format(calendar.time)
+        timeTextView.text = currentDate
     }
 
     private fun applyThemeColors() {
@@ -94,7 +132,6 @@ class Beranda_laundry : AppCompatActivity() {
             card.cardElevation = 6f
         }
     }
-
 
     private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, isDarkMode: Boolean) {
         val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan)
@@ -155,11 +192,23 @@ class Beranda_laundry : AppCompatActivity() {
             val intent = Intent(this, data_tambahan::class.java)
             startActivity(intent)
         }
+
+        val akun: CardView = findViewById(R.id.akun)
+        akun.setOnClickListener {
+            val intent = Intent(this, Account::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         // Reapply theme colors when configuration changes (like switching between dark/light mode)
         applyThemeColors()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Refresh greeting when activity resumes (in case user profile was updated)
+        setupGreeting()
     }
 }

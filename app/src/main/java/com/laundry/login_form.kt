@@ -1,3 +1,4 @@
+// Updated login_form.kt with Google Sign-In for both login and registration
 package com.laundry
 
 import android.content.Intent
@@ -17,6 +18,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -142,7 +144,6 @@ class login_form : AppCompatActivity() {
                 showLoading(false)
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    val user = auth.currentUser
                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                     navigateToMainActivity()
                 } else {
@@ -165,7 +166,7 @@ class login_form : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
+                firebaseAuthWithGoogle(account.idToken!!, account)
             } catch (e: ApiException) {
                 Log.w(TAG, "Google sign in failed", e)
                 Toast.makeText(this, "Google Sign In gagal", Toast.LENGTH_SHORT).show()
@@ -173,7 +174,7 @@ class login_form : AppCompatActivity() {
         }
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String) {
+    private fun firebaseAuthWithGoogle(idToken: String, account: GoogleSignInAccount) {
         showLoading(true)
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -182,8 +183,27 @@ class login_form : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    Toast.makeText(this, "Login dengan Google berhasil", Toast.LENGTH_SHORT).show()
-                    navigateToMainActivity()
+                    val isNewUser = task.result?.additionalUserInfo?.isNewUser ?: false
+
+                    if (isNewUser) {
+                        // This is a new user, update profile with Google account info
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(account.displayName)
+                            .setPhotoUri(account.photoUrl)
+                            .build()
+
+                        user?.updateProfile(profileUpdates)
+                            ?.addOnCompleteListener { profileTask ->
+                                if (profileTask.isSuccessful) {
+                                    Log.d(TAG, "User profile updated with Google info")
+                                }
+                                Toast.makeText(this, "Akun baru dibuat dengan Google", Toast.LENGTH_SHORT).show()
+                                navigateToMainActivity()
+                            }
+                    } else {
+                        Toast.makeText(this, "Login dengan Google berhasil", Toast.LENGTH_SHORT).show()
+                        navigateToMainActivity()
+                    }
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()

@@ -64,7 +64,8 @@
                     android:layout_height="50dp"
                     android:hint="Nama Lengkap"
                     android:inputType="textPersonName"
-                    android:maxLength="30"/>
+                    android:maxLength="30"
+                    android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Address Field -->
@@ -86,7 +87,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Alamat"
-                    android:maxLength="20"/>
+                    android:maxLength="20"
+                    android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
@@ -123,7 +125,8 @@
                     android:layout_height="50dp"
                     android:hint="No Hp Aktif"
                     android:inputType="number"
-                    android:maxLength="20"/>
+                    android:maxLength="20"
+                    android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Branch Field -->
@@ -145,7 +148,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Cabang"
-                    android:maxLength="20"/>
+                    android:maxLength="20"
+                    android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

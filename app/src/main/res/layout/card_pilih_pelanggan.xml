@@ -46,10 +46,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-
-
-
-
                 <TextView
                     android:id="@+id/tvCARD_PILIHPELANGGAN_nama"
                     android:layout_width="match_parent"

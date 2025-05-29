@@ -236,6 +236,7 @@
             android:layout_marginTop="5dp">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/akun"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"

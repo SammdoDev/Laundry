@@ -38,10 +38,13 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
 }
 
 dependencies {
-    // Existing dependencies from libs
+    // Core Android dependencies using version catalog
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -54,7 +57,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.cardview)
+
+    // Firebase dependencies using version catalog
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.auth)
+
+    // Additional dependencies with explicit versions
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
 
     // Test dependencies
     testImplementation(libs.junit)
@@ -64,16 +77,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    // Firebase BOM
-    implementation(platform(libs.firebase.bom))
-
-    // Firebase Authentication
-    implementation(libs.firebase.auth.ktx)
-
-    // Google Sign In
-    implementation(libs.play.services.auth)
-
-    // CardView for login form
-    implementation(libs.androidx.cardview)
 }
