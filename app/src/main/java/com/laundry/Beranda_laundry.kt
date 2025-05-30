@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.laundry.cabang.data_cabang
 
 class Beranda_laundry : AppCompatActivity() {
 
@@ -114,19 +115,21 @@ class Beranda_laundry : AppCompatActivity() {
         val transaksiCard = findViewById<CardView>(R.id.transaksi)
         val tambahanCard = findViewById<CardView>(R.id.tambahan)
         val accountCard = findViewById<CardView>(R.id.akun)
+        val cabangCard = findViewById<CardView>(R.id.cabang)
 
         mainLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.background))
         headline.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
         timeTextView.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
 
-        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard, accountCard)
+        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard, accountCard, cabangCard)
         val cardColors = listOf(
             R.color.card_1,
             R.color.card_2,
             R.color.card_3,
             R.color.card_4,
             R.color.card_5,
-            R.color.card_6
+            R.color.card_6,
+            R.color.card_7
         )
 
         cards.forEachIndexed { index, card ->
@@ -135,25 +138,28 @@ class Beranda_laundry : AppCompatActivity() {
         }
     }
 
-    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, account: CardView, isDarkMode: Boolean) {
-        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan, account)
+    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, account: CardView, cabang: CardView, isDarkMode: Boolean) {
+        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan, account, cabang)
         val accentColors = if (isDarkMode) {
             arrayOf(
-                "#FF6B6B", // Red
-                "#4ECDC4", // Teal
-                "#45B7D1", // Blue
-                "#96CEB4", // Green
+                "#FF6B6B",
+                "#4ECDC4",
+                "#45B7D1",
+                "#96CEB4",
                 "#FFEAA7",
-                "#0065F8"
+                "#0065F8",
+                "#FF9F00"
             )
         } else {
             arrayOf(
-                "#E74C3C", // Red
-                "#1ABC9C", // Teal
-                "#3498DB", // Blue
-                "#2ECC71", // Green
+                "#E74C3C",
+                "#1ABC9C",
+                "#3498DB",
+                "#2ECC71",
                 "#F39C12",
-                "#0065F8"
+                "#0065F8",
+                "#FF9F00"
+
             )
         }
 
@@ -200,6 +206,12 @@ class Beranda_laundry : AppCompatActivity() {
         val akun: CardView = findViewById(R.id.akun)
         akun.setOnClickListener {
             val intent = Intent(this, Account::class.java)
+            startActivity(intent)
+        }
+
+        val cabang: CardView = findViewById(R.id.cabang)
+        cabang.setOnClickListener {
+            val intent = Intent(this, data_cabang::class.java)
             startActivity(intent)
         }
     }

@@ -79,5 +79,9 @@
     <string name="name_hint">Masukkan nama lengkap</string>
     <string name="confirm_password_label">Konfirmasi Password</string>
     <string name="confirm_password_hint">Masukkan ulang password</string>
+    <string name="validasi_nama_cabang">Nama cabang Belum di isi</string>
+    <string name="validasi_alamat">Alamat cabang Belum di isi</string>
+    <string name="validasi_NoHP">No Telepon cabang Belum di isi</string>
+    <string name="tambah_cabang_sukses">tambah cabang sukses</string>
 
 </resources>

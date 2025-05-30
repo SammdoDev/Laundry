@@ -79,4 +79,8 @@
     <string name="confirm_password_label">Confirm Password</string>
     <string name="confirm_password_hint">Input password Again</string>
     <string name="welcome_text">Welcome</string>
+    <string name="validasi_nama_cabang">Branch name not yet filled</string>
+    <string name="validasi_alamat">Branch address Not yet filled in</string>
+    <string name="validasi_NoHP">Branch telephone number not yet filled in</string>
+    <string name="tambah_cabang_sukses">add branch success</string>
 </resources>

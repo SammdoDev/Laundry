@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layanan.tambah_layanan">
+    tools:context=".cabang.data_cabang">
 
     <TextView
-        android:id="@+id/tvlayananjudul"
+        android:id="@+id/tvcabangjudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Layanan"
+        android:text="Tambah Cabang"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvlayananjudul"
+        app:layout_constraintTop_toBottomOf="@id/tvcabangjudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan" />
+                android:text="Nama Cabang" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -47,10 +47,10 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etnamalayanan"
+                    android:id="@+id/etnamacabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Layanan"
+                    android:hint="Nama Cabang"
                     android:maxLength="30"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
@@ -58,7 +58,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/harga"
+            android:id="@+id/alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="110dp"
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga" />
+                android:text="Alamat" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -78,10 +78,42 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/etharga"
+                    android:id="@+id/etalamat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Harga"
+                    android:hint="Alamat"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:layout_margin="5dp"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/noHP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Telepon" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="50dp"
+                app:cardCornerRadius="12px"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/etNoTelepon"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="No Telepon"
                     android:inputType="number"
                     android:maxLength="20"
                     android:layout_margin="5dp"/>
@@ -92,7 +124,7 @@
 
 
     <Button
-        android:id="@+id/btlayanansimpan"
+        android:id="@+id/btcabangsimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Simpan"

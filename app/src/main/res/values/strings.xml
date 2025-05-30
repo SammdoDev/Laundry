@@ -62,6 +62,10 @@
     <string name="tambah_tambahan_sukses">tambah tambahan sukses</string>
     <string name="validasi_nama_tambahan">nama tambahan salah</string>
     <string name="validasi_harga_tambahan">harga tambahan salah</string>
+    <string name="validasi_nama_cabang">Nama cabang Belum di isi</string>
+    <string name="validasi_alamat">Alamat cabang Belum di isi</string>
+    <string name="validasi_NoHP">No Telepon cabang Belum di isi</string>
+    <string name="tambah_cabang_sukses">tambah cabang sukses</string>
 
 
     <!-- Google Sign In -->
