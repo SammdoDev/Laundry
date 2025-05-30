@@ -113,18 +113,20 @@ class Beranda_laundry : AppCompatActivity() {
         val layananCard = findViewById<CardView>(R.id.layanan)
         val transaksiCard = findViewById<CardView>(R.id.transaksi)
         val tambahanCard = findViewById<CardView>(R.id.tambahan)
+        val accountCard = findViewById<CardView>(R.id.akun)
 
         mainLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.background))
         headline.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
         timeTextView.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
 
-        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard)
+        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard, accountCard)
         val cardColors = listOf(
             R.color.card_1,
             R.color.card_2,
             R.color.card_3,
             R.color.card_4,
-            R.color.card_5
+            R.color.card_5,
+            R.color.card_6
         )
 
         cards.forEachIndexed { index, card ->
@@ -133,15 +135,16 @@ class Beranda_laundry : AppCompatActivity() {
         }
     }
 
-    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, isDarkMode: Boolean) {
-        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan)
+    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, account: CardView, isDarkMode: Boolean) {
+        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan, account)
         val accentColors = if (isDarkMode) {
             arrayOf(
                 "#FF6B6B", // Red
                 "#4ECDC4", // Teal
                 "#45B7D1", // Blue
                 "#96CEB4", // Green
-                "#FFEAA7"  // Yellow
+                "#FFEAA7",
+                "#0065F8"
             )
         } else {
             arrayOf(
@@ -149,7 +152,8 @@ class Beranda_laundry : AppCompatActivity() {
                 "#1ABC9C", // Teal
                 "#3498DB", // Blue
                 "#2ECC71", // Green
-                "#F39C12"  // Orange
+                "#F39C12",
+                "#0065F8"
             )
         }
 
