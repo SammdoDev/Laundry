@@ -23,7 +23,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LaundryApp"
+        android:text="Samm Laundry"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@android:color/holo_green_dark"
@@ -34,7 +34,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Masuk ke Akun Anda"
+        android:text="@string/login_title"
         android:textSize="18sp"
         android:layout_marginBottom="32dp" />
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:hint="Nomor Handphone (08xxxxxxxxx)"
+            android:hint="@string/login_phone"
             android:inputType="phone"
             android:textSize="16sp"
             android:maxLines="1"
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:hint="Password"
+            android:hint="@string/Password"
             android:inputType="textPassword"
             android:textSize="16sp"
             android:maxLines="1"
@@ -103,7 +103,7 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:layout_gravity="end"
-        android:text="Lupa Password?"
+        android:text="@string/forgot_password"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -119,7 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        android:text="Masuk"
+        android:text="@string/Enter"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="@android:color/holo_green_dark"
@@ -143,7 +143,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="atau"
+            android:text="@string/Divider"
             android:textSize="14sp"
             android:paddingHorizontal="16dp" />
 
@@ -162,7 +162,7 @@
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/white"
-        android:text="Masuk dengan Google"
+        android:text="@string/Login_Google"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textColor="@color/black"
@@ -186,7 +186,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Belum punya akun? "
+            android:text="@string/Dont_have_account"
             android:textSize="14sp" />
 
         <TextView
@@ -195,7 +195,7 @@
             android:layout_height="wrap_content"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:text="Daftar disini"
+            android:text="@string/Register_Here"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@android:color/holo_green_dark"
