@@ -99,11 +99,20 @@ class pilihLayananTambahan : AppCompatActivity() {
         if (filteredList.isEmpty()) {
             tvKosong.visibility = View.VISIBLE
             tvKosong.text = "Tidak ada tambahan yang cocok"
+            rvPilihLayananTambahan.visibility = View.GONE
         } else {
             tvKosong.visibility = View.GONE
+            rvPilihLayananTambahan.visibility = View.VISIBLE
         }
 
-        adapter = adapter_pilih_tambahan(filteredList)
+        // Adapter untuk pilihLayananTambahan tanpa tombol hapus dan bisa diklik untuk seleksi
+        adapter = adapter_pilih_tambahan(
+            listTambahan = filteredList,
+            onDeleteClick = null, // Tidak ada fungsi hapus
+            showDeleteButton = false, // Sembunyikan tombol hapus
+            isSelectable = true // Bisa diklik untuk seleksi
+        )
+
         rvPilihLayananTambahan.adapter = adapter
     }
 
@@ -142,6 +151,7 @@ class pilihLayananTambahan : AppCompatActivity() {
                     Log.d(TAG, "No data found")
                     tvKosong.visibility = View.VISIBLE
                     tvKosong.text = "Data layanan tambahan tidak ditemukan"
+                    rvPilihLayananTambahan.visibility = View.GONE
                 }
             }
 
@@ -149,6 +159,7 @@ class pilihLayananTambahan : AppCompatActivity() {
                 Log.e(TAG, "Database error: ${error.message}")
                 tvKosong.visibility = View.VISIBLE
                 tvKosong.text = "Error: ${error.message}"
+                rvPilihLayananTambahan.visibility = View.GONE
                 Toast.makeText(this@pilihLayananTambahan, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })

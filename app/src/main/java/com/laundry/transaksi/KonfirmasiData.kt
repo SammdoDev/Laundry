@@ -21,6 +21,9 @@ class KonfirmasiData : AppCompatActivity() {
     private var noHP: String? = null
     private var namaLayanan: String? = null
     private var hargaLayanan: String? = null
+    private var jumlahLayanan: Int = 1
+    private var hargaLayananInt: Int = 0
+    private var totalHargaLayanan: Int = 0
     private var layananTambahan: ArrayList<model_tambahan>? = null
     private var totalBayar: Int = 0
 
@@ -33,6 +36,9 @@ class KonfirmasiData : AppCompatActivity() {
         noHP = intent.getStringExtra("noHP")
         namaLayanan = intent.getStringExtra("namaLayanan")
         hargaLayanan = intent.getStringExtra("hargaLayanan")
+        jumlahLayanan = intent.getIntExtra("jumlahLayanan", 1)
+        hargaLayananInt = intent.getIntExtra("hargaLayananInt", 0)
+        totalHargaLayanan = intent.getIntExtra("totalHargaLayanan", 0)
         layananTambahan = intent.getSerializableExtra("layananTambahan") as? ArrayList<model_tambahan>
 
         setupUI()
@@ -43,7 +49,8 @@ class KonfirmasiData : AppCompatActivity() {
     private fun setupUI() {
         // Tampilkan data layanan dan pelanggan
         findViewById<TextView>(R.id.tvNamaLayanan).text = namaLayanan ?: "-"
-        findViewById<TextView>(R.id.tvHargaLayanan).text = hargaLayanan ?: "-"
+        findViewById<TextView>(R.id.tvHargaLayanan).text = "${hargaLayanan ?: "-"} x ${jumlahLayanan}"
+        findViewById<TextView>(R.id.tvTotalHargaLayanan).text = "Rp${formatRupiah(totalHargaLayanan)}"
         findViewById<TextView>(R.id.tvNamaPelanggan).text = namaPelanggan ?: "-"
         findViewById<TextView>(R.id.tvNoHP).text = noHP ?: "-"
 
@@ -56,18 +63,25 @@ class KonfirmasiData : AppCompatActivity() {
 
     private fun calculateTotal() {
         // Hitung total bayar
-        val totalTambahan = layananTambahan?.sumOf { it.hargaTambahan.toIntOrNull() ?: 0 } ?: 0
-        val hargaLayananInt = hargaLayanan?.toIntOrNull() ?: 0
-        totalBayar = hargaLayananInt + totalTambahan
+        val totalTambahan = layananTambahan?.sumOf {
+            it.hargaTambahan.replace("[^0-9]".toRegex(), "").toIntOrNull() ?: 0
+        } ?: 0
+
+        totalBayar = totalHargaLayanan + totalTambahan
 
         // Tampilkan total bayar
-        findViewById<TextView>(R.id.tvTotalBayar).text = "Total Bayar: Rp${formatRupiah(totalBayar)}"
+        findViewById<TextView>(R.id.tvTotalBayar).text = "Rp${formatRupiah(totalBayar)}"
     }
 
     private fun setupButtonListener() {
         val btnKonfirmasi = findViewById<Button>(R.id.btnKonfirmasi)
         btnKonfirmasi.setOnClickListener {
             showPaymentDialog()
+        }
+
+        val btnBatal = findViewById<Button>(R.id.btnBatal)
+        btnBatal.setOnClickListener {
+            finish() // Kembali ke activity sebelumnya
         }
     }
 
@@ -122,19 +136,32 @@ class KonfirmasiData : AppCompatActivity() {
             putExtra("idTransaksi", generateTransactionId())
             putExtra("tanggal", getCurrentDate())
             putExtra("pelanggan", namaPelanggan)
-            putExtra("noHP", noHP)  // Tambahan nomor HP
-            putExtra("karyawan", getCurrentUser()) // Bisa diambil dari SharedPreferences atau database
+            putExtra("noHP", noHP)
+            putExtra("karyawan", getCurrentUser())
+
+            // Data layanan lengkap
             putExtra("layanan", namaLayanan)
-            putExtra("hargaLayanan", hargaLayanan?.toIntOrNull() ?: 0)
+            putExtra("hargaLayanan", hargaLayananInt)
+            putExtra("hargaLayananString", hargaLayanan) // Tambahan untuk string format
+            putExtra("jumlahLayanan", jumlahLayanan) // Quantity layanan utama
+            putExtra("totalHargaLayanan", totalHargaLayanan)
+
+            // Data pembayaran
             putExtra("metodePembayaran", metodePembayaran)
             putExtra("totalBayar", totalBayar)
 
             // Data layanan tambahan
             putExtra("tambahan", layananTambahan)
+
+            // Hitung subtotal tambahan untuk kemudahan
+            val subtotalTambahan = layananTambahan?.sumOf {
+                it.hargaTambahan.replace("[^0-9]".toRegex(), "").toIntOrNull() ?: 0
+            } ?: 0
+            putExtra("subtotalTambahan", subtotalTambahan)
         }
 
         startActivity(intent)
-        finish() // Optional: tutup activity ini setelah pindah ke invoice
+        finish()
     }
 
     private fun generateTransactionId(): String {

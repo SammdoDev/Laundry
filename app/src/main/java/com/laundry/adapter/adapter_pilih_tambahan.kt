@@ -7,14 +7,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.model_data.model_tambahan
 
-class adapter_pilih_tambahan(private val listTambahan: MutableList<model_tambahan>) :
-    RecyclerView.Adapter<adapter_pilih_tambahan.ViewHolder>() {
+class adapter_pilih_tambahan(
+    private val listTambahan: MutableList<model_tambahan>,
+    private val onDeleteClick: ((Int) -> Unit)? = null, // Nullable untuk optional delete
+    private val showDeleteButton: Boolean = false, // Flag untuk menampilkan tombol hapus
+    private val isSelectable: Boolean = true // Flag untuk mode seleksi
+) : RecyclerView.Adapter<adapter_pilih_tambahan.ViewHolder>() {
 
     private val TAG = "adapter_pilih_tambahan"
     lateinit var appContext: Context
@@ -35,14 +41,32 @@ class adapter_pilih_tambahan(private val listTambahan: MutableList<model_tambaha
         holder.tvNama.text = item.namaTambahan ?: "Tidak ada nama"
         holder.tvHarga.text = "Rp ${item.hargaTambahan ?: "0"}"
 
-        holder.cvCARD.setOnClickListener {
-            val intent = Intent().apply {
-                putExtra("idTambahan", item.idTambahan)
-                putExtra("namaTambahan", item.namaTambahan)
-                putExtra("hargaTambahan", item.hargaTambahan)
+        // Tampilkan/sembunyikan tombol hapus berdasarkan flag
+        if (showDeleteButton) {
+            holder.btnHapus.visibility = View.VISIBLE
+            holder.btnHapus.setOnClickListener {
+                onDeleteClick?.invoke(position)
             }
-            (appContext as Activity).setResult(Activity.RESULT_OK, intent)
-            (appContext as Activity).finish()
+        } else {
+            holder.btnHapus.visibility = View.GONE
+        }
+
+        // Setup card click untuk seleksi item (hanya di pilihLayananTambahan)
+        if (isSelectable) {
+            holder.cvCARD.setOnClickListener {
+                if (appContext is Activity) {
+                    val intent = Intent().apply {
+                        putExtra("idTambahan", item.idTambahan)
+                        putExtra("namaTambahan", item.namaTambahan)
+                        putExtra("hargaTambahan", item.hargaTambahan)
+                    }
+                    (appContext as Activity).setResult(Activity.RESULT_OK, intent)
+                    (appContext as Activity).finish()
+                }
+            }
+        } else {
+            // Untuk display saja, tidak ada aksi click
+            holder.cvCARD.setOnClickListener(null)
         }
     }
 
@@ -53,5 +77,6 @@ class adapter_pilih_tambahan(private val listTambahan: MutableList<model_tambaha
         val tvNama: TextView = itemView.findViewById(R.id.tvCARD_PILIH_TAMBAHAN_NAMA)
         val tvHarga: TextView = itemView.findViewById(R.id.tvCARD_PILIH_TAMBAHAN_HARGA)
         val cvCARD: CardView = itemView.findViewById(R.id.cvCARD_PILIH_TAMBAHAN)
+        val btnHapus: ImageView = itemView.findViewById(R.id.btnHapusTambahan)
     }
 }

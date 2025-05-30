@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header dengan 2 teks berdampingan -->
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -40,16 +40,20 @@
                 android:paddingRight="16dp" />
         </LinearLayout>
 
+        <!-- Konten isi + delete button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
+            <!-- Info nama & harga -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvCARD_PILIH_TAMBAHAN_NAMA"
@@ -58,27 +62,40 @@
                     android:text="-"
                     android:textStyle="bold"
                     android:textSize="18sp" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Harga: "
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvCARD_PILIH_TAMBAHAN_HARGA"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Harga: "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvCARD_PILIH_TAMBAHAN_HARGA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textSize="16sp" />
+                </LinearLayout>
             </LinearLayout>
+
+            <!-- Icon Delete -->
+            <ImageView
+                android:id="@+id/btnHapusTambahan"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/delete"
+                android:contentDescription="Hapus tambahan"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerInside"
+                android:padding="10dp"/>
 
         </LinearLayout>
     </LinearLayout>

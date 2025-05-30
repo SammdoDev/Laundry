@@ -44,6 +44,7 @@ class Invoice : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_invoice)
 
+        // Ambil semua data dari intent
         val idTransaksi = intent.getStringExtra("idTransaksi") ?: "-"
         val tanggal = intent.getStringExtra("tanggal") ?: "-"
         val pelanggan = intent.getStringExtra("pelanggan") ?: "-"
@@ -51,8 +52,14 @@ class Invoice : AppCompatActivity() {
         val karyawan = intent.getStringExtra("karyawan") ?: "-"
         val layanan = intent.getStringExtra("layanan") ?: "-"
         val hargaLayanan = intent.getIntExtra("hargaLayanan", 0)
+        val hargaLayananString = intent.getStringExtra("hargaLayananString") ?: "-"
+        val jumlahLayanan = intent.getIntExtra("jumlahLayanan", 1)
+        val totalHargaLayanan = intent.getIntExtra("totalHargaLayanan", 0)
         val metodePembayaran = intent.getStringExtra("metodePembayaran") ?: "-"
+        val totalBayar = intent.getIntExtra("totalBayar", 0)
+        val subtotalTambahan = intent.getIntExtra("subtotalTambahan", 0)
         val tambahan = intent.getSerializableExtra("tambahan") as? List<model_tambahan> ?: emptyList()
+
 
         // Set text untuk informasi transaksi
         findViewById<TextView>(R.id.tvIdTransaksi).text = "ID Transaksi: $idTransaksi"
@@ -62,10 +69,20 @@ class Invoice : AppCompatActivity() {
         findViewById<TextView>(R.id.tvKaryawan).text = "Karyawan: $karyawan"
         findViewById<TextView>(R.id.tvMetodePembayaran).text = "Metode: $metodePembayaran"
         findViewById<TextView>(R.id.tvLayananUtama).text = layanan
-        findViewById<TextView>(R.id.tvHargaUtama).text = formatRupiah(hargaLayanan)
+        findViewById<TextView>(R.id.tvQuantityLayanan).text = "Jumlah: $jumlahLayanan"
+
+
+        // Set layanan utama dengan quantity
+        if (jumlahLayanan > 1) {
+            findViewById<TextView>(R.id.tvHargaPerUnit).text = "@ ${formatRupiah(hargaLayanan)}"
+            findViewById<TextView>(R.id.tvHargaUtama).text = formatRupiah(totalHargaLayanan)
+        } else {
+            findViewById<TextView>(R.id.tvHargaPerUnit).text = "@ ${formatRupiah(hargaLayanan)}"
+            findViewById<TextView>(R.id.tvHargaUtama).text = formatRupiah(hargaLayanan)
+        }
 
         // Setup layanan tambahan
-        setupLayananTambahan(tambahan, hargaLayanan)
+        setupLayananTambahan(tambahan, subtotalTambahan, totalBayar)
 
         // Setup button listeners
         findViewById<Button>(R.id.btnWhatsapp).setOnClickListener {
@@ -77,9 +94,8 @@ class Invoice : AppCompatActivity() {
         }
     }
 
-    private fun setupLayananTambahan(tambahan: List<model_tambahan>, hargaLayanan: Int) {
+    private fun setupLayananTambahan(tambahan: List<model_tambahan>, subtotalTambahan: Int, totalBayar: Int) {
         val container = findViewById<LinearLayout>(R.id.containerTambahan)
-        var subtotal = 0
 
         // Clear container terlebih dahulu
         container.removeAllViews()
@@ -94,17 +110,16 @@ class Invoice : AppCompatActivity() {
             tambahan.forEachIndexed { index, item ->
                 val itemView = createTambahanItemView(index + 1, item)
                 container.addView(itemView)
-                subtotal += item.hargaTambahan.toIntOrNull() ?: 0
             }
         }
 
-        findViewById<TextView>(R.id.tvSubtotalTambahan).text = "Subtotal Tambahan: ${formatRupiah(subtotal)}"
-        findViewById<TextView>(R.id.tvTotalBayar).text = "Total Bayar: ${formatRupiah(subtotal + hargaLayanan)}"
+        findViewById<TextView>(R.id.tvSubtotalTambahan).text = "Subtotal Tambahan: ${formatRupiah(subtotalTambahan)}"
+        findViewById<TextView>(R.id.tvTotalBayar).text = "Total Bayar: ${formatRupiah(totalBayar)}"
     }
 
     private fun createTambahanItemView(nomor: Int, item: model_tambahan): TextView {
         val itemView = TextView(this)
-        val harga = item.hargaTambahan.toIntOrNull() ?: 0
+        val harga = item.hargaTambahan.replace("[^0-9]".toRegex(), "").toIntOrNull() ?: 0
 
         itemView.text = "[$nomor] ${item.namaTambahan}\n${formatRupiah(harga)}"
         itemView.textSize = 14f
@@ -124,21 +139,32 @@ class Invoice : AppCompatActivity() {
         val tanggal = intent.getStringExtra("tanggal") ?: "-"
         val pelanggan = intent.getStringExtra("pelanggan") ?: "-"
         val layanan = intent.getStringExtra("layanan") ?: "-"
-        val hargaLayanan = formatRupiah(intent.getIntExtra("hargaLayanan", 0))
+        val hargaLayanan = intent.getIntExtra("hargaLayanan", 0)
+        val jumlahLayanan = intent.getIntExtra("jumlahLayanan", 1)
+        val totalHargaLayanan = intent.getIntExtra("totalHargaLayanan", 0)
         val metode = intent.getStringExtra("metodePembayaran") ?: "-"
+        val totalBayar = intent.getIntExtra("totalBayar", 0)
         val tambahan = intent.getSerializableExtra("tambahan") as? List<model_tambahan> ?: emptyList()
 
         val tambahanText = if (tambahan.isNotEmpty()) {
-            tambahan.joinToString("\n") { "- ${it.namaTambahan}: ${formatRupiah(it.hargaTambahan.toIntOrNull() ?: 0)}" }
+            tambahan.joinToString("\n") {
+                val harga = it.hargaTambahan.replace("[^0-9]".toRegex(), "").toIntOrNull() ?: 0
+                "- ${it.namaTambahan}: ${formatRupiah(harga)}"
+            }
         } else {
             "Tidak ada layanan tambahan"
         }
 
-        val total = findViewById<TextView>(R.id.tvTotalBayar).text.toString()
+        // Format layanan utama dengan quantity
+        val layananText = if (jumlahLayanan > 1) {
+            "$layanan (${jumlahLayanan}x ${formatRupiah(hargaLayanan)}) = ${formatRupiah(totalHargaLayanan)}"
+        } else {
+            "$layanan - ${formatRupiah(hargaLayanan)}"
+        }
 
         val message = """
-            ════════════════════════════
-         LAUNDRY - SAMM         
+════════════════════════════
+        LAUNDRY - SAMM         
 ════════════════════════════
 
 HALO, $pelanggan
@@ -152,15 +178,14 @@ INFORMASI PELANGGAN:
   No. HP         : $noHP
 
 LAYANAN:
-  Utama          : $layanan
-  Harga          : $hargaLayanan
+  Utama          : $layananText
 
 LAYANAN TAMBAHAN:
 $tambahanText
 
 PEMBAYARAN:
   Metode         : $metode
-  Total Bayar    : $total
+  Total Bayar    : ${formatRupiah(totalBayar)}
 
 ════════════════════════════
 Terima kasih telah menggunakan
@@ -302,21 +327,28 @@ layanan Laundry - SAMM!
         val karyawan = intent.getStringExtra("karyawan") ?: "-"
         val layanan = intent.getStringExtra("layanan") ?: "-"
         val hargaLayanan = intent.getIntExtra("hargaLayanan", 0)
+        val jumlahLayanan = intent.getIntExtra("jumlahLayanan", 1)
+        val totalHargaLayanan = intent.getIntExtra("totalHargaLayanan", 0)
         val metodePembayaran = intent.getStringExtra("metodePembayaran") ?: "-"
+        val totalBayar = intent.getIntExtra("totalBayar", 0)
+        val subtotalTambahan = intent.getIntExtra("subtotalTambahan", 0)
         val tambahan = intent.getSerializableExtra("tambahan") as? List<model_tambahan> ?: emptyList()
 
-        var subtotalTambahan = 0
+        // Format layanan utama dengan quantity
+        val layananText = if (jumlahLayanan > 1) {
+            "$layanan (${jumlahLayanan}x) - ${formatRupiah(totalHargaLayanan)}"
+        } else {
+            "$layanan - ${formatRupiah(hargaLayanan)}"
+        }
+
         val tambahanText = if (tambahan.isNotEmpty()) {
             tambahan.joinToString("\n") { item ->
-                val harga = item.hargaTambahan.toIntOrNull() ?: 0
-                subtotalTambahan += harga
+                val harga = item.hargaTambahan.replace("[^0-9]".toRegex(), "").toIntOrNull() ?: 0
                 "  ${item.namaTambahan} -  ${formatRupiah(harga)}"
             }
         } else {
             "  Tidak ada layanan tambahan"
         }
-
-        val total = subtotalTambahan + hargaLayanan
 
         val receiptText = """
 [C]===LAUNDRY - SAMM===
@@ -326,12 +358,12 @@ layanan Laundry - SAMM!
 [L]HP: $noHP
 [L]KARYAWAN: $karyawan
 [L]----------- LAYANAN -----------
-[L]$layanan - ${formatRupiah(hargaLayanan)}
+[L]$layananText
 [L]-------------------------------
-${if (tambahanText.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
+${if (tambahan.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
 [L]-------------------------------
 [L]Subt. Tambahan: ${formatRupiah(subtotalTambahan)}
-[L]TOTAL: ${formatRupiah(total)}
+[L]TOTAL: ${formatRupiah(totalBayar)}
 [L]Bayar: $metodePembayaran
 [C]========== TERIMA KASIH ==========
 [C]LAUNDRY - SAMM
@@ -436,35 +468,37 @@ ${if (tambahanText.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
     }
 
     private fun createBitmapFromView(view: LinearLayout): Bitmap {
-        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(
+            view.width,
+            view.height,
+            Bitmap.Config.ARGB_8888
+        )
         val canvas = Canvas(bitmap)
-        canvas.drawColor(Color.WHITE) // Background putih
         view.draw(canvas)
         return bitmap
     }
 
     private fun checkBluetoothPermissions(): Boolean {
-        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-            ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) ==
-                    PackageManager.PERMISSION_GRANTED
-        } else {
-            ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) ==
-                    PackageManager.PERMISSION_GRANTED
+        val permissions = arrayOf(
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.BLUETOOTH_CONNECT
+        )
+
+        for (permission in permissions) {
+            if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false
+            }
         }
+        return true
     }
 
     private fun requestBluetoothPermissions() {
-        val permissions = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-            arrayOf(
-                Manifest.permission.BLUETOOTH_CONNECT,
-                Manifest.permission.BLUETOOTH_SCAN
-            )
-        } else {
-            arrayOf(
-                Manifest.permission.BLUETOOTH,
-                Manifest.permission.BLUETOOTH_ADMIN
-            )
-        }
+        val permissions = arrayOf(
+            Manifest.permission.BLUETOOTH,
+            Manifest.permission.BLUETOOTH_ADMIN,
+            Manifest.permission.BLUETOOTH_CONNECT
+        )
 
         ActivityCompat.requestPermissions(this, permissions, REQUEST_BLUETOOTH_PERMISSION)
     }
@@ -476,13 +510,23 @@ ${if (tambahanText.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if (requestCode == REQUEST_BLUETOOTH_PERMISSION) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, retry printing
-                cetakStruk()
-            } else {
-                Toast.makeText(this, "Izin Bluetooth diperlukan untuk mencetak", Toast.LENGTH_SHORT).show()
+        when (requestCode) {
+            REQUEST_BLUETOOTH_PERMISSION -> {
+                if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                    Toast.makeText(this, "Izin Bluetooth diberikan", Toast.LENGTH_SHORT).show()
+                    // Retry print after permission granted
+                    val view = findViewById<LinearLayout>(R.id.invoice_activity)
+                    printViaBluetooth(view)
+                } else {
+                    Toast.makeText(this, "Izin Bluetooth diperlukan untuk mencetak", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Clean up bluetooth connection
+        disconnectPrinter()
     }
 }

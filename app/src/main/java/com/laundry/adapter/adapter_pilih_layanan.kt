@@ -19,10 +19,10 @@ class adapter_pilih_layanan(
         return ViewHolder(view)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nomor = position + 1
         val item = layananList[position]
+
         holder.tvID.text = nomor.toString()
         holder.tvNamaLayanan.text = item.namaLayanan
         holder.tvHarga.text = "Harga : ${item.harga}"

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/invoice_activity">
+    android:id="@+id/invoice_activity_landscape"
+    android:contentDescription="Invoice details scroll view"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,14 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -31,8 +34,9 @@
                     android:gravity="center"
                     android:text="SAMM LAUNDRY"
                     android:textColor="#2196F3"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1" />
 
                 <View
                     android:layout_width="match_parent"
@@ -40,236 +44,371 @@
                     android:layout_marginTop="8dp"
                     android:background="#2196F3" />
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Informasi Transaksi -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Informasi Transaksi"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvIdTransaksi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="ID Transaksi: -"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvTanggal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="Tanggal: -"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvPelanggan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="Pelanggan: -"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvNoHP"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="No. HP: -"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvKaryawan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="Karyawan: -"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvMetodePembayaran"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Metode: -"
-                    android:textSize="14sp" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Layanan Utama -->
-        <androidx.cardview.widget.CardView
+        <!-- Row 1: Informasi Transaksi dan Layanan Utama -->
+
+        <!-- Row 2: Layanan Tambahan dan Total Pembayaran -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Informasi Transaksi -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Layanan Utama"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/tvLayananUtama"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Layanan Utama"
-                        android:textSize="14sp" />
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Informasi Transaksi"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
 
                     <TextView
-                        android:id="@+id/tvHargaUtama"
+                        android:id="@+id/tvIdTransaksi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp 0"
-                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp"
+                        android:text="ID Transaksi: -"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Tanggal: -"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Pelanggan: -"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvNoHP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="No. HP: -"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvKaryawan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Karyawan: -"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvMetodePembayaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Metode: -"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Layanan Utama -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Layanan Utama"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Nama Layanan dan Quantity -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvLayananUtama"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Layanan Utama"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvQuantityLayanan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jumlah: 1"
+                                android:textSize="12sp"
+                                android:textColor="#666666"
+                                android:background="@drawable/bg_quantity"
+                                android:padding="4dp"
+                                android:layout_marginEnd="8dp" />
+
+                        </LinearLayout>
+
+                        <!-- Harga per unit dan Total -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvHargaPerUnit"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@ Rp 0"
+                                android:textSize="12sp"
+                                android:textColor="#666666" />
+
+                            <TextView
+                                android:id="@+id/tvHargaUtama"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 0"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#2E7D32" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:weightSum="2">
+
+            <!-- Layanan Tambahan -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Layanan Tambahan"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- ScrollView yang diperbaiki untuk layanan tambahan -->
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scrollbars="vertical"
+                        android:fadeScrollbars="false"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:contentDescription="Additional services list"
+                        android:focusable="true"
+                        android:nestedScrollingEnabled="true">
+
+                        <LinearLayout
+                            android:id="@+id/containerTambahan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="8dp"
+                            android:contentDescription="Container for additional services">
+
+                            <!-- Placeholder untuk testing scroll -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Belum ada layanan tambahan"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:padding="12dp"
+                                android:textStyle="italic" />
+
+                        </LinearLayout>
+
+                    </ScrollView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="#E0E0E0" />
+
+                    <TextView
+                        android:id="@+id/tvSubtotalTambahan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Subtotal Tambahan: Rp 0"
+                        android:textColor="#FF9800"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
+            <!-- Total Pembayaran -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#E8F5E8">
 
-        <!-- Layanan Tambahan -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Layanan Tambahan"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <!-- ScrollView dengan konfigurasi yang diperbaiki -->
-                <ScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:maxHeight="200dp"
-                    android:scrollbars="vertical"
-                    android:fadeScrollbars="false"
-                    android:scrollbarStyle="outsideOverlay">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:id="@+id/containerTambahan"
-                        android:layout_width="match_parent"
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingEnd="8dp" />
+                        android:text="Total Bayar"
+                        android:textColor="#2E7D32"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
 
-                </ScrollView>
+                    <TextView
+                        android:id="@+id/tvTotalBayar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Rp 0"
+                        android:textColor="#2E7D32"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:background="#E8F5E8"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="#E0E0E0" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvSubtotalTambahan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="Subtotal Tambahan: Rp 0"
-                    android:textColor="#FF9800"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Total Pembayaran -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#E8F5E8">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/tvTotalBayar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Total Bayar: Rp 0"
-                    android:textColor="#2E7D32"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
         <!-- Tombol Aksi -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnWhatsapp"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:layout_weight="1"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="12dp"
                 android:background="@drawable/btn_whatsapp"
                 android:text="Kirim"
                 android:textColor="#FFFFFF"
@@ -278,14 +417,16 @@
                 android:drawableLeft="@drawable/ic_whatsapp"
                 android:drawablePadding="8dp"
                 android:gravity="center"
-                android:paddingLeft="8dp"/>
+                android:paddingHorizontal="12dp"
+                android:elevation="4dp"
+                android:contentDescription="Send invoice via WhatsApp"/>
 
             <Button
                 android:id="@+id/btnCetak"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="12dp"
                 android:background="@drawable/btn_print"
                 android:text="Cetak Struk"
                 android:textColor="#FFFFFF"
@@ -294,10 +435,12 @@
                 android:drawableLeft="@drawable/ic_print"
                 android:drawablePadding="8dp"
                 android:gravity="center"
-                android:paddingLeft="8dp"/>
+                android:paddingHorizontal="12dp"
+                android:elevation="4dp"
+                android:contentDescription="Print invoice receipt"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

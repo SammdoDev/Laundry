@@ -142,23 +142,61 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tvLayananUtama"
-                        android:layout_width="0dp"
+                    <!-- Nama Layanan dan Quantity -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Layanan Utama"
-                        android:textSize="14sp" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
 
-                    <TextView
-                        android:id="@+id/tvHargaUtama"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tvLayananUtama"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Layanan Utama"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvQuantityLayanan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jumlah: 1"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:background="@drawable/bg_quantity"
+                            android:padding="4dp"
+                            android:layout_marginEnd="8dp" />
+
+                    </LinearLayout>
+
+                    <!-- Harga per unit dan Total -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rp 0"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvHargaPerUnit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@ Rp 0"
+                            android:textSize="12sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/tvHargaUtama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 0"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#2E7D32" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -169,7 +207,7 @@
         <!-- Layanan Tambahan -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
@@ -188,12 +226,11 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- ScrollView dengan konfigurasi yang diperbaiki -->
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:maxHeight="200dp"
+                    android:maxHeight="150dp"
                     android:scrollbars="vertical"
                     android:fadeScrollbars="false"
                     android:scrollbarStyle="outsideOverlay">
@@ -204,7 +241,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:paddingEnd="8dp" />
-
                 </ScrollView>
 
                 <View
