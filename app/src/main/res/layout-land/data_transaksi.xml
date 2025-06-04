@@ -109,15 +109,13 @@
                     android:textSize="14sp"
                     android:layout_marginEnd="8dp" />
 
-                <Button
+                <ImageView
                     android:id="@+id/btnKurangLayanan"
-                    android:layout_width="42dp"
-                    android:layout_height="40dp"
-                    android:text="-"
-                    android:textSize="18sp"
-                    android:textColor="#FFFFFF"
-                    android:background="@drawable/rounded_button_blue"
-                    android:layout_marginEnd="6dp" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_minus"
+                    android:contentDescription="Kurang"
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:id="@+id/tvJumlahLayanan"
@@ -128,15 +126,13 @@
                     android:gravity="center"
                     android:layout_marginHorizontal="6dp" />
 
-                <Button
+                <ImageView
                     android:id="@+id/btnTambahLayanan"
-                    android:layout_width="42dp"
-                    android:layout_height="40dp"
-                    android:text="+"
-                    android:textSize="18sp"
-                    android:textColor="#FFFFFF"
-                    android:background="@drawable/rounded_button_blue"
-                    android:layout_marginStart="6dp" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_plus"
+                    android:contentDescription="Tambah"
+                    android:layout_marginStart="8dp" />
 
                 <TextView
                     android:id="@+id/tvTotalHargaLayanan"

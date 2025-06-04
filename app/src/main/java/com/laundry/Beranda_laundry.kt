@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.laundry.cabang.data_cabang
+import com.laundry.laporan.data_laporan
 
 class Beranda_laundry : AppCompatActivity() {
 
@@ -90,10 +91,12 @@ class Beranda_laundry : AppCompatActivity() {
 
         // Determine greeting based on the time of day
         val greeting = when (hour) {
-            in 0..11 -> "Selamat Pagi, $userName"
-            in 12..17 -> "Selamat Siang, $userName"
-            else -> "Selamat Malam, $userName"
+            in 0..11 -> getString(R.string.greeting_pagi, userName)
+            in 12..17 -> getString(R.string.greeting_siang, userName)
+            else -> getString(R.string.greeting_malam, userName)
         }
+
+
         headline.text = greeting
     }
 
@@ -116,12 +119,13 @@ class Beranda_laundry : AppCompatActivity() {
         val tambahanCard = findViewById<CardView>(R.id.tambahan)
         val accountCard = findViewById<CardView>(R.id.akun)
         val cabangCard = findViewById<CardView>(R.id.cabang)
+        val LaporanCard = findViewById<CardView>(R.id.laporan)
 
         mainLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.background))
         headline.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
         timeTextView.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
 
-        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard, accountCard, cabangCard)
+        val cards = listOf(pelangganCard, pegawaiCard, layananCard, transaksiCard, tambahanCard, accountCard, cabangCard, LaporanCard)
         val cardColors = listOf(
             R.color.card_1,
             R.color.card_2,
@@ -129,7 +133,8 @@ class Beranda_laundry : AppCompatActivity() {
             R.color.card_4,
             R.color.card_5,
             R.color.card_6,
-            R.color.card_7
+            R.color.card_7,
+            R.color.card_8
         )
 
         cards.forEachIndexed { index, card ->
@@ -138,8 +143,8 @@ class Beranda_laundry : AppCompatActivity() {
         }
     }
 
-    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, account: CardView, cabang: CardView, isDarkMode: Boolean) {
-        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan, account, cabang)
+    private fun applyAccentColors(pelanggan: CardView, pegawai: CardView, layanan: CardView, transaksi: CardView, tambahan: CardView, account: CardView, cabang: CardView, laporan: CardView, isDarkMode: Boolean) {
+        val cards = arrayOf(pelanggan, pegawai, layanan, transaksi, tambahan, account, cabang, laporan)
         val accentColors = if (isDarkMode) {
             arrayOf(
                 "#FF6B6B",
@@ -148,7 +153,8 @@ class Beranda_laundry : AppCompatActivity() {
                 "#96CEB4",
                 "#FFEAA7",
                 "#0065F8",
-                "#FF9F00"
+                "#FF9F00",
+                "#4300FF"
             )
         } else {
             arrayOf(
@@ -158,7 +164,8 @@ class Beranda_laundry : AppCompatActivity() {
                 "#2ECC71",
                 "#F39C12",
                 "#0065F8",
-                "#FF9F00"
+                "#FF9F00",
+                "#4300FF"
 
             )
         }
@@ -212,6 +219,12 @@ class Beranda_laundry : AppCompatActivity() {
         val cabang: CardView = findViewById(R.id.cabang)
         cabang.setOnClickListener {
             val intent = Intent(this, data_cabang::class.java)
+            startActivity(intent)
+        }
+
+        val laporan: CardView = findViewById(R.id.laporan)
+        laporan.setOnClickListener {
+            val intent = Intent(this, data_laporan::class.java)
             startActivity(intent)
         }
     }

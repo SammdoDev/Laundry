@@ -151,4 +151,23 @@
     <string name="nohp_form">Phone Number</string>
     <string name="nama_layanan_form">Service Name</string>
     <string name="terdaftar_form">Registered</string>
+    <string name="StatusberhasildiubahmenjadiSudahDibayar">Status successfully changed to Paid</string>
+    <string name="Laporanberhasildihapus">Report successfully deleted</string>
+    <string name="Gagalmengupdatestatus">Failed to update status</string>
+    <string name="Gagalmenghapuslaporan">Failed to delete report</string>
+    <string name="Belum_dibayar">Not yet paid</string>
+    <string name="selesai">paid off</string>
+    <string name="Diambil_pada">taken at</string>
+    <string name="Ambil_sekarang">Take Now</string>
+    <string name="Sudah_dibayar">Already Paid</string>
+
+    <string name="title_hapus_transaksi">Delete Transaction</string>
+    <string name="msg_hapus_transaksi">Are you sure you want to delete the transaction:\n\nTransaction No: %1$s\nCustomer: %2$s\nDate: %3$s</string>
+    <string name="btn_hapus">Delete</string>
+    <string name="btn_batal">Cancel</string>
+
+    <string name="greeting_pagi">Good Morning, %1$s</string>
+    <string name="greeting_siang">Good Afternoon, %1$s</string>
+    <string name="greeting_malam">Good Evening, %1$s</string>
+
 </resources>

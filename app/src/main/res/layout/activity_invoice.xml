@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/invoice_activity">
+    android:id="@+id/main">
 
     <LinearLayout
+        android:id="@+id/invoice_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -26,6 +27,7 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tv_business_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -33,6 +35,16 @@
                     android:textColor="#2196F3"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_branch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="SOLO"
+                    android:textColor="#666666"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -67,7 +79,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvIdTransaksi"
+                    android:id="@+id/tv_transaction_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -75,7 +87,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvTanggal"
+                    android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -83,7 +95,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvPelanggan"
+                    android:id="@+id/tv_customer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -91,7 +103,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvNoHP"
+                    android:id="@+id/tv_customer_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -99,7 +111,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvKaryawan"
+                    android:id="@+id/tv_employee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -107,7 +119,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvMetodePembayaran"
+                    android:id="@+id/tv_payment_method"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Metode: -"
@@ -152,7 +164,7 @@
                         android:layout_marginBottom="4dp">
 
                         <TextView
-                            android:id="@+id/tvLayananUtama"
+                            android:id="@+id/tv_main_service"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -160,7 +172,7 @@
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/tvQuantityLayanan"
+                            android:id="@+id/tv_main_service_quantity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jumlah: 1"
@@ -179,7 +191,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tvHargaPerUnit"
+                            android:id="@+id/tv_main_service_price_per_unit"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -188,7 +200,7 @@
                             android:textColor="#666666" />
 
                         <TextView
-                            android:id="@+id/tvHargaUtama"
+                            android:id="@+id/tv_main_service_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp 0"
@@ -219,6 +231,7 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tv_additional_services_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -235,11 +248,10 @@
                     android:fadeScrollbars="false"
                     android:scrollbarStyle="outsideOverlay">
 
-                    <LinearLayout
-                        android:id="@+id/containerTambahan"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_additional_services"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:paddingEnd="8dp" />
                 </ScrollView>
 
@@ -251,7 +263,7 @@
                     android:background="#E0E0E0" />
 
                 <TextView
-                    android:id="@+id/tvSubtotalTambahan"
+                    android:id="@+id/tv_subtotal_additional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
@@ -280,7 +292,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tvTotalBayar"
+                    android:id="@+id/tv_total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -301,7 +313,7 @@
             android:weightSum="2">
 
             <Button
-                android:id="@+id/btnWhatsapp"
+                android:id="@+id/btn_whatsapp"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -317,7 +329,7 @@
                 android:paddingLeft="8dp"/>
 
             <Button
-                android:id="@+id/btnCetak"
+                android:id="@+id/btn_print"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"

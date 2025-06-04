@@ -9,4 +9,8 @@
     <color name="card_5">#FFEAA7</color>
     <color name="card_6">#0065F8</color>
     <color name="card_7">#FF9F00</color>
+    <color name="card_8">#4300FF</color>
+
+    <color name="yellow_solid">#FFC107</color>
+
 </resources>

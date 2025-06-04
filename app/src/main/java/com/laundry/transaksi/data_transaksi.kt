@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -33,8 +34,8 @@ class data_transaksi : AppCompatActivity() {
     private lateinit var btnPilihPelanggan: Button
     private lateinit var btnPilihLayanan: Button
     private lateinit var btnTambahan: Button
-    private lateinit var btnTambahLayanan: Button
-    private lateinit var btnKurangLayanan: Button
+    private lateinit var btnTambahLayanan: ImageView
+    private lateinit var btnKurangLayanan: ImageView
 
     private val dataListTambahan = mutableListOf<model_tambahan>()
     private lateinit var adapter: adapter_pilih_tambahan
