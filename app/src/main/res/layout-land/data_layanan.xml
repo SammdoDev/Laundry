@@ -11,7 +11,7 @@
         android:id="@+id/title_layanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Layanan"
+        android:text="@string/Layanan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

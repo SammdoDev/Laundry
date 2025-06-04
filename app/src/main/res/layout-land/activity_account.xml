@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Akun Saya"
+            android:text="@string/my_account"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -187,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="Pengaturan Akun"
+                            android:text="@string/settings"
                             android:textSize="16sp"
                             android:textColor="@color/black" />
 
@@ -235,7 +235,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="Kebijakan Privasi"
+                            android:text="@string/privacy"
                             android:textSize="16sp"
                             android:textColor="@color/black" />
 
@@ -283,7 +283,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="Bantuan &amp; Dukungan"
+                            android:text="@string/help"
                             android:textSize="16sp"
                             android:textColor="@color/black" />
 
@@ -305,7 +305,7 @@
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Keluar"
+                android:text="@string/keluar"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

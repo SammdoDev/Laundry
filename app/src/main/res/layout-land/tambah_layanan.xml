@@ -12,7 +12,7 @@
         android:id="@+id/tvlayananjudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Layanan"
+        android:text="@string/Tambah_layanan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan" />
+                android:text="@string/nama_layanan_form" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:id="@+id/etnamalayanan"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Layanan"
+                    android:hint="@string/nama_layanan_form"
                     android:layout_margin="5dp"
                     android:maxLength="30"/>
             </androidx.cardview.widget.CardView>
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Harga" />
+                android:text="@string/harga_form" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                     android:id="@+id/etharga"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Harga"
+                    android:hint="@string/harga_form"
                     android:layout_margin="5dp"
                     android:inputType="number"
                     android:maxLength="20"/>
@@ -99,7 +99,7 @@
         android:id="@+id/btlayanansimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Simpan"
+        android:text="@string/Simpan"
         android:textSize="15sp"
         android:textColor="#FFFFFF"
         android:backgroundTint="#4CAF50"

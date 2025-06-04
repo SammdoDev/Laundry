@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="12dp"
-        android:text="Konfirmasi Data"
+        android:text="@string/Konfirmasi_data"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Informasi Pelanggan"
+                            android:text="@string/Informasi_pelanggan"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="8dp"/>
@@ -77,7 +77,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nama: "
+                                android:text="@string/nama"
                                 android:textStyle="bold"
                                 android:textSize="12sp"
                                 android:minWidth="50dp"/>
@@ -99,7 +99,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No HP: "
+                                android:text="@string/no_hp"
                                 android:textSize="12sp"
                                 android:minWidth="50dp"/>
 
@@ -133,7 +133,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Layanan Utama"
+                            android:text="@string/layanan_utama"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="8dp"/>
@@ -148,7 +148,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Layanan: "
+                                android:text="@string/Layanan"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:minWidth="60dp"/>
@@ -171,7 +171,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Harga x Jumlah: "
+                                android:text="@string/Harga_Jumlah"
                                 android:textSize="11sp"
                                 android:minWidth="60dp"/>
 
@@ -192,7 +192,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Subtotal: "
+                                android:text="@string/total_bayar"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:minWidth="60dp"/>
@@ -239,7 +239,7 @@
                             android:id="@+id/tvLayananTambahanTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Layanan Tambahan"
+                            android:text="@string/layanan_tambahan"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="8dp"/>
@@ -275,7 +275,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Bayar"
+                            android:text="@string/total_bayar"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="#2E7D32"
@@ -323,7 +323,7 @@
             android:layout_height="48dp"
             android:layout_marginEnd="12dp"
             android:layout_weight="1"
-            android:text="Batal"
+            android:text="@string/Batal"
             android:textSize="14sp"
             android:backgroundTint="#F44336"
             android:maxWidth="200dp"
@@ -335,7 +335,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:text="Konfirmasi"
+            android:text="@string/Konfirmasi"
             android:textSize="14sp"
             android:backgroundTint="#4CAF50"
             android:maxWidth="200dp"

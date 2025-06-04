@@ -16,18 +16,8 @@
         <!-- Header dengan 2 teks berdampingan -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#FF0000"
+            android:layout_height="20dp"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Id Layanan:"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:paddingLeft="16dp"
-                android:paddingTop="5dp" />
 
             <TextView
                 android:id="@+id/tvCARD_PILIH_LAYANAN_ID"
@@ -35,16 +25,19 @@
                 android:layout_height="match_parent"
                 android:text="-"
                 android:textSize="14sp"
-                android:textColor="#FFFFFF"
-                android:gravity="end|center_vertical"
-                android:paddingRight="16dp" />
+                android:gravity="start|center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="5dp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="12dp"
+            android:paddingTop="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

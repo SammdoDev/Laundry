@@ -11,7 +11,7 @@
         android:id="@+id/tvpegawaijudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Pegawai"
+        android:text="@string/tambah_pegawai"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
                 android:id="@+id/tvnamaaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pegawai" />
+                android:text="@string/nama_pegawai_form" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     android:id="@+id/etpegawainama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Nama Lengkap"
+                    android:hint="@string/nama_pegawai_form"
                     android:inputType="textPersonName"
                     android:maxLength="30"
                     android:layout_margin="5dp"/>
@@ -69,7 +69,7 @@
                 android:id="@+id/tvalamataddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat" />
+                android:text="@string/alamat" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                     android:id="@+id/etpegawaialamat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Alamat"
+                    android:hint="@string/alamat"
                     android:maxLength="20"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
@@ -99,7 +99,7 @@
                 android:id="@+id/tvNoHpaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No Hp Aktif" />
+                android:text="@string/nohp_form" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                     android:id="@+id/etpegawainohp"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="No Hp Aktif"
+                    android:hint="@string/nohp_form"
                     android:inputType="number"
                     android:maxLength="20"
                     android:layout_margin="5dp"/>
@@ -130,7 +130,7 @@
                 android:id="@+id/tvCabangaddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cabang" />
+                android:text="@string/Cabang" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -143,7 +143,7 @@
                     android:id="@+id/etpegawaicabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Cabang"
+                    android:hint="@string/Cabang"
                     android:maxLength="20"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>
@@ -155,7 +155,7 @@
         android:id="@+id/btpegawaisimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Simpan"
+        android:text="@string/Simpan"
         android:textSize="15sp"
         android:textColor="#FFFFFF"
         android:backgroundTint="#4CAF50"

@@ -83,7 +83,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Informasi Transaksi"
+                            android:text="@string/informasi_transaksi"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -171,7 +171,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Layanan Utama"
+                            android:text="@string/layanan_utama"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -200,7 +200,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Layanan Utama"
+                                android:text="@string/layanan_utama"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -281,7 +281,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Layanan Tambahan"
+                            android:text="@string/layanan_tambahan"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
 
@@ -318,7 +318,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Belum ada layanan tambahan"
+                                android:text="@string/no_additional"
                                 android:textSize="12sp"
                                 android:gravity="center"
                                 android:padding="12dp"
@@ -340,7 +340,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="Subtotal Tambahan: Rp 0"
+                        android:text="@string/total_bayar"
                         android:textColor="#FF9800"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -370,7 +370,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Bayar"
+                        android:text="@string/total_bayar"
                         android:textColor="#2E7D32"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -410,7 +410,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
                 android:background="@drawable/btn_whatsapp"
-                android:text="Kirim"
+                android:text="@string/Kirim"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -428,7 +428,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
                 android:background="@drawable/btn_print"
-                android:text="Cetak Struk"
+                android:text="@string/Print"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textStyle="bold"

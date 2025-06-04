@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Daftar Akun Baru"
+        android:text="@string/daftar_akun_baru"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp" />
@@ -36,7 +36,7 @@
             android:id="@+id/nameInputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama Lengkap"
+            android:hint="@string/nama_lengkap"
             android:inputType="textPersonName"
             android:textSize="16sp"
             android:maxLines="1" />
@@ -54,7 +54,7 @@
             android:id="@+id/phoneInputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nomor Handphone (08xxxxxxxxx)"
+            android:hint="@string/no_hp"
             android:inputType="phone"
             android:textSize="16sp"
             android:maxLines="1" />
@@ -73,7 +73,7 @@
             android:id="@+id/passwordInputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password (minimal 6 karakter)"
+            android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:textSize="16sp"
             android:maxLines="1" />
@@ -92,7 +92,7 @@
             android:id="@+id/confirmPasswordInputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Konfirmasi Password"
+            android:hint="@string/konfirmasi_password"
             android:inputType="textPassword"
             android:textSize="16sp"
             android:maxLines="1" />
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        android:text="Daftar"
+        android:text="@string/daftar"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/white"
@@ -129,7 +129,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="atau"
+            android:text="@string/Divider"
             android:textSize="14sp"
             android:textColor="#757575"
             android:paddingHorizontal="16dp" />
@@ -159,14 +159,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sudah punya akun? "
+            android:text="@string/sudah_punya_akun"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/loginLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Masuk"
+            android:text="@string/Enter"
             android:textSize="14sp"
             android:textStyle="bold"
             android:focusable="true"

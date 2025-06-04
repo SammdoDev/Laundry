@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih Metode Pembayaran"
+            android:text="@string/Pilih_metode_pembayaran"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#333333"
@@ -67,7 +67,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bayar Nanti"
+                            android:text="@string/Bayar_nanti"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textColor="#E65100"
@@ -107,7 +107,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tunai"
+                            android:text="@string/Tunai"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textColor="#2E7D32"
@@ -303,7 +303,7 @@
             android:id="@+id/btn_batal"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Batal"
+            android:text="@string/Batal"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#666666"

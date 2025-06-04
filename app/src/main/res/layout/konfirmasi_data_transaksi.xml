@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Konfirmasi Data"
+        android:text="@string/Konfirmasi_data"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +45,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama: "
+                    android:text="@string/nama"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -65,7 +66,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No HP: "
+                    android:text="@string/no_hp"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -86,7 +87,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Layanan: "
+                    android:text="@string/Layanan"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -108,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harga x Jumlah: "
+                    android:text="@string/Harga_Jumlah"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -129,7 +130,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subtotal: "
+                    android:text="@string/total_bayar"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
 
@@ -147,7 +148,7 @@
                 android:id="@+id/tvLayananTambahanTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Layanan Tambahan"
+                android:text="@string/layanan_tambahan"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"/>
@@ -176,7 +177,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Total Bayar"
+                    android:text="@string/total_bayar"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -209,7 +210,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="Batal"
+            android:text="@string/Batal"
             android:backgroundTint="#F44336" />
 
         <Button
@@ -218,7 +219,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="Konfirmasi"
+            android:text="@string/Konfirmasi"
             android:backgroundTint="#4CAF50" />
     </LinearLayout>
 
