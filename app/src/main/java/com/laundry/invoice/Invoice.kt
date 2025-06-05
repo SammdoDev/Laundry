@@ -258,7 +258,7 @@ class Invoice : AppCompatActivity() {
 
         // Main service
         tvMainService.text = if (namaLayanan.isNotEmpty()) namaLayanan else "Layanan"
-        tvMainServiceQuantity.text = "Jumlah: $jumlahLayanan"
+        tvMainServiceQuantity.text = getString(R.string.jumlah_layanan, jumlahLayanan)
 
         if (jumlahLayanan > 1) {
             tvMainServicePricePerUnit.text = "@ ${formatCurrency(hargaLayanan)}"
@@ -360,11 +360,11 @@ class Invoice : AppCompatActivity() {
 
     private fun determinePaymentStatus(metodePembayaran: String): StatusLaporan {
         return when (metodePembayaran.lowercase()) {
-            "tunai", "cash", "dana", "gopay", "ovo", "qris", "shopeepay", "transfer bank" -> {
+             "cash", "dana", "gopay", "ovo", "qris" -> {
                 Log.d(TAG, "Status: SUDAH_DIBAYAR untuk metode: $metodePembayaran")
                 StatusLaporan.SUDAH_DIBAYAR
             }
-            "bayar nanti", "nanti" -> {
+            "pay later" -> {
                 Log.d(TAG, "Status: BELUM_DIBAYAR untuk metode: $metodePembayaran")
                 StatusLaporan.BELUM_DIBAYAR
             }

@@ -306,4 +306,7 @@
 
     <!-- Google Configuration -->
     <string name="default_web_client_id">1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com</string>
+    <string name="Digital_payment">Pembayaran Digital</string>
+    <string name="judul_pembayaran">Pilih cara pembayaran yang paling nyaman</string>
+    <string name="jumlah_layanan">Jumlah: %1$d</string>
 </resources>
