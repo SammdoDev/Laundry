@@ -1,173 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Info -->
     <string name="app_name">Laundry</string>
-    <string name="id_pelanggan">Customer ID</string>
-    <string name="estimasi">Today\'s Estimates</string>
+    <string name="tagline">Limitless Clean. Perfect Every Time.</string>
     <string name="tagline_1">Ready to serve wholeheartedly.</string>
-    <string name="tagline_2">Won\'t let you down</string>
+    <string name="tagline_2">Wont let you down</string>
+
+    <!-- Main Navigation -->
     <string name="Akun">Account</string>
     <string name="Layanan">Services</string>
-    <string name="Tambahan">Additional</string>
+    <string name="Tambahan">Extras</string>
     <string name="Pegawai">Staff</string>
     <string name="Cabang">Branch</string>
-    <string name="Cetak">Printer</string>
     <string name="Transaksi">Transactions</string>
-    <string name="Pelanggan">Customer</string>
-    <string name="Laporan">Report</string>
-    <string name="Tagline">Infinite Clean. Flawless Every Time.</string>
-    <string name="Next">Next Page</string>
-    <string name="validasi_nama_pelanggan">validate customer name</string>
-    <string name="validasi_alamat_pelanggan">validate customer address</string>
-    <string name="validasi_nohp_pelanggan">validate customer contact</string>
-    <string name="validasi_cabang_pelanggan">customer branch validation</string>
-    <string name="tambah_pelanggan_sukses">Customer success</string>
-    <string name="tambah_pelanggan_gagal">Error</string>
-    <string name="validasi_isi_terdaftar">Validate registered</string>
-    <string name="tambah_pegawai_sukses">Add employee success</string>
-    <string name="validasi_cabang_layanan">Validation service branch</string>
-    <string name="validasi_harga">price validation</string>
-    <string name="validasi_jenis_layanan">validate the service type</string>
-    <string name="tambah_layanan_sukses">Add services success</string>
-    <string name="tambah_pegawai_gagal">Add Employee Error</string>
-    <string name="edit_pegawai">Edit Employee</string>
-    <string name="Data_Berhasil_Diperbarui">Data Updated Successfully</string>
-    <string name="Data_Gagal_Diperbarui">Data Failed to Update</string>
+    <string name="Pelanggan">Customers</string>
+    <string name="Laporan">Reports</string>
+    <string name="Cetak">Print</string>
+
+    <!-- Common Actions -->
+    <string name="Simpan">Save</string>
     <string name="Sunting">Edit</string>
     <string name="perbarui">Update</string>
-    <string name="Simpan">Save</string>
-    <string name="card_pelanggan_terdaftar">Terdaftar</string>
-    <string name="card_pelanggan_cabang">Branch</string>
-    <string name="card_pegawai_id">card employee id</string>
-    <string name="card_pegawai_terdaftar">Join</string>
-    <string name="card_pegawai_hp">Contact</string>
-    <string name="card_pegawai_alamat">Address</string>
-    <string name="card_pegawai_nama">Name</string>
-    <string name="tambah_pegawai">Add employee</string>
-    <string name="validasi_nama_pegawai">Input name</string>
-    <string name="validasi_alamat_pegawai">Input address</string>
-    <string name="validasi_noHP_pegawai">Input contact</string>
-    <string name="validasi_cabang_pegawai">Input branch</string>
-    <string name="Data_Pegawai_Gagal_Diperbarui">Add employee failed</string>
-    <string name="Data_Pegawai_Berhasil_Diperbarui">Add employee success</string>
-    <string name="Data_pelanggan_Berhasil_Diperbarui">Add customer succes</string>
-    <string name="Data_pelanggan_Gagal_Diperbarui">Add customer failed</string>
-    <string name="validasi_noHP_pelanggan">Input contact</string>
-    <string name="tambah_pelanggan">Add customer</string>
-    <string name="tambah_tambahan">"add additional "</string>
-    <string name="tambah_tambahan_gagal">add additional failed</string>
-    <string name="tambah_tambahan_sukses">add additional succes</string>
-    <string name="validasi_nama_tambahan">wrong additional name</string>
-    <string name="validasi_harga_tambahan">wrong additional price</string>
-    <string name="login_title">Login to Your Account</string>
-    <string name="default_web_client_id">1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com</string>
-    <string name="login_instruction">Please Login To Continue</string>
-    <string name="phone_label">Phone</string>
+    <string name="delete">Delete</string>
+    <string name="Batal">Cancel</string>
+    <string name="Konfirmasi">Confirm</string>
+    <string name="Kirim">Send</string>
+    <string name="Print">Print</string>
+    <string name="hubungi">Contact</string>
+    <string name="lihat">View</string>
+    <string name="Next">Next Page</string>
+
+    <!-- Authentication -->
+    <string name="login_title">Sign in to Your Account</string>
+    <string name="welcome_text">Welcome</string>
+    <string name="login_instruction">Please log in to continue</string>
+    <string name="phone_label">Phone Number</string>
     <string name="password_label">Password</string>
     <string name="phone_hint">08xxxxxxxxxx</string>
-    <string name="password_hint">Input password</string>
-    <string name="login_button">Login</string>
-    <string name="google_login_button">Login dengan Google</string>
+    <string name="password_hint">Enter password</string>
+    <string name="login_button">Log In</string>
+    <string name="google_login_button">Sign in with Google</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="register_title">Create New Account</string>
-    <string name="name_label">Name</string>
-    <string name="name_hint">Input Name</string>
+
+    <!-- Registration -->
+    <string name="register_title">Register New Account</string>
+    <string name="name_label">Full Name</string>
+    <string name="name_hint">Enter full name</string>
     <string name="confirm_password_label">Confirm Password</string>
-    <string name="confirm_password_hint">Input password Again</string>
-    <string name="welcome_text">Welcome</string>
-    <string name="validasi_nama_cabang">Branch name not yet filled</string>
-    <string name="validasi_alamat">Branch address Not yet filled in</string>
-    <string name="validasi_NoHP">Branch telephone number not yet filled in</string>
-    <string name="tambah_cabang_sukses">add branch success</string>
-    <string name="login_phone">Mobile Number (08xxxxxxxxx)</string>
-    <string name="Password">Password</string>
-    <string name="Enter">Enter</string>
-    <string name="Divider">or</string>
-    <string name="Login_Google">Log in with Google</string>
-    <string name="Dont_have_account">Don\'t have an account yet?</string>
+    <string name="confirm_password_hint">Re-enter password</string>
+    <string name="btn_register">Register</string>
+    <string name="Dont_have_account">Don’t have an account?</string>
     <string name="Register_Here">Register here</string>
-    <string name="nama_cabang">branch name</string>
-    <string name="alamat">Address</string>
-    <string name="no_hp">"Phone number: "</string>
-    <string name="delete">Delete</string>
-    <string name="Edit">Edit</string>
-    <string name="Id_Cabang">"Branch ID: "</string>
-    <string name="Id_Layanan">"Service Id: "</string>
-    <string name="nama_layanan">"Service Name: "</string>
-    <string name="price">"Price: "</string>
-    <string name="id_pegawai">"Employee ID: "</string>
-    <string name="nama">"Name: "</string>
-    <string name="terdaftar">"Registered: "</string>
-    <string name="cabang_card">"Branch: "</string>
-    <string name="hubungi">Contact</string>
-    <string name="lihat">More</string>
-    <string name="id_tambahan">Additional ID</string>
-    <string name="nama_tambahan">"Additional Name: "</string>
-    <string name="nama_pelanggan">Customer Name</string>
-    <string name="status_pembayaran">Payment Status</string>
-    <string name="tanggal">Date</string>
-    <string name="layanan_tambahan">Additional Services</string>
-    <string name="total_bayar">Total Pay</string>
-    <string name="bayar_sekarang">Pay Now</string>
-    <string name="daftar_akun_baru">Register New Account</string>
-    <string name="nama_lengkap">Full name</string>
-    <string name="konfirmasi_password">Confirm Password</string>
-    <string name="daftar">Register</string>
     <string name="sudah_punya_akun">Already have an account?</string>
+    <string name="Divider">or</string>
+
+    <!-- Account -->
     <string name="my_account">My Account</string>
     <string name="settings">Account Settings</string>
     <string name="privacy">Privacy Policy</string>
     <string name="help">Help &amp; Support</string>
-    <string name="keluar">Log Out</string>
-    <string name="informasi_transaksi">Transaction Information</string>
-    <string name="layanan_utama">Main Services</string>
-    <string name="Kirim">Send</string>
-    <string name="Print">Print</string>
-    <string name="no_additional">There are no additional services yet</string>
+    <string name="keluar">Logout</string>
+
+    <!-- Forms -->
+    <string name="nama_form">Name</string>
+    <string name="harga_form">Price</string>
+    <string name="nohp_form">Active Phone Number</string>
+    <string name="nama_cabang_form">Branch Name</string>
+    <string name="nama_pegawai_form">Staff Name</string>
+    <string name="nama_pelanggan_form">Customer Name</string>
+    <string name="nama_layanan_form">Service Name</string>
+    <string name="nama_tambahan_form">Extra Name</string>
+    <string name="terdaftar_form">Registered</string>
+
+    <!-- Add New Items -->
+    <string name="Tambah_cabang">Add Branch</string>
+    <string name="Tambah_layanan">Add Service</string>
+    <string name="Tambah_pegawai">Add Staff</string>
+    <string name="Tambah_pelanggan">Add Customer</string>
+    <string name="tambah_tambahan">Add Extra</string>
+
+    <!-- Customer Info -->
+    <string name="id_pelanggan">Customer ID</string>
+    <string name="nama_pelanggan">Customer Name</string>
     <string name="Data_pelanggan">Customer Data</string>
-    <string name="Pilih_pelanggan">Select Customer</string>
-    <string name="Pilih_layanan">Select Services</string>
-    <string name="proccess">Proccess</string>
-    <string name="Detail_pegawai">Employee Details</string>
-    <string name="nama_pegawai">Employee Name</string>
     <string name="Detail_pelanggan">Customer Details</string>
-    <string name="Pilih_metode_pembayaran">Select Payment Method</string>
+    <string name="Pilih_pelanggan">Select Customer</string>
+    <string name="Informasi_pelanggan">Customer Information</string>
+    <string name="card_pelanggan_terdaftar">Registered</string>
+    <string name="card_pelanggan_cabang">Branch</string>
+
+    <!-- Employee Info -->
+    <string name="nama_pegawai">Staff Name</string>
+    <string name="Detail_pegawai">Staff Details</string>
+    <string name="edit_pegawai">Edit Staff</string>
+    <string name="card_pegawai_id">Staff ID</string>
+    <string name="card_pegawai_nama">Name</string>
+    <string name="card_pegawai_hp">Phone</string>
+    <string name="card_pegawai_alamat">Address</string>
+    <string name="card_pegawai_terdaftar">Registered</string>
+
+    <!-- Services -->
+    <string name="Pilih_layanan">Select Service</string>
+    <string name="layanan_utama">Main Service</string>
+    <string name="layanan_tambahan">Additional Services</string>
+    <string name="no_additional">No additional services</string>
+    <string name="id_tambahan">Extra ID</string>
+
+    <!-- Transactions -->
+    <string name="informasi_transaksi">Transaction Information</string>
+    <string name="status_pembayaran">Payment Status</string>
+    <string name="tanggal">Date</string>
+    <string name="total_bayar">Total Payment</string>
+    <string name="bayar_sekarang">Pay Now</string>
+    <string name="Pilih_metode_pembayaran">Choose Payment Method</string>
     <string name="Bayar_nanti">Pay Later</string>
     <string name="Tunai">Cash</string>
-    <string name="Batal">Cancel</string>
-    <string name="Konfirmasi_data">Data Confirmation</string>
+    <string name="Konfirmasi_data">Confirm Data</string>
     <string name="Harga_Jumlah">Price x Quantity:</string>
-    <string name="Konfirmasi">Confirm</string>
-    <string name="Informasi_pelanggan">Customer Information</string>
-    <string name="Tambah_cabang">Add Branch</string>
-    <string name="Tambah_layanan">Add Services</string>
-    <string name="Tambah_pegawai">Add Employee</string>
-    <string name="Tambah_pelanggan">Add customers</string>
-    <string name="harga_form">Price</string>
-    <string name="nama_form">Name</string>
-    <string name="nama_tambahan_form">Additional Name</string>
-    <string name="nama_cabang_form">Branch Name</string>
-    <string name="nama_pegawai_form">Employee Name</string>
-    <string name="nama_pelanggan_form">Customer Name</string>
-    <string name="nohp_form">Phone Number</string>
-    <string name="nama_layanan_form">Service Name</string>
-    <string name="terdaftar_form">Registered</string>
-    <string name="StatusberhasildiubahmenjadiSudahDibayar">Status successfully changed to Paid</string>
-    <string name="Laporanberhasildihapus">Report successfully deleted</string>
-    <string name="Gagalmengupdatestatus">Failed to update status</string>
-    <string name="Gagalmenghapuslaporan">Failed to delete report</string>
-    <string name="Belum_dibayar">Not yet paid</string>
-    <string name="selesai">paid off</string>
-    <string name="Diambil_pada">taken at</string>
-    <string name="Ambil_sekarang">Take Now</string>
-    <string name="Sudah_dibayar">Already Paid</string>
+    <string name="proccess">Process</string>
 
+    <!-- Payment Status -->
+    <string name="Belum_dibayar">Unpaid</string>
+    <string name="Sudah_dibayar">Paid</string>
+    <string name="selesai">Completed</string>
+    <string name="Diambil_pada">Picked Up On</string>
+    <string name="Ambil_sekarang">Pick Up Now</string>
+
+    <!-- Delete Transaction Dialog -->
     <string name="title_hapus_transaksi">Delete Transaction</string>
     <string name="msg_hapus_transaksi">Are you sure you want to delete the transaction:\n\nTransaction No: %1$s\nCustomer: %2$s\nDate: %3$s</string>
     <string name="btn_hapus">Delete</string>
     <string name="btn_batal">Cancel</string>
 
+    <!-- Greetings -->
     <string name="greeting_pagi">Good Morning, %1$s</string>
     <string name="greeting_siang">Good Afternoon, %1$s</string>
     <string name="greeting_malam">Good Evening, %1$s</string>
+    <string name="estimasi">Todays Estimate</string>
 
+    <!-- Labels with Data -->
+    <string name="label_nama_pelanggan">Customer Name: %1$s</string>
+    <string name="label_no_hp">Phone Number: %1$s</string>
+    <string name="label_nama_layanan">Service Name: %1$s</string>
+    <string name="label_harga">Price: %1$s</string>
+    <string name="label_total_harga">Total: Rp %1$s</string>
+    <string name="label_alamat">Address</string>
+    <string name="label_phone">Phone Number</string>
+    <string name="label_jumlah">Quantity:</string>
+    <string name="label_price">Price</string>
+
+    <!-- Card Labels -->
+    <string name="nama_cabang">Branch Name:</string>
+    <string name="alamat">Address:</string>
+    <string name="no_hp">Phone Number:</string>
+    <string name="Id_Cabang">Branch ID:</string>
+    <string name="Id_Layanan">Service ID:</string>
+    <string name="nama_layanan">Service Name:</string>
+    <string name="price">Price:</string>
+    <string name="id_pegawai">Employee ID:</string>
+    <string name="nama">Name:</string>
+    <string name="terdaftar">Registered:</string>
+    <string name="cabang_card">Branch:</string>
+    <string name="nama_tambahan">Additional Name:</string>
+
+    <!-- Validation Messages -->
+    <string name="validasi_nama_pelanggan">Customer name cannot be empty</string>
+    <string name="validasi_alamat_pelanggan">Customer address cannot be empty</string>
+    <string name="validasi_nohp_pelanggan">Customer contact cannot be empty</string>
+    <string name="validasi_noHP_pelanggan">Enter a valid phone number</string>
+    <string name="validasi_cabang_pelanggan">Customer branch cannot be empty</string>
+    <string name="validasi_nama_pegawai">Enter a valid name</string>
+    <string name="validasi_alamat_pegawai">Enter a valid address</string>
+    <string name="validasi_noHP_pegawai">Enter a valid phone number</string>
+    <string name="validasi_cabang_pegawai">Enter the branch</string>
+    <string name="validasi_cabang_layanan">Enter the service branch</string>
+    <string name="validasi_harga">Enter the price</string>
+    <string name="validasi_jenis_layanan">Enter the service type</string>
+    <string name="validasi_nama_tambahan">Invalid additional name</string>
+    <string name="validasi_harga_tambahan">Invalid additional price</string>
+    <string name="validasi_nama_cabang">Branch name is required</string>
+    <string name="validasi_alamat">Branch address is required</string>
+    <string name="validasi_NoHP">Branch phone number is required</string>
+    <string name="validasi_isi_terdaftar">Validation for registered field</string>
+
+    <!-- Auth Validation -->
+    <string name="error_name_empty">Name cannot be empty</string>
+    <string name="error_phone_empty">Phone number cannot be empty</string>
+    <string name="error_phone_invalid">Invalid phone number format</string>
+    <string name="error_password_empty">Password cannot be empty</string>
+    <string name="error_password_short">Password must be at least 6 characters</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+
+    <!-- Success Messages -->
+    <string name="tambah_pelanggan_sukses">Customer added successfully</string>
+    <string name="tambah_pegawai_sukses">Employee added successfully</string>
+    <string name="tambah_layanan_sukses">Service added successfully</string>
+    <string name="tambah_tambahan_sukses">Additional service added successfully</string>
+    <string name="tambah_cabang_sukses">Branch added successfully</string>
+    <string name="Data_Berhasil_Diperbarui">Data updated successfully</string>
+    <string name="Data_Pegawai_Berhasil_Diperbarui">Employee data updated successfully</string>
+    <string name="Data_pelanggan_Berhasil_Diperbarui">Customer data updated successfully</string>
+    <string name="msg_register_success">Registration successful</string>
+    <string name="msg_login_berhasil">Login successful</string>
+    <string name="msg_login_google_berhasil">Login with Google successful</string>
+    <string name="msg_akun_google_dibuat">New account created with Google</string>
+    <string name="msg_email_reset_dikirim">Password reset email sent</string>
+    <string name="msg_keluar_berhasil">Logged out successfully</string>
+
+    <!-- Error Messages -->
+    <string name="tambah_pelanggan_gagal">Failed to add customer</string>
+    <string name="tambah_pegawai_gagal">Failed to add employee</string>
+    <string name="tambah_tambahan_gagal">Failed to add additional service</string>
+    <string name="Data_Gagal_Diperbarui">Failed to update data</string>
+    <string name="Data_Pegawai_Gagal_Diperbarui">Failed to update employee data</string>
+    <string name="Data_pelanggan_Gagal_Diperbarui">Failed to update customer data</string>
+    <string name="msg_register_failed">Registration failed: %1$s</string>
+    <string name="msg_login_gagal">Login failed: %1$s</string>
+    <string name="msg_google_gagal">Google Sign-In failed</string>
+    <string name="msg_google_signup_failed">Google Sign-Up failed</string>
+    <string name="msg_autentikasi_gagal">Authentication failed.</string>
+    <string name="msg_email_reset_gagal">Failed to send password reset email</string>
+    <string name="msg_keluar_gagal">Error during logout</string>
+    <string name="msg_account_exists">Account already registered, please login</string>
+    <string name="msg_hp_kosong">Please enter a phone number first</string>
+
+    <!-- Transaction Messages -->
+    <string name="msg_batal_pilih_pelanggan">Cancelled selecting customer</string>
+    <string name="msg_layanan_tambahan_dihapus">Additional service removed</string>
+    <string name="msg_batal_memilih_layanan">Cancelled selecting service</string>
+    <string name="msg_tambahan_ditambahkan">Additional service added</string>
+    <string name="msg_tambahan_sudah_ada">Additional service already added</string>
+    <string name="msg_batal_memilih_tambahan">Cancelled selecting additional service</string>
+    <string name="msg_pilih_pelanggan_layanan">Please select a customer and service first</string>
+    <string name="msg_transaksi_tidak_lengkap">Transaction data is incomplete!</string>
+    <string name="msg_transaksi_berhasil_disimpan">Transaction data saved successfully!</string>
+    <string name="msg_gagal_simpan_transaksi">Failed to save transaction data: %1$s</string>
+
+    <!-- WhatsApp & Printing -->
+    <string name="msg_wa_berhasil_dikirim">WhatsApp message sent successfully!</string>
+    <string name="msg_gagal_buka_wa">Failed to open WhatsApp: %1$s</string>
+    <string name="msg_struk_disimpan">Receipt saved: %1$s</string>
+    <string name="msg_gagal_simpan_struk">Failed to save receipt</string>
+    <string name="msg_struk_berhasil_dicetak">Receipt printed successfully via Bluetooth</string>
+    <string name="msg_gagal_mencetak">Printing failed: %1$s</string>
+    <string name="msg_izin_bluetooth_diberikan">Bluetooth permission granted</string>
+    <string name="msg_izin_bluetooth_diperlukan">Bluetooth permission is required for printing</string>
+    <string name="msg_bluetooth_diadakan">Bluetooth enabled</string>
+    <string name="msg_bluetooth_diperlukan">Bluetooth is required for printing</string>
+
+    <!-- Report Messages -->
+    <string name="msg_gagal_memuat_laporan">Failed to load report data</string>
+    <string name="msg_gagal_update_status">Failed to update status</string>
+    <string name="msg_laporan_berhasil_dihapus">Report deleted successfully</string>
+    <string name="msg_gagal_hapus_laporan">Failed to delete report</string>
+    <string name="msg_gagal_buka_laporan">Failed to open report page: %1$s</string>
+    <string name="msg_no_transaksi_tidak_valid">Invalid transaction number</string>
+    <string name="StatusberhasildiubahmenjadiSudahDibayar">Status successfully changed to Paid</string>
+
+    <!-- Branch Messages -->
+    <string name="msg_cabang_berhasil_dihapus">Branch deleted successfully</string>
+    <string name="msg_cabang_dihapus_refresh">Branch deleted, data refreshed</string>
+    <string name="msg_gagal_hapus_cabang">Failed to delete branch: %1$s</string>
+    <string name="msg_cabang_disunting">Branch edited successfully</string>
+    <string name="msg_layanan_disunting">Service edited successfully</string>
+    <string name="msg_tambahan_disunting">Additional edited successfully</string>
+
+    <!-- Edit Mode Messages -->
+    <string name="msg_mode_sunting">Edit mode activated. Please edit the data and press Save.</string>
+    <string name="msg_gagal_simpan_data">Failed to save data: %1$s</string>
+    <string name="msg_gagal_sunting_data">Failed to edit data: %1$s</string>
+    <string name="msg_batal_perubahan">Changes will be discarded</string>
+    <string name="msg_gagal_memuat_data">Failed to load data</string>
+
+    <!-- Error Messages -->
+    <string name="msg_error_posisi_item">Error: Invalid item position</string>
+    <string name="msg_error_id_cabang">Error: Invalid branch ID</string>
+    <string name="msg_terjadi_kesalahan">An error occurred: %1$s</string>
+
+    <!-- Account Settings Messages -->
+    <string name="msg_pengaturan_akun">Account Settings</string>
+    <string name="msg_kebijakan_privasi">Privacy Policy</string>
+    <string name="msg_bantuan_dukungan">Help &amp; Support</string>
+
+        <!-- Strings used in activity_register.xml -->
+    <string name="daftar_akun_baru">Create New Account</string>
+    <string name="nama_lengkap">Full Name</string>
+    <string name="konfirmasi_password">Confirm Password</string>
+    <string name="daftar">Register</string>
+    <string name="Enter">Login</string>
+    <string name="Edit">Edit</string>
+
+    <string name="login_phone">Phone Number</string>
+    <string name="Password">Password</string>
+    <string name="Login_Google">Login with Google</string>
+    <string name="tambah_pegawai">Add Employee</string>
+    <string name="tambah_pelanggan">Add Customer</string>
+
+    <string name="error_hp_kosong">Phone number cannot be empty</string>
+    <string name="error_hp_tidak_valid">Please enter a valid phone number</string>
+    <string name="error_password_kosong">Password cannot be empty</string>
+    <string name="error_password_pendek">Password must be at least 6 characters</string>
+    <string name="text_login_button">Logging in...</string>
+    <string name="msg_google_signup_success">Google account registered successfully</string>
+    <string name="msg_auth_failed">Authentication failed. Please try again.</string>
+
+    <!-- Google Configuration -->
+    <string name="default_web_client_id">1052855238337-sn4d6vik3cbg1b4cson60jrpp6qdic79.apps.googleusercontent.com</string>
 </resources>

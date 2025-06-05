@@ -86,7 +86,7 @@ class data_pegawai : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@data_pegawai, error.message, Toast.LENGTH_LONG)
+                Toast.makeText(this@data_pegawai, getString(R.string.msg_gagal_memuat_data), Toast.LENGTH_SHORT).show()
             }
         })
     }

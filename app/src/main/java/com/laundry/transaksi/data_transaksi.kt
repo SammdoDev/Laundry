@@ -147,7 +147,7 @@ class data_transaksi : AppCompatActivity() {
         val btnProcess: Button = findViewById(R.id.btn_process)
         btnProcess.setOnClickListener {
             if (idPelanggan.isEmpty() || idLayanan.isEmpty()) {
-                Toast.makeText(this, "Harap pilih pelanggan dan layanan terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_pilih_pelanggan_layanan), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -168,7 +168,9 @@ class data_transaksi : AppCompatActivity() {
     private fun updateQuantityDisplay() {
         tvJumlahLayanan.text = jumlahLayanan.toString()
         val totalHarga = hargaLayananInt * jumlahLayanan
-        tvTotalHargaLayanan.text = "Total: Rp ${formatRupiah(totalHarga)}"
+        val context = tvTotalHargaLayanan.context
+        tvTotalHargaLayanan.text = context.getString(R.string.label_total_harga, formatRupiah(totalHarga))
+
 
         // Enable/disable tombol kurang
         btnKurangLayanan.isEnabled = jumlahLayanan > 1
@@ -184,7 +186,7 @@ class data_transaksi : AppCompatActivity() {
             dataListTambahan.removeAt(position)
             adapter.notifyItemRemoved(position)
             adapter.notifyItemRangeChanged(position, dataListTambahan.size)
-            Toast.makeText(this, "Layanan tambahan dihapus", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_layanan_tambahan_dihapus), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -198,13 +200,14 @@ class data_transaksi : AppCompatActivity() {
                 val nama = data.getStringExtra("nama")
                 val nomorHP = data.getStringExtra("hp")
 
-                tvPelangganNama.text = "Nama Pelanggan : $nama"
-                tvPelangganNoHP.text = "No HP : $nomorHP"
+                tvPelangganNama.text = getString(R.string.label_nama_pelanggan, nama)
+                tvPelangganNoHP.text = getString(R.string.label_no_hp, nomorHP)
+
 
                 namaPelanggan = nama.toString()
                 noHP = nomorHP.toString()
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal Memilih Pelanggan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_batal_pilih_pelanggan), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -214,8 +217,9 @@ class data_transaksi : AppCompatActivity() {
                 val tempNamaLayanan = data.getStringExtra("namaLayanan")
                 val harga = data.getStringExtra("harga")
 
-                tvLayananNama.text = "Nama Layanan : $tempNamaLayanan"
-                tvLayananHarga.text = "Harga : $harga"
+                tvLayananNama.text = getString(R.string.label_nama_layanan, tempNamaLayanan)
+                tvLayananHarga.text = getString(R.string.label_harga, harga)
+
 
                 namaLayanan = tempNamaLayanan.toString()
                 hargaLayanan = harga.toString()
@@ -235,7 +239,7 @@ class data_transaksi : AppCompatActivity() {
                 updateQuantityDisplay()
 
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal Memilih Layanan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_batal_memilih_layanan), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -251,12 +255,12 @@ class data_transaksi : AppCompatActivity() {
                     val tambahan = model_tambahan(idTambahan, namaTambahan, hargaTambahan)
                     dataListTambahan.add(tambahan)
                     adapter.notifyItemInserted(dataListTambahan.size - 1)
-                    Toast.makeText(this, "Layanan tambahan ditambahkan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_tambahan_ditambahkan), Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "Layanan tambahan sudah ada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_tambahan_sudah_ada), Toast.LENGTH_SHORT).show()
                 }
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal Memilih Layanan Tambahan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_batal_memilih_tambahan), Toast.LENGTH_SHORT).show()
             }
         }
     }

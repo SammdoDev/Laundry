@@ -20,12 +20,14 @@ class adapter_pilih_layanan(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val context = holder.itemView.context
         val nomor = position + 1
         val item = layananList[position]
 
         holder.tvID.text = nomor.toString()
         holder.tvNamaLayanan.text = item.namaLayanan
-        holder.tvHarga.text = "Harga : ${item.harga}"
+        holder.tvHarga.text = "${context.getString(R.string.label_price)}: ${item.harga}"
+
 
         holder.cvCARD.setOnClickListener {
             onItemClick(item)

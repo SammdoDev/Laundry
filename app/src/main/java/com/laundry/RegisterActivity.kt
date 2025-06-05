@@ -106,32 +106,32 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun validateInputs(name: String, phone: String, password: String, confirmPassword: String): Boolean {
         if (name.isEmpty()) {
-            nameInputField.error = "Nama tidak boleh kosong"
+            nameInputField.error = getString(R.string.error_name_empty)
             return false
         }
 
         if (phone.isEmpty()) {
-            phoneInputField.error = "Nomor handphone tidak boleh kosong"
+            phoneInputField.error = getString(R.string.error_phone_empty)
             return false
         }
 
         if (!isValidPhoneNumber(phone)) {
-            phoneInputField.error = "Format nomor handphone tidak valid"
+            phoneInputField.error = getString(R.string.error_phone_invalid)
             return false
         }
 
         if (password.isEmpty()) {
-            passwordInputField.error = "Password tidak boleh kosong"
+            passwordInputField.error = getString(R.string.error_password_empty)
             return false
         }
 
         if (password.length < 6) {
-            passwordInputField.error = "Password minimal 6 karakter"
+            passwordInputField.error = getString(R.string.error_password_short)
             return false
         }
 
         if (confirmPassword != password) {
-            confirmPasswordInputField.error = "Password tidak sama"
+            confirmPasswordInputField.error = getString(R.string.error_password_mismatch)
             return false
         }
 
@@ -164,7 +164,7 @@ class RegisterActivity : AppCompatActivity() {
                             showLoading(false)
                             if (profileTask.isSuccessful) {
                                 Log.d(TAG, "User profile updated.")
-                                Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, getString(R.string.msg_register_success), Toast.LENGTH_SHORT).show()
 
                                 // Navigate to login
                                 val intent = Intent(this, login_form::class.java)
@@ -176,7 +176,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     showLoading(false)
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(this, "Registrasi gagal: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.msg_register_failed, task.exception?.message), Toast.LENGTH_LONG).show()
                 }
             }
     }
@@ -197,7 +197,7 @@ class RegisterActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!, account)
             } catch (e: ApiException) {
                 Log.w(TAG, "Google sign up failed", e)
-                Toast.makeText(this, "Google Sign Up gagal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_google_signup_failed), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -225,17 +225,17 @@ class RegisterActivity : AppCompatActivity() {
                                 if (profileTask.isSuccessful) {
                                     Log.d(TAG, "User profile updated with Google info")
                                 }
-                                Toast.makeText(this, "Registrasi dengan Google berhasil", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, getString(R.string.msg_google_signup_success), Toast.LENGTH_SHORT).show()
                                 navigateToLogin()
                             }
                     } else {
                         // User already exists, redirect to login
-                        Toast.makeText(this, "Akun sudah terdaftar, silakan login", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.msg_account_exists), Toast.LENGTH_SHORT).show()
                         navigateToLogin()
                     }
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_auth_failed), Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -246,7 +246,7 @@ class RegisterActivity : AppCompatActivity() {
             registerButton.isEnabled = false
             googleRegisterButton.isEnabled = false
         } else {
-            registerButton.text = "Daftar"
+            registerButton.text = getString(R.string.btn_register)
             registerButton.isEnabled = true
             googleRegisterButton.isEnabled = true
         }

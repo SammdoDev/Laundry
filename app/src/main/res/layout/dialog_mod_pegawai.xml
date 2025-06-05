@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/id_pelanggan"
-                    android:textColor="#000000" />
+                     />
 
                 <TextView
                     android:id="@+id/tvDIALOG_PEGAWAI_ID"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="P001284"
-                    android:textColor="#000000" />
+                     />
             </LinearLayout>
 
             <View
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/nama_pegawai"
-                    android:textColor="#000000" />
+                     />
 
                 <TextView
                     android:id="@+id/tvDIALOG_PEGAWAI_NAMA"
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Budi Santoso"
-                    android:textColor="#000000" />
+                     />
             </LinearLayout>
 
             <View
@@ -100,8 +100,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/alamat"
-                    android:textColor="#000000" />
+                    android:text="@string/label_alamat"
+                     />
 
                 <TextView
                     android:id="@+id/tvDIALOG_PEGAWAI_ALAMAT"
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Jl. Mawar No. 45, Jakarta"
-                    android:textColor="#000000" />
+                     />
             </LinearLayout>
 
             <View
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/nohp_form"
-                    android:textColor="#000000" />
+                     />
 
                 <TextView
                     android:id="@+id/tvDIALOG_PEGAWAI_NOHP"
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0812-3456-7890"
-                    android:textColor="#000000" />
+                     />
             </LinearLayout>
 
             <View
@@ -157,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/nama_cabang"
-                    android:textColor="#000000" />
+                     />
 
                 <TextView
                     android:id="@+id/tvDIALOG_PEGAWAI_CABANG"
@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Solo"
-                    android:textColor="#000000" />
+                     />
             </LinearLayout>
 
 

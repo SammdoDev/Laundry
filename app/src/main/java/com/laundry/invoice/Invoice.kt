@@ -321,7 +321,7 @@ class Invoice : AppCompatActivity() {
         // Validasi data sebelum simpan
         if (!validateTransactionData()) {
             Log.e(TAG, "Data validation failed")
-            showToast("Data transaksi tidak lengkap!")
+            showToast(getString(R.string.msg_transaksi_tidak_lengkap))
             return
         }
 
@@ -349,11 +349,11 @@ class Invoice : AppCompatActivity() {
             .addOnSuccessListener {
                 isDataSaved = true
                 Log.d(TAG, "✅ Data berhasil disimpan ke Firebase dengan ID: $noTransaksi")
-                showToast("Data transaksi berhasil disimpan!")
+                showToast(getString(R.string.msg_transaksi_berhasil_disimpan))
             }
             .addOnFailureListener { exception ->
                 Log.e(TAG, "❌ Gagal menyimpan data: ${exception.message}")
-                showToast("Gagal menyimpan data transaksi: ${exception.message}")
+                showToast(getString(R.string.msg_gagal_simpan_transaksi, exception.message))
                 exception.printStackTrace()
             }
     }
@@ -397,9 +397,9 @@ class Invoice : AppCompatActivity() {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(browserIntent)
             }
-            showToast("Pesan WhatsApp berhasil dikirim!")
+            showToast(getString(R.string.msg_wa_berhasil_dikirim))
         } catch (e: Exception) {
-            showToast("Gagal membuka WhatsApp: ${e.message}")
+            showToast(getString(R.string.msg_gagal_buka_wa, e.message))
             e.printStackTrace()
         }
     }
@@ -422,7 +422,7 @@ class Invoice : AppCompatActivity() {
 
         return """
 ════════════════════════════
-        MAHSOK LAUNDRY         
+        SAMM LAUNDRY         
            SOLO
 ════════════════════════════
 
@@ -452,7 +452,7 @@ cucian Anda kepada kami!
 Kami akan memberikan pelayanan 
 terbaik untuk Anda!
 
-📍 Mahsok Laundry - Cabang Solo
+📍 SAMM Laundry - Cabang Solo
 ════════════════════════════
         """.trimIndent()
     }
@@ -484,7 +484,7 @@ terbaik untuk Anda!
             finish()
         } catch (e: Exception) {
             Log.e(TAG, "Error navigating to data_laporan: ${e.message}")
-            showToast("Gagal membuka halaman laporan: ${e.message}")
+            showToast(getString(R.string.msg_gagal_buka_laporan, e.message))
         }
     }
 
@@ -512,14 +512,14 @@ terbaik untuk Anda!
         val directory = File(getExternalFilesDir(null), "struk")
         if (!directory.exists()) directory.mkdirs()
 
-        val file = File(directory, "Struk_Mahsok_Laundry_${noTransaksi}_${System.currentTimeMillis()}.pdf")
+        val file = File(directory, "Struk_SAMM_Laundry_${noTransaksi}_${System.currentTimeMillis()}.pdf")
 
         try {
             document.writeTo(FileOutputStream(file))
-            showToast("Struk disimpan: ${file.absolutePath}")
+            showToast(getString(R.string.msg_struk_disimpan, file.absolutePath))
         } catch (e: IOException) {
             e.printStackTrace()
-            showToast("Gagal menyimpan struk")
+            showToast(getString(R.string.msg_gagal_simpan_struk))
         }
 
         document.close()
@@ -537,14 +537,15 @@ terbaik untuk Anda!
                 printTextReceipt()
 
                 Handler(Looper.getMainLooper()).post {
-                    showToast("Struk berhasil dicetak via Bluetooth")
+                    Toast.makeText(this, getString(R.string.msg_struk_berhasil_dicetak), Toast.LENGTH_SHORT).show()
+
                     goToDataLaporan()
                 }
 
             } catch (e: Exception) {
                 e.printStackTrace()
                 Handler(Looper.getMainLooper()).post {
-                    showToast("Gagal mencetak: ${e.message}")
+                    Toast.makeText(this, getString(R.string.msg_gagal_mencetak, e.message), Toast.LENGTH_SHORT).show()
                     goToDataLaporan()
                 }
             } finally {
@@ -596,7 +597,7 @@ terbaik untuk Anda!
         }
 
         val receiptText = """
-[C]===MAHSOK LAUNDRY===
+[C]===SAMM LAUNDRY===
 [C]SOLO
 [L]ID: $noTransaksi
 [L]TGL: $tanggalTransaksi
@@ -612,7 +613,7 @@ ${if (tambahanList.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
 [L]TOTAL: ${formatCurrency(totalHarga)}
 [L]Bayar: $metodePembayaran
 [C]========== TERIMA KASIH ==========
-[C]MAHSOK LAUNDRY - SOLO
+[C]SAMM LAUNDRY - SOLO
 
         """.trimIndent()
 
@@ -699,11 +700,11 @@ ${if (tambahanList.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
             REQUEST_BLUETOOTH_PERMISSION -> {
                 if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                     Log.d(TAG, "Bluetooth permissions granted")
-                    showToast("Izin Bluetooth diberikan")
+                    Toast.makeText(this, getString(R.string.msg_izin_bluetooth_diberikan), Toast.LENGTH_SHORT).show()
                     printViaBluetooth()
                 } else {
                     Log.w(TAG, "Bluetooth permissions denied")
-                    showToast("Izin Bluetooth diperlukan untuk mencetak")
+                    Toast.makeText(this, getString(R.string.msg_izin_bluetooth_diperlukan), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -716,11 +717,11 @@ ${if (tambahanList.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
             REQUEST_ENABLE_BT -> {
                 if (resultCode == RESULT_OK) {
                     Log.d(TAG, "Bluetooth enabled by user")
-                    showToast("Bluetooth diaktifkan")
+                    Toast.makeText(this, getString(R.string.msg_bluetooth_diadakan), Toast.LENGTH_SHORT).show()
                     printViaBluetooth()
                 } else {
                     Log.w(TAG, "Bluetooth enable request denied")
-                    showToast("Bluetooth diperlukan untuk mencetak")
+                    Toast.makeText(this, getString(R.string.msg_bluetooth_diperlukan), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -790,7 +791,7 @@ ${if (tambahanList.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
     private fun handleError(error: Exception, operation: String) {
         Log.e(TAG, "Error during $operation: ${error.message}")
         error.printStackTrace()
-        showToast("Terjadi kesalahan: ${error.message}")
+        Toast.makeText(this, getString(R.string.msg_terjadi_kesalahan, error.message), Toast.LENGTH_SHORT).show()
     }
 
 }

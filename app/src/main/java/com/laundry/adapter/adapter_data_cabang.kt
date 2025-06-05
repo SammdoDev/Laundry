@@ -93,13 +93,13 @@ class adapter_data_cabang(private val cabangList: ArrayList<model_cabang>) :
     private fun deleteCabang(context: Context, cabang: model_cabang, position: Int) {
         // Validasi posisi sebelum menghapus
         if (position < 0 || position >= cabangList.size) {
-            Toast.makeText(context, "Error: Posisi item tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.msg_error_posisi_item), Toast.LENGTH_SHORT).show()
             return
         }
 
         val idCabang = cabang.idCabang
         if (idCabang.isNullOrEmpty()) {
-            Toast.makeText(context, "Error: ID cabang tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.msg_error_id_cabang), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -122,15 +122,15 @@ class adapter_data_cabang(private val cabangList: ArrayList<model_cabang>) :
                             notifyDataSetChanged()
                         }
                     }
-                    Toast.makeText(context, "Cabang berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.msg_cabang_berhasil_dihapus), Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
                     // Jika terjadi error saat update adapter, refresh seluruh data
                     notifyDataSetChanged()
-                    Toast.makeText(context, "Cabang dihapus, data direfresh", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.msg_cabang_dihapus_refresh), Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { error ->
-                Toast.makeText(context, "Gagal menghapus cabang: ${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.msg_gagal_hapus_cabang, error.message), Toast.LENGTH_SHORT).show()
             }
     }
 

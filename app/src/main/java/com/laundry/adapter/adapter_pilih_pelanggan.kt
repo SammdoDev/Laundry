@@ -22,12 +22,14 @@ class adapter_pilih_pelanggan(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val context = holder.itemView.context
         val nomor = position + 1
         val item = pelangganList[position]
         holder.tvID.text = nomor.toString()
         holder.tvNama.text = item.namaPelanggan
-        holder.tvAlamat.text = "Alamat : ${item.alamatPelanggan}"
-        holder.tvNoHP.text = "No HP : ${item.noHPPelanggan}"
+        holder.tvAlamat.text = "${context.getString(R.string.label_alamat)}: ${item.alamatPelanggan ?: "-"}"
+        holder.tvNoHP.text = "${context.getString(R.string.label_phone)}: ${item.noHPPelanggan ?: "-"}"
+
 
         holder.cvCARD.setOnClickListener {
             onItemClick(item)

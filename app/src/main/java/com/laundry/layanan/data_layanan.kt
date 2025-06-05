@@ -84,7 +84,8 @@ class data_layanan : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@data_layanan, "Data Gagal Dimuat", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@data_layanan, getString(R.string.msg_gagal_memuat_data), Toast.LENGTH_SHORT).show()
+
             }
         })
     }

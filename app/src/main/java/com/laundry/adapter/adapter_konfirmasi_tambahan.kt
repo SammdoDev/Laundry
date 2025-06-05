@@ -25,10 +25,11 @@ class adapter_konfirmasi_tambahan(
 
     override fun onBindViewHolder(holder: TambahanViewHolder, position: Int) {
         val tambahan = listTambahan[position]
-        holder.tvId.text = tambahan.idTambahan
+        holder.tvId.text = (position + 1).toString()  // Menampilkan nomor urut mulai dari 1
         holder.tvNama.text = tambahan.namaTambahan
         holder.tvHarga.text = "Rp${tambahan.hargaTambahan}"
     }
+
 
     override fun getItemCount(): Int = listTambahan.size
 

@@ -140,18 +140,15 @@ class Account : AppCompatActivity() {
         }
 
         accountSettingsLayout.setOnClickListener {
-            Toast.makeText(this, "Pengaturan Akun", Toast.LENGTH_SHORT).show()
-            // TODO: Navigate to account settings activity
+            Toast.makeText(this, getString(R.string.msg_pengaturan_akun), Toast.LENGTH_SHORT).show()
         }
 
         privacyPolicyLayout.setOnClickListener {
-            Toast.makeText(this, "Kebijakan Privasi", Toast.LENGTH_SHORT).show()
-            // TODO: Navigate to privacy policy activity
+            Toast.makeText(this, getString(R.string.msg_kebijakan_privasi), Toast.LENGTH_SHORT).show()
         }
 
         helpSupportLayout.setOnClickListener {
-            Toast.makeText(this, "Bantuan & Dukungan", Toast.LENGTH_SHORT).show()
-            // TODO: Navigate to help & support activity
+            Toast.makeText(this, getString(R.string.msg_bantuan_dukungan), Toast.LENGTH_SHORT).show()
         }
 
         logoutButton.setOnClickListener {
@@ -180,12 +177,12 @@ class Account : AppCompatActivity() {
             // Sign out from Google
             googleSignInClient.signOut().addOnCompleteListener(this) {
                 Log.d(TAG, "Google sign out completed")
-                Toast.makeText(this, "Berhasil keluar", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_keluar_berhasil), Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }
         } catch (e: Exception) {
             Log.e(TAG, "Error during logout", e)
-            Toast.makeText(this, "Terjadi kesalahan saat keluar", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_keluar_gagal), Toast.LENGTH_SHORT).show()
         }
     }
 

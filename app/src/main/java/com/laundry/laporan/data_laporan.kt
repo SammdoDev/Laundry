@@ -49,7 +49,8 @@ class data_laporan : AppCompatActivity(), adapter_data_laporan.OnStatusChangeLis
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@data_laporan, "Gagal memuat data laporan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@data_laporan, getString(R.string.msg_gagal_memuat_laporan), Toast.LENGTH_SHORT).show()
+
             }
         })
     }
@@ -68,7 +69,7 @@ class data_laporan : AppCompatActivity(), adapter_data_laporan.OnStatusChangeLis
                     Toast.makeText(this, statusMessage, Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Gagal mengupdate status", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_gagal_update_status), Toast.LENGTH_SHORT).show()
                 }
         }
     }
@@ -78,14 +79,14 @@ class data_laporan : AppCompatActivity(), adapter_data_laporan.OnStatusChangeLis
         if (!noTransaksi.isNullOrEmpty()) {
             database.child(noTransaksi).removeValue()
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Laporan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_laporan_berhasil_dihapus), Toast.LENGTH_SHORT).show()
                     // Data akan otomatis ter-update melalui ValueEventListener
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Gagal menghapus laporan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_gagal_hapus_laporan), Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(this, "No transaksi tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_no_transaksi_tidak_valid), Toast.LENGTH_SHORT).show()
         }
     }
 }

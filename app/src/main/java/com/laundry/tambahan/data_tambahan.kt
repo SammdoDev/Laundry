@@ -79,7 +79,7 @@ class data_tambahan : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@data_tambahan, "Data Gagal Dimuat", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@data_tambahan, getString(R.string.msg_gagal_memuat_data), Toast.LENGTH_SHORT).show()
             }
         })
     }

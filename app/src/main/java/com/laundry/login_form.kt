@@ -99,29 +99,29 @@ class login_form : AppCompatActivity() {
             if (phone.isNotEmpty()) {
                 resetPassword(phone)
             } else {
-                Toast.makeText(this, "Masukkan nomor handphone terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_hp_kosong), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun validateInputs(phone: String, password: String): Boolean {
         if (phone.isEmpty()) {
-            phoneInputField.error = "Nomor handphone tidak boleh kosong"
+            phoneInputField.error = getString(R.string.error_hp_kosong)
             return false
         }
 
         if (!isValidPhoneNumber(phone)) {
-            phoneInputField.error = "Format nomor handphone tidak valid"
+            phoneInputField.error = getString(R.string.error_hp_tidak_valid)
             return false
         }
 
         if (password.isEmpty()) {
-            passwordInputField.error = "Password tidak boleh kosong"
+            passwordInputField.error = getString(R.string.error_password_kosong)
             return false
         }
 
         if (password.length < 6) {
-            passwordInputField.error = "Password minimal 6 karakter"
+            passwordInputField.error = getString(R.string.error_password_pendek)
             return false
         }
 
@@ -144,11 +144,12 @@ class login_form : AppCompatActivity() {
                 showLoading(false)
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_login_berhasil), Toast.LENGTH_SHORT).show()
                     navigateToMainActivity()
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(this, "Login gagal: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+
+                    Toast.makeText(this, getString(R.string.msg_login_gagal, task.exception?.message), Toast.LENGTH_LONG).show()
                 }
             }
     }
@@ -169,7 +170,7 @@ class login_form : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!, account)
             } catch (e: ApiException) {
                 Log.w(TAG, "Google sign in failed", e)
-                Toast.makeText(this, "Google Sign In gagal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_google_gagal), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -197,16 +198,17 @@ class login_form : AppCompatActivity() {
                                 if (profileTask.isSuccessful) {
                                     Log.d(TAG, "User profile updated with Google info")
                                 }
-                                Toast.makeText(this, "Akun baru dibuat dengan Google", Toast.LENGTH_SHORT).show()
+
+                                Toast.makeText(this, getString(R.string.msg_akun_google_dibuat), Toast.LENGTH_SHORT).show()
                                 navigateToMainActivity()
                             }
                     } else {
-                        Toast.makeText(this, "Login dengan Google berhasil", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.msg_login_google_berhasil), Toast.LENGTH_SHORT).show()
                         navigateToMainActivity()
                     }
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_autentikasi_gagal), Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -217,9 +219,9 @@ class login_form : AppCompatActivity() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Email reset password telah dikirim", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_email_reset_dikirim), Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "Gagal mengirim email reset password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.msg_email_reset_gagal), Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -230,7 +232,7 @@ class login_form : AppCompatActivity() {
             loginButton.isEnabled = false
             googleLoginButton.isEnabled = false
         } else {
-            loginButton.text = "Masuk"
+            loginButton.text = getString(R.string.text_login_button)
             loginButton.isEnabled = true
             googleLoginButton.isEnabled = true
         }

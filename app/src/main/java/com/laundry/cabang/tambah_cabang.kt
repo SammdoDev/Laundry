@@ -101,7 +101,7 @@ class tambah_cabang : AppCompatActivity() {
         btSimpan.text = "Simpan"
         setFormEnabled(true)
 
-        Toast.makeText(this, "Mode sunting diaktifkan. Silakan edit data dan tekan Simpan.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.msg_mode_sunting), Toast.LENGTH_LONG).show()
     }
 
     private fun setFormEnabled(enabled: Boolean) {
@@ -151,15 +151,20 @@ class tambah_cabang : AppCompatActivity() {
         val cabangBaru = myRef.push()
         val cabangId = cabangBaru.key ?: ""
 
-        val data = model_cabang(cabangId, cabang, alamat, noTelepon )
+        val data = model_cabang(cabangId, cabang, alamat, noTelepon)
 
         cabangBaru.setValue(data)
             .addOnSuccessListener {
-                Toast.makeText(this, getString(R.string.tambah_cabang_sukses), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.tambah_cabang_sukses), Toast.LENGTH_SHORT)
+                    .show()
                 finish()
             }
             .addOnFailureListener { error ->
-                Toast.makeText(this, "Gagal menyimpan data: ${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.msg_gagal_simpan_data, error.message),
+                    Toast.LENGTH_SHORT
+                ).show()
                 resetButton()
             }
     }
@@ -170,11 +175,20 @@ class tambah_cabang : AppCompatActivity() {
 
             myRef.child(id).setValue(data)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Cabang berhasil disunting", Toast.LENGTH_SHORT).show()
+
+                    Toast.makeText(
+                        this,
+                        getString(R.string.msg_cabang_disunting),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     finish()
                 }
                 .addOnFailureListener { error ->
-                    Toast.makeText(this, "Gagal menyunting data: ${error.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.msg_gagal_sunting_data, error.message),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     resetButton()
                 }
         }
@@ -188,8 +202,8 @@ class tambah_cabang : AppCompatActivity() {
     override fun onBackPressed() {
         if (isEditMode && isEditConfirmed) {
             // Jika user menekan back saat sudah dalam mode edit, tanyakan konfirmasi
-            Toast.makeText(this, "Perubahan akan dibatalkan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_batal_perubahan), Toast.LENGTH_SHORT).show()
+            super.onBackPressed()
         }
-        super.onBackPressed()
     }
 }

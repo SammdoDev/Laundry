@@ -73,7 +73,7 @@
                 android:id="@+id/tvalamataddpegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/alamat" />
+                android:text="@string/label_alamat" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                     android:id="@+id/etpegawaialamat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="@string/alamat"
+                    android:hint="@string/label_alamat"
                     android:maxLength="20"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>

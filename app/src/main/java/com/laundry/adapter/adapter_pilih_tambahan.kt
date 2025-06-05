@@ -39,7 +39,7 @@ class adapter_pilih_tambahan(
 
         holder.tvID.text = "[$nomor]"
         holder.tvNama.text = item.namaTambahan ?: "Tidak ada nama"
-        holder.tvHarga.text = "Rp ${item.hargaTambahan ?: "0"}"
+        holder.tvHarga.text = " Rp ${item.hargaTambahan ?: "0"}"
 
         // Tampilkan/sembunyikan tombol hapus berdasarkan flag
         if (showDeleteButton) {

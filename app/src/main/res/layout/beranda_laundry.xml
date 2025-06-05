@@ -61,23 +61,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
                 android:text="@string/estimasi"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"
+                android:gravity="start"
+                android:layout_margin="10dp"/>
 
-            <Space
-                android:layout_width="100dp"
-                android:layout_height="match_parent" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Rp. 99.999"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Rp. 99.999,-"
+                android:layout_weight="0.8"
+                android:textSize="16sp"
+                android:gravity="end"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
             <View
@@ -119,7 +121,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transakasi"
+                            android:text="@string/Transaksi"
                             android:textAlignment="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -148,7 +150,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Pelanggan"
+                            android:text="@string/Pelanggan"
                             android:textAlignment="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -176,7 +178,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Laporan"
+                            android:text="@string/Laporan"
                             android:textAlignment="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -197,7 +199,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
         android:layout_margin="20dp"
-        android:gravity="start">
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -205,13 +207,13 @@
             android:text="@string/tagline_1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:gravity="start"/>
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="start"
+            android:gravity="center"
             android:text="@string/tagline_2"
             android:textSize="15sp"
             android:textStyle="bold" />
