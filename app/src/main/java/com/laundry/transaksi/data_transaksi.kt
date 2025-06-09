@@ -21,6 +21,7 @@ import com.laundry.R
 import com.laundry.adapter.adapter_pilih_tambahan
 import com.laundry.model_data.model_tambahan
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.button.MaterialButton
 
 class data_transaksi : AppCompatActivity() {
     private lateinit var tvPelangganNama: TextView
@@ -31,9 +32,10 @@ class data_transaksi : AppCompatActivity() {
     private lateinit var tvTotalHargaLayanan: TextView
     private lateinit var quantityContainer: LinearLayout
     private lateinit var rvLayananTambahan: RecyclerView
-    private lateinit var btnPilihPelanggan: Button
-    private lateinit var btnPilihLayanan: Button
-    private lateinit var btnTambahan: Button
+    private lateinit var btnPilihPelanggan: MaterialButton
+    private lateinit var btnPilihLayanan: MaterialButton
+    private lateinit var btnTambahan: MaterialButton
+    private lateinit var btnProcess: MaterialButton
     private lateinit var btnTambahLayanan: ImageView
     private lateinit var btnKurangLayanan: ImageView
 
@@ -92,6 +94,7 @@ class data_transaksi : AppCompatActivity() {
         btnPilihPelanggan = findViewById(R.id.btnPilihPelanggan)
         btnPilihLayanan = findViewById(R.id.btnPilihLayanan)
         btnTambahan = findViewById(R.id.btnTambahan)
+        btnProcess = findViewById(R.id.btn_process)
         btnTambahLayanan = findViewById(R.id.btnTambahLayanan)
         btnKurangLayanan = findViewById(R.id.btnKurangLayanan)
     }
@@ -144,7 +147,7 @@ class data_transaksi : AppCompatActivity() {
 // Pada bagian btnProcess.setOnClickListener di data_transaksi.kt
 // Ganti kode yang ada dengan ini:
 
-        val btnProcess: Button = findViewById(R.id.btn_process)
+
         btnProcess.setOnClickListener {
             if (idPelanggan.isEmpty() || idLayanan.isEmpty()) {
                 Toast.makeText(this, getString(R.string.msg_pilih_pelanggan_layanan), Toast.LENGTH_SHORT).show()

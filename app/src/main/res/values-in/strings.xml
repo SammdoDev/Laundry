@@ -110,7 +110,7 @@
     <string name="informasi_transaksi">Informasi Transaksi</string>
     <string name="status_pembayaran">Status Pembayaran</string>
     <string name="tanggal">Tanggal</string>
-    <string name="total_bayar">Total Bayar</string>
+    <string name="total_bayar">Total Bayar:</string>
     <string name="bayar_sekarang">Bayar Sekarang</string>
     <string name="Pilih_metode_pembayaran">Pilih Metode Pembayaran</string>
     <string name="Bayar_nanti">Bayar Nanti</string>
@@ -150,18 +150,18 @@
     <string name="label_price">Harga</string>
 
     <!-- Card Labels -->
-    <string name="nama_cabang">Nama cabang:</string>
-    <string name="alamat">Alamat:</string>
-    <string name="no_hp">Nomor Telepon:</string>
-    <string name="Id_Cabang">Id Cabang:</string>
-    <string name="Id_Layanan">Id Layanan:</string>
-    <string name="nama_layanan">Nama Layanan:</string>
-    <string name="price">Harga:</string>
-    <string name="id_pegawai">Id Pegawai:</string>
-    <string name="nama">Nama:</string>
-    <string name="terdaftar">Terdaftar:</string>
-    <string name="cabang_card">Cabang:</string>
-    <string name="nama_tambahan">Nama Tambahan:</string>
+    <string name="nama_cabang">Nama cabang: </string>
+    <string name="alamat">Alamat: </string>
+    <string name="no_hp">Nomor Telepon: </string>
+    <string name="Id_Cabang">Id Cabang: </string>
+    <string name="Id_Layanan">Id Layanan:  </string>
+    <string name="nama_layanan">Nama Layanan: </string>
+    <string name="price">Harga: </string>
+    <string name="id_pegawai">Id Pegawai: </string>
+    <string name="nama">Nama: </string>
+    <string name="terdaftar">Terdaftar: </string>
+    <string name="cabang_card">Cabang: </string>
+    <string name="nama_tambahan">Nama Tambahan: </string>
 
     <!-- Validation Messages -->
     <string name="validasi_nama_pelanggan">Nama pelanggan tidak boleh kosong</string>
@@ -309,4 +309,18 @@
     <string name="Digital_payment">Pembayaran Digital</string>
     <string name="judul_pembayaran">Pilih cara pembayaran yang paling nyaman</string>
     <string name="jumlah_layanan">Jumlah: %1$d</string>
+
+    <string name="error_opening_gallery">Error membuka galeri</string>
+    <string name="permission_required_gallery">Izin akses galeri diperlukan untuk mengubah foto profil</string>
+    <string name="upload_image_failed">Gagal upload gambar: %1$s</string>
+    <string name="data_updated_success">Data berhasil diperbarui</string>
+    <string name="qty_single">Jumlah: 1x</string>
+    <string name="qty_multiple">Jumlah: %1$dx</string>
+    <string name="additional_services_format">+%d Layanan Tambahan</string>
+    <string name="no_additional_services">Tidak ada layanan tambahan</string>
+    <string name="edit_photo">Ubah Foto Profil</string>
+    <string name="change_password">Ubah Password (Opsional)</string>
+    <string name="current_pass">Password saat ini</string>
+    <string name="new_pass">Password Baru</string>
+    <string name="services">Layanan:</string>
 </resources>

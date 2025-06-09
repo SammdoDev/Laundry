@@ -30,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@android:color/holo_blue_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameInputField"
@@ -48,7 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@android:color/holo_blue_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneInputField"
@@ -67,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@android:color/holo_blue_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordInputField"
@@ -86,7 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@android:color/holo_blue_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirmPasswordInputField"
@@ -110,7 +114,7 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         app:cornerRadius="8dp"
-        style="@style/Widget.MaterialComponents.Button" />
+        app:backgroundTint="@android:color/holo_blue_dark" />
 
     <!-- TAMBAHAN: OR Divider -->
     <LinearLayout
@@ -143,11 +147,22 @@
     </LinearLayout>
 
     <!-- TAMBAHAN: Google Sign-In Button -->
-    <com.google.android.gms.common.SignInButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/googleSignInButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/Login_Google"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_google"
+        app:iconPadding="12dp"
+        app:iconTint="@null"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/light_gray" />
 
     <!-- Login Link -->
     <LinearLayout

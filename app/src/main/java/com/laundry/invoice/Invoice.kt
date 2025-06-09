@@ -300,7 +300,6 @@ class Invoice : AppCompatActivity() {
     private fun setupClickListeners() {
         btnWhatsapp.setOnClickListener {
             shareToWhatsApp()
-            goToDataLaporan()
         }
 
         btnPrint.setOnClickListener {
@@ -310,6 +309,7 @@ class Invoice : AppCompatActivity() {
 
     // ==================== LAPORAN MANAGEMENT - FIXED ====================
 
+    // Modifikasi pada fungsi saveTransactionData() di Invoice.kt
     private fun saveTransactionData() {
         if (isDataSaved) {
             Log.d(TAG, "Data already saved, skipping...")
@@ -332,6 +332,9 @@ class Invoice : AppCompatActivity() {
         // Tentukan status berdasarkan metode pembayaran
         val status = determinePaymentStatus(metodePembayaran)
 
+        // Hitung jumlah layanan tambahan
+        var jumlahLayananTambahan = tambahanList.size
+
         val newLaporan = model_laporan().apply {
             noTransaksi = this@Invoice.noTransaksi
             tanggal = formattedDate
@@ -339,9 +342,20 @@ class Invoice : AppCompatActivity() {
             namaLayanan = this@Invoice.namaLayanan
             totalHarga = this@Invoice.totalHarga
             this.status = status
+
+            // Tambahan data baru
+            jumlahLayanan = this@Invoice.jumlahLayanan
+            hargaLayanan = this@Invoice.hargaLayanan
+            totalHargaLayanan = this@Invoice.totalHargaLayanan
+            jumlahLayananTambahan = this@Invoice.tambahanList.size
+            subtotalTambahan = this@Invoice.subtotalTambahan
+            layananTambahan = this@Invoice.tambahanList
+            metodePembayaran = this@Invoice.metodePembayaran
+            namaKaryawan = this@Invoice.namaKaryawan
+            nomorHp = this@Invoice.nomorHp
         }
 
-        Log.d(TAG, "Saving laporan: noTransaksi=${newLaporan.noTransaksi}, nama=${newLaporan.namaPelanggan}, total=${newLaporan.totalHarga}, status=${newLaporan.status}")
+        Log.d(TAG, "Saving laporan: noTransaksi=${newLaporan.noTransaksi}, nama=${newLaporan.namaPelanggan}, total=${newLaporan.totalHarga}, status=${newLaporan.status}, qty=${newLaporan.jumlahLayanan}, tambahan=${newLaporan.jumlahLayananTambahan}")
 
         // Simpan ke Firebase
         val database = FirebaseDatabase.getInstance().getReference("Laporan")
@@ -398,6 +412,7 @@ class Invoice : AppCompatActivity() {
                 startActivity(browserIntent)
             }
             showToast(getString(R.string.msg_wa_berhasil_dikirim))
+            // Jangan langsung pindah ke activity lain
         } catch (e: Exception) {
             showToast(getString(R.string.msg_gagal_buka_wa, e.message))
             e.printStackTrace()
@@ -422,8 +437,8 @@ class Invoice : AppCompatActivity() {
 
         return """
 ════════════════════════════
-        SAMM LAUNDRY         
-           SOLO
+SAMM LAUNDRY         
+SOLO
 ════════════════════════════
 
 HALO, $namaPelanggan 👋
@@ -443,7 +458,7 @@ LAYANAN TAMBAHAN:
 $tambahanText
 
 PEMBAYARAN:
-  Metode         : $metodePembayaran
+  Metode           : $metodePembayaran
   Total Bayar    : ${formatCurrency(totalHarga)}
 
 ════════════════════════════

@@ -50,4 +50,7 @@
     <color name="divider_color">#E0E0E0</color>
 
     <color name="yellow_solid">#FFC107</color>
+    <color name="red">#DC2525</color>
+    <color name="green">#5CB338</color>
+    <color name="blue">#8CCDEB</color>
 </resources>

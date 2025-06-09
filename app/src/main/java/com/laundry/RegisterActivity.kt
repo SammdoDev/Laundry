@@ -35,7 +35,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var passwordInputField: TextInputEditText
     private lateinit var confirmPasswordInputField: TextInputEditText
     private lateinit var registerButton: MaterialButton
-    private lateinit var googleRegisterButton: SignInButton
+    private lateinit var googleRegisterButton: MaterialButton
 
 
     companion object {

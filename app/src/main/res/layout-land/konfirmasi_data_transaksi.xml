@@ -148,7 +148,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/Layanan"
+                                android:text="@string/services"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:minWidth="60dp"/>

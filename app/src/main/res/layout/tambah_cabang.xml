@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nama_cabang" />
+                android:text="@string/nama_cabang_form" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     android:id="@+id/etnamacabang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="@string/nama_cabang"
+                    android:hint="@string/nama_cabang_form"
                     android:maxLength="30"
                     android:layout_margin="5dp"/>
             </androidx.cardview.widget.CardView>

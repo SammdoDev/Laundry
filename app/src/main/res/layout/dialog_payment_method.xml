@@ -3,73 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F8F9FA"
-    android:padding="10dp">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp"
+        android:background="@drawable/dialog_background">
 
-        <!-- Header Section -->
-        <LinearLayout
+        <!-- Header -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:text="@string/Pilih_metode_pembayaran"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
             android:gravity="center"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="20dp" />
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/laundry_machine"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Pilih_metode_pembayaran"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#1A1A1A"
-                android:gravity="center"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/judul_pembayaran"
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-        <!-- Payment Methods Grid -->
+        <!-- Grid Layout untuk payment methods -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="24dp"
-            android:padding="8dp">
+            android:layout_marginBottom="20dp">
 
-            <!-- Row 1: Bank Transfer & Cash -->
+            <!-- Row 1: Bayar Nanti & Tunai -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_bayar_nanti"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
@@ -79,14 +54,15 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:background="#FFFFFF">
+                        android:padding="12dp"
+                        android:background="#FFF3E0">
 
-                        <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@drawable/ic_bca" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💳"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -94,7 +70,7 @@
                             android:text="@string/Bayar_nanti"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"
+                            android:textColor="#E65100"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -104,11 +80,11 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_tunai"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
@@ -118,14 +94,15 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:background="#FFFFFF">
+                        android:padding="12dp"
+                        android:background="#E8F5E8">
 
-                        <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@drawable/ic_wallet" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💵"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -133,7 +110,7 @@
                             android:text="@string/Tunai"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"
+                            android:textColor="#2E7D32"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -142,85 +119,21 @@
 
             </LinearLayout>
 
-            <!-- Row 2: QRIS & Digital Wallets Header -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Digital Payment"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#333333"
-                android:layout_marginBottom="12dp" />
-
-            <!-- Row 3: QRIS -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btn_qris"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:background="#FFFFFF">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/ic_qris"
-                        android:padding="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="QRIS"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#1A1A1A" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Scan QR code"
-                            android:textSize="12sp"
-                            android:textColor="#666666" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Row 4: E-Wallets -->
+            <!-- Row 2: QRIS & DANA -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_dana"
+                    android:id="@+id/btn_qris"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
@@ -230,23 +143,23 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:background="#FFFFFF">
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@drawable/ic_dana"
-                            android:scaleType="fitCenter" />
+                        android:padding="12dp"
+                        android:background="#E3F2FD">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="DANA"
+                            android:text="📱"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="QRIS"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"
+                            android:textColor="#1976D2"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -254,14 +167,13 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_gopay"
+                    android:id="@+id/btn_dana"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
@@ -271,15 +183,63 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:background="#FFFFFF">
+                        android:padding="12dp"
+                        android:background="#E8F4FD">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@drawable/ic_gopay"
-                            android:scaleType="fitCenter" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💙"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DANA"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#118EEA"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- Row 3: GoPay & OVO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_gopay"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="#E8F8F5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💚"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -287,7 +247,7 @@
                             android:text="GoPay"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"
+                            android:textColor="#00AA13"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -297,11 +257,11 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_ovo"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground">
@@ -311,15 +271,15 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:background="#FFFFFF">
+                        android:padding="12dp"
+                        android:background="#FDF2FF">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@drawable/ic_ovo"
-                            android:scaleType="fitCenter" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💜"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -327,7 +287,7 @@
                             android:text="OVO"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:textColor="#1A1A1A"
+                            android:textColor="#7B1FA2"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -338,29 +298,20 @@
 
         </LinearLayout>
 
-        <!-- Action Buttons -->
-        <LinearLayout
+        <!-- Tombol Batal -->
+        <TextView
+            android:id="@+id/btn_batal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="48dp"
+            android:text="@string/Batal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
             android:gravity="center"
-            android:background="#FFFFFF"
-            >
-
-            <TextView
-                android:id="@+id/btn_batal"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="@string/Batal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#666666"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginEnd="8dp" />
-        </LinearLayout>
+            android:background="@drawable/btn_batal_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground" />
 
     </LinearLayout>
 

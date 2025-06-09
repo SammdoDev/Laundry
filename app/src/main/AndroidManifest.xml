@@ -41,6 +41,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".edit_account"
+            android:exported="false" />
+        <activity
             android:name=".cabang.tambah_cabang"
             android:exported="false" />
         <activity

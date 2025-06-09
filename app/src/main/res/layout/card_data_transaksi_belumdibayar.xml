@@ -92,11 +92,26 @@
             android:text="Cuci Lipat 6kg"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/tvAdditionalServices"
+            app:layout_constraintBottom_toTopOf="@id/tvLayananQuantity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cvLaundryIcon"
             app:layout_constraintTop_toTopOf="@id/cvLaundryIcon"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <!-- Quantity Layanan Utama -->
+        <TextView
+            android:id="@+id/tvLayananQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Qty: 2x"
+            android:textColor="#4CAF50"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvAdditionalServices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cvLaundryIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvLayanan" />
 
         <TextView
             android:id="@+id/tvAdditionalServices"
@@ -104,12 +119,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="+2 Layanan Tambahan"
-            android:textColor="#757575"
-            android:textSize="16sp"
+            android:textColor="#FF9800"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/cvLaundryIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cvLaundryIcon"
-            app:layout_constraintTop_toBottomOf="@id/tvLayanan" />
+            app:layout_constraintTop_toBottomOf="@id/tvLayananQuantity" />
 
         <!-- Divider -->
         <View
@@ -141,6 +157,19 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTotalLabel" />
+
+        <!-- Breakdown Harga (Optional - bisa di-hide jika tidak diperlukan) -->
+        <TextView
+            android:id="@+id/tvBreakdownHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Layanan Utama: Rp25.000 + Tambahan: Rp6.000"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTotalAmount" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPickup"

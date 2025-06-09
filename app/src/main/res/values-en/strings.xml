@@ -110,13 +110,13 @@
     <string name="informasi_transaksi">Transaction Information</string>
     <string name="status_pembayaran">Payment Status</string>
     <string name="tanggal">Date</string>
-    <string name="total_bayar">Total Payment</string>
+    <string name="total_bayar">Total Payment:</string>
     <string name="bayar_sekarang">Pay Now</string>
     <string name="Pilih_metode_pembayaran">Choose Payment Method</string>
     <string name="Bayar_nanti">Pay Later</string>
     <string name="Tunai">Cash</string>
     <string name="Konfirmasi_data">Confirm Data</string>
-    <string name="Harga_Jumlah">Price x Quantity:</string>
+    <string name="Harga_Jumlah">Price x Quantity: </string>
     <string name="proccess">Process</string>
 
     <!-- Payment Status -->
@@ -146,22 +146,22 @@
     <string name="label_total_harga">Total: Rp %1$s</string>
     <string name="label_alamat">Address</string>
     <string name="label_phone">Phone Number</string>
-    <string name="label_jumlah">Quantity:</string>
+    <string name="label_jumlah">Quantity: </string>
     <string name="label_price">Price</string>
 
     <!-- Card Labels -->
-    <string name="nama_cabang">Branch Name:</string>
-    <string name="alamat">Address:</string>
-    <string name="no_hp">Phone Number:</string>
-    <string name="Id_Cabang">Branch ID:</string>
-    <string name="Id_Layanan">Service ID:</string>
-    <string name="nama_layanan">Service Name:</string>
-    <string name="price">Price:</string>
-    <string name="id_pegawai">Employee ID:</string>
-    <string name="nama">Name:</string>
-    <string name="terdaftar">Registered:</string>
-    <string name="cabang_card">Branch:</string>
-    <string name="nama_tambahan">Additional Name:</string>
+    <string name="nama_cabang">Branch Name: </string>
+    <string name="alamat">Address: </string>
+    <string name="no_hp">Phone Number: </string>
+    <string name="Id_Cabang">Branch ID: </string>
+    <string name="Id_Layanan">Service ID: </string>
+    <string name="nama_layanan">Service Name: </string>
+    <string name="price">Price: </string>
+    <string name="id_pegawai">Employee ID: </string>
+    <string name="nama">Name: </string>
+    <string name="terdaftar">Registered: </string>
+    <string name="cabang_card">Branch: </string>
+    <string name="nama_tambahan">Additional Name: </string>
 
     <!-- Validation Messages -->
     <string name="validasi_nama_pelanggan">Customer name cannot be empty</string>
@@ -309,4 +309,19 @@
     <string name="Digital_payment">Digital Payments</string>
     <string name="judul_pembayaran">Choose the most convenient payment method</string>
     <string name="jumlah_layanan">Total: %1$d</string>
+
+    <string name="error_opening_gallery">Error opening gallery</string>
+    <string name="permission_required_gallery">Gallery access permission is required to change profile photo</string>
+    <string name="upload_image_failed">Failed to upload image: %1$s</string>
+    <string name="data_updated_success">Data updated successfully</string>
+    <string name="qty_single">Total: 1x</string>
+    <string name="qty_multiple">Total: %1$dx</string>
+    <string name="additional_services_format">+%d Additional Services</string>
+    <string name="no_additional_services">No additional services</string>
+    <string name="edit_photo">Change Profile Photo</string>
+    <string name="change_password">Change Password (Optional)</string>
+    <string name="current_pass">Current Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="services">Services:</string>
+
 </resources>

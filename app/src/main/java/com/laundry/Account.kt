@@ -12,6 +12,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -20,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
+import java.io.File
 
 class Account : AppCompatActivity() {
 
@@ -36,9 +39,11 @@ class Account : AppCompatActivity() {
     private lateinit var privacyPolicyLayout: LinearLayout
     private lateinit var helpSupportLayout: LinearLayout
     private lateinit var logoutButton: MaterialButton
+    private lateinit var editButton: ImageView
 
     companion object {
         private const val TAG = "AccountActivity"
+        private const val EDIT_ACCOUNT_REQUEST = 1001
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,52 +92,97 @@ class Account : AppCompatActivity() {
         privacyPolicyLayout = findViewById(R.id.privacyPolicyLayout)
         helpSupportLayout = findViewById(R.id.helpSupportLayout)
         logoutButton = findViewById(R.id.logoutButton)
+        editButton = findViewById(R.id.editButton)
     }
 
     private fun loadUserData() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
+            Log.d(TAG, "Loading user data for: ${currentUser.uid}")
+
             // Set user name
             val displayName = currentUser.displayName
             if (!displayName.isNullOrEmpty()) {
                 userName.text = displayName
+                Log.d(TAG, "Display name: $displayName")
             } else {
                 userName.text = "User"
+                Log.d(TAG, "No display name available")
             }
 
             // Set user email
             val email = currentUser.email
             if (!email.isNullOrEmpty()) {
                 userEmail.text = email
+                Log.d(TAG, "Email: $email")
 
                 // Extract phone number if email format is phone@laundryapp.com
                 if (email.endsWith("@laundryapp.com")) {
                     val phone = email.substringBefore("@laundryapp.com")
                     if (phone.matches(Regex("^08[0-9]{8,11}$"))) {
                         userPhone.text = phone
+                        Log.d(TAG, "Phone extracted from email: $phone")
                     } else {
                         userPhone.text = "Tidak tersedia"
+                        Log.d(TAG, "Invalid phone format in email")
                     }
                 } else {
                     userPhone.text = "Tidak tersedia"
+                    Log.d(TAG, "Email not in phone@laundryapp.com format")
                 }
             } else {
                 userEmail.text = "Tidak tersedia"
                 userPhone.text = "Tidak tersedia"
+                Log.d(TAG, "No email available")
             }
 
             // Load profile image if available
-            val photoUrl = currentUser.photoUrl
-            if (photoUrl != null) {
-                // Use image loading library like Glide or Picasso to load image
-                // Glide.with(this).load(photoUrl).into(profileImage)
-                Log.d(TAG, "Profile photo URL: $photoUrl")
-            }
+            loadProfileImage(currentUser)
         } else {
+            Log.d(TAG, "No current user, redirecting to login")
             // User not logged in, redirect to login
             navigateToLogin()
         }
     }
+
+    private fun loadProfileImage(currentUser: com.google.firebase.auth.FirebaseUser) {
+        val localImagePath = getProfileImagePath()
+        Log.d(TAG, "localImagePath = $localImagePath")
+
+        if (!localImagePath.isNullOrEmpty()) {
+            val file = File(localImagePath)
+            Log.d(TAG, "File exists: ${file.exists()}, path: $localImagePath")
+
+            if (file.exists()) {
+                // PERBAIKAN: Tambahkan error handling yang lebih baik
+                Glide.with(this)
+                    .load(file)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_person_placeholder)
+                    .error(R.drawable.ic_person_placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE) // Hindari cache untuk file lokal
+                    .skipMemoryCache(true)
+                    .into(profileImage)
+                Log.d(TAG, "Loading local image file successfully")
+            } else {
+                Log.d(TAG, "Local image file not found, clearing saved path")
+                // PERBAIKAN: Hapus path yang tidak valid dari SharedPreferences
+                clearProfileImagePath()
+                loadFirebaseProfileImage(currentUser)
+            }
+        } else {
+            Log.d(TAG, "No local image path found, trying Firebase photo URL")
+            loadFirebaseProfileImage(currentUser)
+        }
+    }
+
+
+    private fun getProfileImagePath(): String? {
+        val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        return prefs.getString("profile_image_path", null)
+    }
+
+
 
     private fun setupClickListeners() {
         backButton.setOnClickListener {
@@ -153,6 +203,11 @@ class Account : AppCompatActivity() {
 
         logoutButton.setOnClickListener {
             showLogoutConfirmation()
+        }
+
+        editButton.setOnClickListener {
+            val intent = Intent(this, edit_account::class.java)
+            startActivityForResult(intent, EDIT_ACCOUNT_REQUEST)
         }
     }
 
@@ -177,6 +232,13 @@ class Account : AppCompatActivity() {
             // Sign out from Google
             googleSignInClient.signOut().addOnCompleteListener(this) {
                 Log.d(TAG, "Google sign out completed")
+
+                // Clear Glide image caches to remove cached profile images
+                Glide.get(this).clearMemory()
+                Thread {
+                    Glide.get(this).clearDiskCache()
+                }.start()
+
                 Toast.makeText(this, getString(R.string.msg_keluar_berhasil), Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }
@@ -200,5 +262,54 @@ class Account : AppCompatActivity() {
         if (currentUser == null) {
             navigateToLogin()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Reload user data when returning to this activity
+        loadUserData()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d(TAG, "onActivityResult called with requestCode=$requestCode, resultCode=$resultCode")
+        if (requestCode == EDIT_ACCOUNT_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Log.d(TAG, "Edit account success, reloading user data")
+                loadUserData()
+            } else {
+                Log.d(TAG, "Edit account canceled or failed")
+            }
+        }
+    }
+
+    private fun loadFirebaseProfileImage(currentUser: com.google.firebase.auth.FirebaseUser) {
+        val photoUrl = currentUser.photoUrl
+        Log.d(TAG, "Photo URL from Firebase: $photoUrl")
+
+        if (photoUrl != null) {
+            Glide.with(this)
+                .load(photoUrl)
+                .centerCrop()
+                .placeholder(R.drawable.ic_person_placeholder)
+                .error(R.drawable.ic_person_placeholder)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(profileImage)
+        } else {
+            Log.d(TAG, "No photo URL found, set default placeholder")
+            profileImage.setImageResource(R.drawable.ic_person_placeholder)
+        }
+    }
+
+    private fun clearProfileImagePath() {
+        val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        prefs.edit().remove("profile_image_path").apply()
+        Log.d(TAG, "Cleared invalid profile image path")
+    }
+
+    private fun saveProfileImagePath(path: String) {
+        val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        prefs.edit().putString("profile_image_path", path).apply()
     }
 }
