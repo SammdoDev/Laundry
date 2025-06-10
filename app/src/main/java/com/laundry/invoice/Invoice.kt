@@ -258,7 +258,9 @@ class Invoice : AppCompatActivity() {
 
         // Main service
         tvMainService.text = if (namaLayanan.isNotEmpty()) namaLayanan else "Layanan"
-        tvMainServiceQuantity.text = getString(R.string.jumlah_layanan, jumlahLayanan)
+
+        // Fixed string resource usage
+        tvMainServiceQuantity.text = "${jumlahLayanan}x"
 
         if (jumlahLayanan > 1) {
             tvMainServicePricePerUnit.text = "@ ${formatCurrency(hargaLayanan)}"
@@ -304,17 +306,11 @@ class Invoice : AppCompatActivity() {
 
         btnPrint.setOnClickListener {
             cetakStruk()
-            if (checkBluetoothPermissions()) {
-                printViaBluetooth()
-            } else {
-                requestBluetoothPermissions() // ini WAJIB
-            }
         }
     }
 
     // ==================== LAPORAN MANAGEMENT - FIXED ====================
 
-    // Modifikasi pada fungsi saveTransactionData() di Invoice.kt
     private fun saveTransactionData() {
         if (isDataSaved) {
             Log.d(TAG, "Data already saved, skipping...")
@@ -326,7 +322,7 @@ class Invoice : AppCompatActivity() {
         // Validasi data sebelum simpan
         if (!validateTransactionData()) {
             Log.e(TAG, "Data validation failed")
-            showToast(getString(R.string.msg_transaksi_tidak_lengkap))
+            showToast("Data transaksi tidak lengkap")
             return
         }
 
@@ -336,9 +332,6 @@ class Invoice : AppCompatActivity() {
 
         // Tentukan status berdasarkan metode pembayaran
         val status = determinePaymentStatus(metodePembayaran)
-
-        // Hitung jumlah layanan tambahan
-        var jumlahLayananTambahan = tambahanList.size
 
         val newLaporan = model_laporan().apply {
             noTransaksi = this@Invoice.noTransaksi
@@ -368,22 +361,26 @@ class Invoice : AppCompatActivity() {
             .addOnSuccessListener {
                 isDataSaved = true
                 Log.d(TAG, "✅ Data berhasil disimpan ke Firebase dengan ID: $noTransaksi")
-                showToast(getString(R.string.msg_transaksi_berhasil_disimpan))
+                showToast("Transaksi berhasil disimpan")
             }
             .addOnFailureListener { exception ->
                 Log.e(TAG, "❌ Gagal menyimpan data: ${exception.message}")
-                showToast(getString(R.string.msg_gagal_simpan_transaksi, exception.message))
+                showToast("Gagal menyimpan transaksi: ${exception.message}")
                 exception.printStackTrace()
             }
     }
 
     private fun determinePaymentStatus(metodePembayaran: String): StatusLaporan {
-        return when (metodePembayaran.lowercase()) {
-             "cash", "dana", "gopay", "ovo", "qris" -> {
+        return when {
+            metodePembayaran.equals("cash", ignoreCase = true) ||
+                    metodePembayaran.equals("dana", ignoreCase = true) ||
+                    metodePembayaran.equals("gopay", ignoreCase = true) ||
+                    metodePembayaran.equals("ovo", ignoreCase = true) ||
+                    metodePembayaran.equals("qris", ignoreCase = true) -> {
                 Log.d(TAG, "Status: SUDAH_DIBAYAR untuk metode: $metodePembayaran")
                 StatusLaporan.SUDAH_DIBAYAR
             }
-            "pay later" -> {
+            metodePembayaran.equals("pay later", ignoreCase = true) -> {
                 Log.d(TAG, "Status: BELUM_DIBAYAR untuk metode: $metodePembayaran")
                 StatusLaporan.BELUM_DIBAYAR
             }
@@ -394,9 +391,8 @@ class Invoice : AppCompatActivity() {
         }
     }
 
-
     private fun formatCurrency(amount: Int): String {
-        return "Rp${String.format("%,d", amount).replace(',', '.')}"
+        return "Rp${String.format(Locale("id", "ID"), "%,d", amount).replace(',', '.')}"
     }
 
     private fun shareToWhatsApp() {
@@ -416,10 +412,9 @@ class Invoice : AppCompatActivity() {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(browserIntent)
             }
-            showToast(getString(R.string.msg_wa_berhasil_dikirim))
-            // Jangan langsung pindah ke activity lain
+            showToast("Pesan WhatsApp berhasil dikirim")
         } catch (e: Exception) {
-            showToast(getString(R.string.msg_gagal_buka_wa, e.message))
+            showToast("Gagal membuka WhatsApp: ${e.message}")
             e.printStackTrace()
         }
     }
@@ -504,16 +499,23 @@ terbaik untuk Anda!
             finish()
         } catch (e: Exception) {
             Log.e(TAG, "Error navigating to data_laporan: ${e.message}")
-            showToast(getString(R.string.msg_gagal_buka_laporan, e.message))
+            showToast("Gagal membuka laporan: ${e.message}")
         }
     }
 
     // ==================== PRINTING FUNCTIONS ====================
 
     private fun cetakStruk() {
-        val view = findViewById<LinearLayout>(R.id.invoice_activity)
-        saveToPdf(view)
+        // Simpan PDF terlebih dahulu
+        try {
+            val view = findViewById<LinearLayout>(R.id.invoice_activity)
+            saveToPdf(view)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error saving PDF: ${e.message}")
+            // Continue with printing even if PDF save fails
+        }
 
+        // Kemudian cek permission dan print
         if (checkBluetoothPermissions()) {
             printViaBluetooth()
         } else {
@@ -536,15 +538,16 @@ terbaik untuk Anda!
 
         try {
             document.writeTo(FileOutputStream(file))
-            showToast(getString(R.string.msg_struk_disimpan, file.absolutePath))
+            showToast("Struk disimpan di: ${file.absolutePath}")
         } catch (e: IOException) {
             e.printStackTrace()
-            showToast(getString(R.string.msg_gagal_simpan_struk))
+            showToast("Gagal menyimpan struk PDF")
         }
 
         document.close()
     }
 
+    @SuppressLint("MissingPermission")
     private fun printViaBluetooth() {
         if (!checkBluetoothPermissions()) {
             requestBluetoothPermissions()
@@ -557,15 +560,14 @@ terbaik untuk Anda!
                 printTextReceipt()
 
                 Handler(Looper.getMainLooper()).post {
-                    Toast.makeText(this, getString(R.string.msg_struk_berhasil_dicetak), Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(this, "Struk berhasil dicetak", Toast.LENGTH_SHORT).show()
                     goToDataLaporan()
                 }
 
             } catch (e: Exception) {
                 e.printStackTrace()
                 Handler(Looper.getMainLooper()).post {
-                    Toast.makeText(this, getString(R.string.msg_gagal_mencetak, e.message), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Gagal mencetak: ${e.message}", Toast.LENGTH_SHORT).show()
                     goToDataLaporan()
                 }
             } finally {
@@ -574,6 +576,7 @@ terbaik untuk Anda!
         }
     }
 
+    @SuppressLint("MissingPermission")
     private fun connectToPrinter(macAddress: String) {
         val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled) {
@@ -581,11 +584,6 @@ terbaik untuk Anda!
         }
 
         val device: BluetoothDevice = bluetoothAdapter.getRemoteDevice(macAddress)
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            throw Exception("Izin Bluetooth diperlukan")
-        }
-
         bluetoothSocket = device.createRfcommSocketToServiceRecord(PRINTER_UUID)
         bluetoothSocket?.connect()
         outputStream = bluetoothSocket?.outputStream
@@ -720,11 +718,13 @@ ${if (tambahanList.isNotEmpty()) "[L]Tambahan:\n$tambahanText" else ""}
             REQUEST_BLUETOOTH_PERMISSION -> {
                 if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                     Log.d(TAG, "Bluetooth permissions granted")
-                    Toast.makeText(this, getString(R.string.msg_izin_bluetooth_diberikan), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Izin Bluetooth diberikan", Toast.LENGTH_SHORT).show()
                     printViaBluetooth()
                 } else {
                     Log.w(TAG, "Bluetooth permissions denied")
-                    Toast.makeText(this, getString(R.string.msg_izin_bluetooth_diperlukan), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Izin Bluetooth diperlukan untuk mencetak", Toast.LENGTH_SHORT).show()
+                    // Still navigate to data laporan even if permission denied
+                    goToDataLaporan()
                 }
             }
         }
