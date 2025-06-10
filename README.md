@@ -6,8 +6,6 @@ Selamat datang! Ini adalah dokumentasi antarmuka dan fitur dari aplikasi Android
 
 ## 🏠 Halaman Utama & Autentikasi
 
-## 🏠 Halaman Utama & Autentikasi
-
 | Home                         | Login                         | Register Akun                         | Edit Akun                              | Menu Akun                         |
 | ---------------------------- | ----------------------------- | ------------------------------------- | -------------------------------------- | --------------------------------- |
 | ![](Image%20Github/home.jpg) | ![](Image%20Github/login.jpg) | ![](Image%20Github/akun/register.jpg) | ![](Image%20Github/akun/edit_akun.jpg) | ![](Image%20Github/akun/akun.jpg) |
@@ -80,24 +78,27 @@ Selamat datang! Ini adalah dokumentasi antarmuka dan fitur dari aplikasi Android
 
 ## 🌟 Fitur Unggulan
 
-| Fitur                    | Deskripsi                                                              |
-| ------------------------ | ---------------------------------------------------------------------- |
-| 🌐 **Multi Bahasa**      | Mendukung berbagai bahasa untuk pengguna dari berbagai latar belakang. |
-| 🌙 **Dark Mode**         | Tampilan gelap yang nyaman untuk penggunaan di malam hari.             |
-| 📱 **Mode Landscape**    | Dukungan penuh untuk orientasi landscape di tablet atau layar lebar.   |
-| 🧾 **Manajemen Laundry** | Pengelolaan cabang, layanan, pegawai, pelanggan, dan transaksi.        |
-| 🖨️ **Cetak Nota**        | Nota dapat dicetak melalui printer thermal/Bluetooth.                  |
-| 📤 **Kirim WhatsApp**    | Kirim notifikasi/invoice langsung ke pelanggan via WhatsApp.           |
+| Fitur                        | Deskripsi                                                                 |
+|-----------------------------|---------------------------------------------------------------------------|
+| 🔐 **Login Google**         | Pengguna dapat login atau register dengan mudah menggunakan akun Google. |
+| 🌐 **Multi Bahasa**         | Mendukung berbagai bahasa untuk pengguna dari berbagai latar belakang.   |
+| 🌙 **Dark Mode**            | Tampilan gelap yang nyaman untuk penggunaan di malam hari.                |
+| 📱 **Mode Landscape**       | Dukungan penuh untuk orientasi landscape di tablet atau layar lebar.     |
+| 🧾 **Manajemen Laundry**    | Pengelolaan cabang, layanan, pegawai, pelanggan, dan transaksi.           |
+| 🖨️ **Cetak Nota**          | Nota dapat dicetak melalui printer thermal/Bluetooth.                     |
+| 📤 **Kirim WhatsApp**       | Kirim notifikasi/invoice langsung ke pelanggan via WhatsApp.              |
 
 ---
 
 ## ⚙️ Teknologi
 
-- **Android Studio** + **Java/Kotlin**
+- **Android Studio** + **Kotlin**
 - **Firebase Realtime Database / Firestore**
 - **RecyclerView** untuk list dinamis
 - **Intent API** untuk integrasi WhatsApp dan pencetakan
 - UI fleksibel dengan dukungan light & dark mode serta multi-orientasi
+- Aplikasi ini mendukung login/register manual dan melalui integrasi Google Sign-In.
+
 
 ---
 
