@@ -19,9 +19,8 @@
         android:textSize="22sp"
         android:textStyle="bold"/>
 
-    <!-- Create a horizontal layout for landscape mode -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/form"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tvpegawaijudul"
@@ -29,145 +28,154 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true">
 
-        <!-- Left column -->
-        <LinearLayout
-            android:id="@+id/left_column"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/right_column"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_weight="1">
+            android:padding="20dp">
 
-            <!-- Name Field -->
-            <TextView
-                android:id="@+id/tvnamaaddpegawai"
-                android:layout_width="wrap_content"
+            <!-- Left Column -->
+            <LinearLayout
+                android:id="@+id/left_column"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/nama_pegawai_form" />
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/right_column"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_marginEnd="10dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp">
-
-                <EditText
-                    android:id="@+id/etpegawainama"
+                <!-- Name Field -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
                     android:hint="@string/nama_pegawai_form"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-            <!-- Address Field -->
-            <TextView
-                android:id="@+id/tvalamataddpegawai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_alamat" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etpegawainama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="68dp"
+                        android:paddingVertical="12dp"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="8dp">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etpegawaialamat"
+                <!-- Address Field -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
                     android:hint="@string/label_alamat"
-                    android:maxLength="20"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-        <!-- Right column -->
-        <LinearLayout
-            android:id="@+id/right_column"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="16dp"
-            app:layout_constraintStart_toEndOf="@id/left_column"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_weight="1">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etpegawaialamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="68dp"
+                        android:paddingVertical="12dp"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="2"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
 
-            <!-- Phone Field -->
-            <TextView
-                android:id="@+id/tvNoHpaddpegawai"
-                android:layout_width="wrap_content"
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Right Column -->
+            <LinearLayout
+                android:id="@+id/right_column"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/nohp_form" />
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/left_column"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_marginStart="10dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp">
-
-                <EditText
-                    android:id="@+id/etpegawainohp"
+                <!-- Phone Field -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
                     android:hint="@string/nohp_form"
-                    android:inputType="number"
-                    android:maxLength="20"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-            <!-- Branch Field -->
-            <TextView
-                android:id="@+id/tvCabangaddpegawai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Cabang" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etpegawainohp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="68dp"
+                        android:paddingVertical="12dp"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="8dp">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etpegawaicabang"
+                <!-- Branch Field -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
                     android:hint="@string/Cabang"
-                    android:maxLength="20"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-    <Button
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etpegawaicabang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="68dp"
+                        android:paddingVertical="12dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btpegawaisimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/Simpan"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
         android:contentDescription="Tekan untuk menyimpan data"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

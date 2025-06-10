@@ -34,26 +34,26 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nama_cabang_form" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="24dp"
+                android:hint="@string/nama_cabang_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etnamacabang"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/nama_cabang_form"
-                    android:maxLength="30"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
 
@@ -65,27 +65,25 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_alamat" />
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="24dp"
+                android:hint="@string/label_alamat"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etalamat"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/label_alamat"
+                    android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:maxLength="20"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
 
 
@@ -97,47 +95,46 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nohp_form" />
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="24dp"
+                android:hint="@string/nohp_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNoTelepon"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/nohp_form"
-                    android:inputType="number"
-                    android:maxLength="20"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
 
     </RelativeLayout>
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btcabangsimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/Simpan"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
         android:contentDescription="Tekan untuk menyimpan data"
         android:focusable="true"
         android:focusableInTouchMode="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/form"
-        android:layout_margin="20dp" />
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_color" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

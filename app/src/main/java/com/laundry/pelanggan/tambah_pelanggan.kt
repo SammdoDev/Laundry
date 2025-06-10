@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_pelanggan
@@ -22,13 +23,10 @@ class tambah_pelanggan : AppCompatActivity() {
     val myRef = database.getReference("pelanggan")
 
     lateinit var tvjuduladdpelanggan: TextView
-    lateinit var tvnamaaddpelanggan: TextView
     lateinit var etNameaddpelanggan: EditText
-    lateinit var tvalamataddpelanggan: TextView
     lateinit var etAlamataddpelanggan: EditText
-    lateinit var tvNoHpaddpelanggan: TextView
     lateinit var etNoHpaddpelanggan: EditText
-    lateinit var buttonaddpelanggan: Button
+    lateinit var buttonaddpelanggan: MaterialButton
 
     var idPelanggan: String = ""
 
@@ -52,11 +50,8 @@ class tambah_pelanggan : AppCompatActivity() {
 
     fun init() {
         tvjuduladdpelanggan = findViewById(R.id.tvpelangganjudul)
-        tvnamaaddpelanggan = findViewById(R.id.tvnamaaddpelanggan)
         etNameaddpelanggan = findViewById(R.id.etpelanggannama)
-        tvNoHpaddpelanggan = findViewById(R.id.tvNoHpaddpelanggan)
         etNoHpaddpelanggan = findViewById(R.id.etpelanggannohp)
-        tvalamataddpelanggan = findViewById(R.id.tvalamataddpelanggan)
         etAlamataddpelanggan = findViewById(R.id.etpelangganalamat)
         buttonaddpelanggan = findViewById(R.id.btpelanggansimpan)
     }
@@ -79,16 +74,16 @@ class tambah_pelanggan : AppCompatActivity() {
                 if (fromDialog) {
                     hidup()
                     etNameaddpelanggan.requestFocus()
-                    buttonaddpelanggan.text = "Simpan"
+                    buttonaddpelanggan.text = getString(R.string.tombol_simpan)
                 } else {
                     mati()
-                    buttonaddpelanggan.text = "Sunting"
+                    buttonaddpelanggan.text = getString(R.string.tombol_sunting)
                 }
             }
         } else {
             hidup()
             etNameaddpelanggan.requestFocus()
-            buttonaddpelanggan.text = "Simpan"
+            buttonaddpelanggan.text = getString(R.string.tombol_simpan)
         }
     }
 
@@ -96,13 +91,22 @@ class tambah_pelanggan : AppCompatActivity() {
         etNameaddpelanggan.isEnabled = false
         etAlamataddpelanggan.isEnabled = false
         etNoHpaddpelanggan.isEnabled = false
+
+        etNameaddpelanggan.alpha = 0.6f
+        etAlamataddpelanggan.alpha = 0.6f
+        etNoHpaddpelanggan.alpha = 0.6f
     }
 
     fun hidup() {
         etNameaddpelanggan.isEnabled = true
         etAlamataddpelanggan.isEnabled = true
         etNoHpaddpelanggan.isEnabled = true
+
+        etNameaddpelanggan.alpha = 1f
+        etAlamataddpelanggan.alpha = 1f
+        etNoHpaddpelanggan.alpha = 1f
     }
+
 
     fun update() {
         val pelangganRef = database.getReference("pelanggan").child(idPelanggan)
@@ -174,17 +178,17 @@ class tambah_pelanggan : AppCompatActivity() {
             return
         }
 
-        if (buttonaddpelanggan.text == "Simpan") {
+        if (buttonaddpelanggan.text == getString(R.string.tombol_simpan)) {
             if (idPelanggan.isEmpty()) {
                 simpan()
             } else {
                 update()
             }
-        } else if (buttonaddpelanggan.text == "Sunting") {
+        } else if (buttonaddpelanggan.text == getString(R.string.tombol_sunting)) {
             hidup()
             etNameaddpelanggan.requestFocus()
-            buttonaddpelanggan.text = "Perbarui"
-        } else if (buttonaddpelanggan.text == "Perbarui") {
+            buttonaddpelanggan.text = getString(R.string.tombol_perbarui)
+        } else if (buttonaddpelanggan.text == getString(R.string.tombol_perbarui)) {
             update()
         }
     }

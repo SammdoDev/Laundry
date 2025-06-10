@@ -103,7 +103,7 @@ class Invoice : AppCompatActivity() {
     companion object {
         private const val REQUEST_BLUETOOTH_PERMISSION = 1001
         private const val REQUEST_ENABLE_BT = 1002
-        private const val PRINTER_MAC_ADDRESS = "DC:0D:51:A7:FF:7A" // Ganti dengan MAC address printer Anda
+        private const val PRINTER_MAC_ADDRESS = "DC:0D:51:A7:FF:7A"
         private val PRINTER_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
         private const val TAG = "Invoice"
     }
@@ -199,7 +199,7 @@ class Invoice : AppCompatActivity() {
             ?: intent.getStringExtra("metode_pembayaran") ?: ""
 
         namaKaryawan = intent.getStringExtra("karyawan")
-            ?: intent.getStringExtra("nama_karyawan") ?: "Admin"
+            ?: intent.getStringExtra("nama_karyawan") ?: "Budi - Solo"
 
         // Handle layanan tambahan
         val serializableExtra = intent.getSerializableExtra("layananTambahan")
@@ -304,6 +304,11 @@ class Invoice : AppCompatActivity() {
 
         btnPrint.setOnClickListener {
             cetakStruk()
+            if (checkBluetoothPermissions()) {
+                printViaBluetooth()
+            } else {
+                requestBluetoothPermissions() // ini WAJIB
+            }
         }
     }
 

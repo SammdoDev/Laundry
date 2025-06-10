@@ -15,97 +15,110 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:textSize="22dp"
         android:textStyle="bold"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/form"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/tvtambahanjudul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <!-- Field Nama Tambahan -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp">
 
-            <TextView
-                android:id="@+id/tvnamaaddtambahan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nama_tambahan_form" />
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="16dp"
+                android:hint="@string/nama_tambahan_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ettambahannama"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/nama_tambahan_form"
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:paddingVertical="12dp"
                     android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:maxLength="30"
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
 
-        </RelativeLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <!-- Field Harga -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
 
-            <TextView
-                android:id="@+id/tvalamataddtambahan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/harga_form" />
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="50dp"
-                app:cardCornerRadius="12px"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="16dp"
+                android:hint="@string/harga_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ettambahanharga"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/harga_form"
-                    android:maxLength="20" 
-                    android:layout_margin="5dp"/>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:paddingVertical="12dp"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:maxLength="20"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
 
-    </RelativeLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
+        </LinearLayout>
 
-    <Button
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bttambahansimpan"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:text="@string/Simpan"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
         android:contentDescription="Tekan untuk menyimpan data"
         android:focusable="true"
         android:focusableInTouchMode="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/form"
-        android:layout_margin="20dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_color" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

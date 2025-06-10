@@ -45,29 +45,26 @@
                 android:orientation="vertical"
                 android:layout_marginEnd="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nama_cabang_form"
-                    android:textSize="14sp" />
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:elevation="4dp"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginBottom="24dp"
+                    android:hint="@string/nama_cabang_form"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etnamacabang"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:hint="@string/nama_cabang_form"
-                        android:maxLength="30"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:textSize="14sp" />
-                </androidx.cardview.widget.CardView>
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -79,30 +76,25 @@
                 android:orientation="vertical"
                 android:layout_marginStart="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_alamat"
-                    android:textSize="14sp" />
-
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:elevation="4dp"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginBottom="24dp"
+                    android:hint="@string/label_alamat"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etalamat"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:hint="@string/label_alamat"
+                        android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:maxLength="20"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:textSize="14sp" />
-                </androidx.cardview.widget.CardView>
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -128,30 +120,27 @@
                 android:orientation="vertical"
                 android:layout_marginEnd="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nohp_form"
-                    android:textSize="14sp" />
-
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:elevation="4dp"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginBottom="24dp"
+                    android:hint="@string/nohp_form"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:hintTextColor="@color/primary_color"
+                    app:startIconTint="@color/primary_color">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etNoTelepon"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:hint="@string/nohp_form"
-                        android:inputType="number"
-                        android:maxLength="20"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:textSize="14sp" />
-                </androidx.cardview.widget.CardView>
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
             </LinearLayout>
 
             <!-- Spacer untuk menyeimbangkan layout -->
@@ -164,20 +153,19 @@
         </LinearLayout>
 
         <!-- Button Simpan -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btcabangsimpan"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="#4CAF50"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/Simpan"
             android:contentDescription="Tekan untuk menyimpan data"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:text="@string/Simpan"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/primary_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/row2" />

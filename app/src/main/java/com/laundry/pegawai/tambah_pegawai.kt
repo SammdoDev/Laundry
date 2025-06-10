@@ -3,12 +3,12 @@ package com.laundry.pegawai
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_pegawai
@@ -22,15 +22,11 @@ class tambah_pegawai : AppCompatActivity() {
     val myRef = database.getReference("pegawai")
 
     lateinit var tvjuduladdpegawai: TextView
-    lateinit var tvnamaaddpegawai: TextView
     lateinit var etNameaddpegawai: EditText
-    lateinit var tvalamataddpegawai: TextView
     lateinit var etAlamataddpegawai: EditText
-    lateinit var tvNoHpaddpegawai: TextView
     lateinit var etNoHpaddpegawai: EditText
-    lateinit var tvCabangaddpegawai: TextView
     lateinit var etCabangaddpegawai: EditText
-    lateinit var buttonaddpegawai: Button
+    lateinit var buttonaddpegawai: MaterialButton
 
     var idPegawai: String = ""
 
@@ -54,13 +50,9 @@ class tambah_pegawai : AppCompatActivity() {
 
     fun init() {
         tvjuduladdpegawai = findViewById(R.id.tvpegawaijudul)
-        tvnamaaddpegawai = findViewById(R.id.tvnamaaddpegawai)
         etNameaddpegawai = findViewById(R.id.etpegawainama)
-        tvNoHpaddpegawai = findViewById(R.id.tvNoHpaddpegawai)
         etNoHpaddpegawai = findViewById(R.id.etpegawainohp)
-        tvalamataddpegawai = findViewById(R.id.tvalamataddpegawai)
         etAlamataddpegawai = findViewById(R.id.etpegawaialamat)
-        tvCabangaddpegawai = findViewById(R.id.tvCabangaddpegawai)
         etCabangaddpegawai = findViewById(R.id.etpegawaicabang)
         buttonaddpegawai = findViewById(R.id.btpegawaisimpan)
     }
@@ -86,17 +78,17 @@ class tambah_pegawai : AppCompatActivity() {
                     // If coming from dialog mode, directly enable editing
                     hidup()
                     etNameaddpegawai.requestFocus()
-                    buttonaddpegawai.text = "Simpan"
+                    buttonaddpegawai.text = getString(R.string.tombol_simpan)
                 } else {
                     // Normal edit mode from card press
                     mati()
-                    buttonaddpegawai.text = "Sunting"
+                    buttonaddpegawai.text = getString(R.string.tombol_sunting)
                 }
             }
         } else {
             hidup()
             etNameaddpegawai.requestFocus()
-            buttonaddpegawai.text = "Simpan"
+            buttonaddpegawai.text = getString(R.string.tombol_simpan)
         }
     }
 
@@ -105,14 +97,26 @@ class tambah_pegawai : AppCompatActivity() {
         etAlamataddpegawai.isEnabled = false
         etNoHpaddpegawai.isEnabled = false
         etCabangaddpegawai.isEnabled = false
+
+        etNameaddpegawai.alpha = 0.6f
+        etAlamataddpegawai.alpha = 0.6f
+        etNoHpaddpegawai.alpha = 0.6f
+        etCabangaddpegawai.alpha = 0.6f
     }
+
 
     fun hidup() {
         etNameaddpegawai.isEnabled = true
         etAlamataddpegawai.isEnabled = true
         etNoHpaddpegawai.isEnabled = true
         etCabangaddpegawai.isEnabled = true
+
+        etNameaddpegawai.alpha = 1f
+        etAlamataddpegawai.alpha = 1f
+        etNoHpaddpegawai.alpha = 1f
+        etCabangaddpegawai.alpha = 1f
     }
+
 
     fun update() {
         val pegawaiRef = database.getReference("pegawai").child(idPegawai)
@@ -194,18 +198,18 @@ class tambah_pegawai : AppCompatActivity() {
             return
         }
 
-        if (buttonaddpegawai.text.equals("Simpan")) {
+        if (buttonaddpegawai.text.equals(getString(R.string.tombol_simpan))) {
             // For both new records and dialog-initiated edits
             if (idPegawai.isEmpty()) {
                 simpan() // Create new record
             } else {
                 update() // Update existing record
             }
-        } else if (buttonaddpegawai.text.equals("Sunting")) {
+        } else if (buttonaddpegawai.text.equals(getString(R.string.tombol_sunting))) {
             hidup()
             etNameaddpegawai.requestFocus()
-            buttonaddpegawai.text = "Perbarui"
-        } else if (buttonaddpegawai.text.equals("Perbarui")) {
+            buttonaddpegawai.text = getString(R.string.tombol_perbarui)
+        } else if (buttonaddpegawai.text.equals(getString(R.string.tombol_perbarui))) {
             update()
         }
     }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -14,101 +13,109 @@
         android:layout_height="wrap_content"
         android:text="@string/Tambah_layanan"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
         android:textStyle="bold"/>
 
-    <GridLayout
-        android:id="@+id/formGrid"
+    <LinearLayout
+        android:id="@+id/form"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="2"
-        android:padding="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintTop_toBottomOf="@id/tvlayananjudul"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
 
+        <!-- Nama Layanan Field -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:layout_column="0"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_margin="8dp">
+            android:layout_marginEnd="10dp">
 
-            <TextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nama_layanan_form" />
+                android:layout_marginBottom="16dp"
+                android:hint="@string/nama_layanan_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                app:cardCornerRadius="12dp"
-                android:layout_marginTop="8dp">
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etnamalayanan"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/nama_layanan_form"
-                    android:layout_margin="5dp"
-                    android:maxLength="30"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:minHeight="68dp"
+                    android:paddingVertical="12dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
+        <!-- Harga Field -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:layout_column="1"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_margin="8dp">
+            android:layout_marginStart="10dp">
 
-            <TextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/harga_form" />
+                android:layout_marginBottom="16dp"
+                android:hint="@string/harga_form"
+                app:boxStrokeColor="@color/primary_color"
+                app:hintTextColor="@color/primary_color"
+                app:startIconTint="@color/primary_color">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                app:cardCornerRadius="12dp"
-                android:layout_marginTop="8dp">
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etharga"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="@string/harga_form"
-                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="68dp"
+                    android:paddingVertical="12dp"
                     android:inputType="number"
-                    android:maxLength="20"/>
-            </androidx.cardview.widget.CardView>
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
-    </GridLayout>
+    </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btlayanansimpan"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="@string/Simpan"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
         android:contentDescription="Tekan untuk menyimpan data"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:layout_constraintTop_toBottomOf="@id/formGrid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp" />
+        app:layout_constraintTop_toBottomOf="@id/form"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

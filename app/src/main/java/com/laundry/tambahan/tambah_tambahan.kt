@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_tambahan
@@ -20,7 +21,7 @@ class tambah_tambahan : AppCompatActivity() {
     private lateinit var tvJudul: TextView
     private lateinit var etNama: EditText
     private lateinit var etHarga: EditText
-    private lateinit var btSimpan: Button
+    private lateinit var btSimpan: MaterialButton
 
     private var isProcessing = false
     private var isEditMode = false
@@ -73,8 +74,8 @@ class tambah_tambahan : AppCompatActivity() {
             // Mode Edit
             isEditMode = true
             isEditConfirmed = false
-            tvJudul.text = "Sunting Tambahan"
-            btSimpan.text = "Sunting"
+            tvJudul.text = getString(R.string.judul_edit_tambahan)
+            btSimpan.text = getString(R.string.tombol_sunting)
 
             // Isi form dengan data yang akan diedit
             etNama.setText(namaTambahan)
@@ -85,8 +86,8 @@ class tambah_tambahan : AppCompatActivity() {
         } else {
             // Mode Tambah
             isEditMode = false
-            tvJudul.text = "Tambah Tambahan"
-            btSimpan.text = "Simpan"
+            tvJudul.text = getString(R.string.judul_tambah_tambahan)
+            btSimpan.text = getString(R.string.tombol_simpan)
             setFormEnabled(true)
         }
     }
@@ -94,7 +95,7 @@ class tambah_tambahan : AppCompatActivity() {
     private fun confirmEdit() {
         // Aktifkan mode edit dan ubah tampilan
         isEditConfirmed = true
-        btSimpan.text = "Simpan"
+        btSimpan.text = getString(R.string.tombol_simpan)
         setFormEnabled(true)
 
         Toast.makeText(this, getString(R.string.msg_mode_sunting), Toast.LENGTH_LONG).show()

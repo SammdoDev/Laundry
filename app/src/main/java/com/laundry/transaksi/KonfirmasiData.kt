@@ -178,7 +178,7 @@ class KonfirmasiData : AppCompatActivity() {
     private fun getCurrentUser(): String {
         // TODO: Implementasi untuk mendapatkan nama karyawan yang sedang login
         // Bisa dari SharedPreferences, database, atau session management
-        return "Admin" // Default sementara
+        return "Budi - Solo" // Default sementara
     }
 
     private fun formatRupiah(amount: Int): String {

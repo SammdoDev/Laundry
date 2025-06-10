@@ -323,4 +323,26 @@
     <string name="current_pass">Password saat ini</string>
     <string name="new_pass">Password Baru</string>
     <string name="services">Layanan:</string>
+
+    <string name="judul_tambah_tambahan">Tambah Tambahan</string>
+    <string name="judul_edit_tambahan">Sunting Tambahan</string>
+
+    <string name="judul_tambah_cabang">Tambah Cabang</string>
+    <string name="judul_edit_cabang">Sunting Cabang</string>
+
+    <string name="judul_tambah_layanan">Tambah Layanan</string>
+    <string name="judul_edit_layanan">Sunting Layanan</string>
+
+    <string name="judul_tambah_pegawai">Tambah Pegawai</string>
+    <string name="judul_edit_pegawai">Sunting Pegawai</string>
+
+    <string name="judul_tambah_pelanggan">Tambah Pelanggan</string>
+    <string name="judul_edit_pelanggan">Sunting Pelanggan</string>
+
+    <string name="tombol_simpan">Simpan</string>
+    <string name="tombol_sunting">Sunting</string>
+    <string name="tombol_perbarui">Perbarui</string>
+    <string name="Lihat_Semua">Lihat Semua</string>
+    <string name="subtitle">Kelola laundry Anda dengan mudah</string>
+
 </resources>

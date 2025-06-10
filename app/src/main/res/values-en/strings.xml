@@ -324,4 +324,24 @@
     <string name="new_pass">New Password</string>
     <string name="services">Services:</string>
 
+    <string name="judul_tambah_tambahan">Add Extra</string>
+    <string name="judul_edit_tambahan">Edit Extra</string>
+
+    <string name="judul_tambah_cabang">Add Branch</string>
+    <string name="judul_edit_cabang">Edit Branch</string>
+
+    <string name="judul_tambah_layanan">Add Service</string>
+    <string name="judul_edit_layanan">Edit Service</string>
+
+    <string name="judul_tambah_pegawai">Add Employee</string>
+    <string name="judul_edit_pegawai">Edit Employee</string>
+
+    <string name="judul_tambah_pelanggan">Add Customer</string>
+    <string name="judul_edit_pelanggan">Edit Customer</string>
+
+    <string name="tombol_simpan">Save</string>
+    <string name="tombol_sunting">Edit</string>
+    <string name="tombol_perbarui">update</string>
+    <string name="Lihat_Semua">See</string>
+    <string name="subtitle">Manage your laundry easily</string>
 </resources>

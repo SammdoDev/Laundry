@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.FirebaseDatabase
 import com.laundry.R
 import com.laundry.model_data.model_cabang
@@ -21,7 +22,7 @@ class tambah_cabang : AppCompatActivity() {
     private lateinit var etCabang: EditText
     private lateinit var etAlamat: EditText
     private lateinit var etNoTelepon: EditText
-    private lateinit var btSimpan: Button
+    private lateinit var btSimpan: MaterialButton
 
     private var isProcessing = false
     private var isEditMode = false
@@ -76,8 +77,8 @@ class tambah_cabang : AppCompatActivity() {
             // Mode Edit
             isEditMode = true
             isEditConfirmed = false
-            tvJudul.text = "Sunting Cabang"
-            btSimpan.text = "Sunting"
+            tvJudul.text = getString(R.string.judul_edit_cabang)
+            btSimpan.text = getString(R.string.tombol_sunting)
 
             // Isi form dengan data yang akan diedit
             etCabang.setText(namaCabang)
@@ -89,8 +90,8 @@ class tambah_cabang : AppCompatActivity() {
         } else {
             // Mode Tambah
             isEditMode = false
-            tvJudul.text = "Tambah Cabang"
-            btSimpan.text = "Simpan"
+            tvJudul.text = getString(R.string.judul_tambah_cabang)
+            btSimpan.text = getString(R.string.tombol_simpan)
             setFormEnabled(true)
         }
     }
@@ -98,7 +99,7 @@ class tambah_cabang : AppCompatActivity() {
     private fun confirmEdit() {
         // Aktifkan mode edit dan ubah tampilan
         isEditConfirmed = true
-        btSimpan.text = "Simpan"
+        btSimpan.text = getString(R.string.tombol_simpan)
         setFormEnabled(true)
 
         Toast.makeText(this, getString(R.string.msg_mode_sunting), Toast.LENGTH_LONG).show()
@@ -201,9 +202,9 @@ class tambah_cabang : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (isEditMode && isEditConfirmed) {
-            // Jika user menekan back saat sudah dalam mode edit, tanyakan konfirmasi
             Toast.makeText(this, getString(R.string.msg_batal_perubahan), Toast.LENGTH_SHORT).show()
-            super.onBackPressed()
         }
+        super.onBackPressed()
     }
+
 }

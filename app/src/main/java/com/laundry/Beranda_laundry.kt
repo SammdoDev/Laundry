@@ -240,4 +240,5 @@ class Beranda_laundry : AppCompatActivity() {
         // Refresh greeting when activity resumes (in case user profile was updated)
         setupGreeting()
     }
+
 }
