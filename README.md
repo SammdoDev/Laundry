@@ -62,9 +62,9 @@ Selamat datang! Ini adalah dokumentasi antarmuka dan fitur dari aplikasi Android
 | ------------------------------------------------ | -------------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | ![](Image%20Github/transaksi/data_transaksi.jpg) | ![](Image%20Github/transaksi/konfirmasi.jpg) | ![](Image%20Github/transaksi/payment.jpg) | ![](Image%20Github/transaksi/invoice.jpg) |
 
-| Kirim WhatsApp                            | Akun Transaksi                         |
-| ----------------------------------------- | -------------------------------------- |
-| ![](Image%20Github/transaksi/send_wa.jpg) | ![](Image%20Github/transaksi/akun.jpg) |
+| Kirim WhatsApp                            |
+| ----------------------------------------- |
+| ![](Image%20Github/transaksi/send_wa.jpg) |
 
 ---
 
